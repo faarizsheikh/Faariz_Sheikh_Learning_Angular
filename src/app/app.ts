@@ -3,10 +3,16 @@ import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App {
   protected readonly title = signal('FaarizSheikhLearnAngular');
+  // Let's make a variable
+  name : string = "Matt";
+
+  // Once you assign a var type, it's forever that type
+
+  // name = 7; <- not allowed
 }
