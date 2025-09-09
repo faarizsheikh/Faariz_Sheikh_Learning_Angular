@@ -1,33 +1,45 @@
-:root {
+/* HTML */
+:root { /* Also called html */
   font-size: 62.5%; /* 62.5% x default font size (16px) =  10px [Learned long ago from YT Channel, Danni Krossing] */
 }
 
-h1, h2, p, ul {
+/* HEADINGS: H1, H2 */
+h1, h2 {
   text-align: center;
 }
-
-p, ul {
-  font-size: 2.0em; /* 10px (from :root) x 2em = 12px */
-}
-
 h1 {
-  font-size: 3.2em; /* See comment in line 10. */
+  font-size: 3.2em; /* 3.2em x root's font (See line 3 to see how the root html/:font changed from 16 to 10px) = 32px */
 }
-
 h2 {
   font-size: 3.0em;
 }
 
+/* DIV, SPANS, PARAGRAPH & LISTING */
+div, p, ul{
+  &:not(ul) {
+    display: flex;
+  }
+  &:not(li) {
+    justify-content: center;
+  }
+}
+span {
+  text-decoration: underline;
+}
 p {
   font-size: 2.4em;
+  height: 50px;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+li {
+  font-size: 2em;
+  align-items: center;
 }
 
-div {
-  flex-basis: 100%;
-  display: flex;
-  justify-content: center;
-}
-
-ul{
-   text-align: center;
+ul > li::first-letter{
+  font-weight: bold;
 }
