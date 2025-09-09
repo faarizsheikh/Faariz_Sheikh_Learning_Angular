@@ -1,0 +1,33 @@
+:root {
+  font-size: 62.5%; /* 62.5% x default font size (16px) =  10px [Learned long ago from YT Channel, Danni Krossing] */
+}
+
+h1, h2, p, ul {
+  text-align: center;
+}
+
+p, ul {
+  font-size: 2.0em; /* 10px (from :root) x 2em = 12px */
+}
+
+h1 {
+  font-size: 3.2em; /* See comment in line 10. */
+}
+
+h2 {
+  font-size: 3.0em;
+}
+
+p {
+  font-size: 2.4em;
+}
+
+div {
+  flex-basis: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+ul{
+   text-align: center;
+}
