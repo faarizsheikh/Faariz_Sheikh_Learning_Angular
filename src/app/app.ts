@@ -14,8 +14,6 @@ export class App {
   number : number = 6;
   opinion : string = "Awesome";
 
-
-
   /* Once you assign a var type, it's forever that type */
   // name = 7; <- not allowed
 }
