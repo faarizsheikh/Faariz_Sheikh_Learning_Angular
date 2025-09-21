@@ -11,9 +11,15 @@ import { RouterOutlet } from '@angular/router';
 export class App {
   protected readonly title = signal('FaarizSheikhLearnAngular');
   // Let's make a variable
+
+
+  /*
+  Assignment 1 variables not needed:
   name : string = "Faariz";
   number : number = 6;
   opinion : string = "Awesome";
+   */
+
 
   /* Once you assign a var type, it's forever that type */
   // name = 7; <- not allowed
