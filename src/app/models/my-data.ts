@@ -1,11 +1,13 @@
 export interface ExtraInfo {
-  notes: string;
+  notes?: string;
 }
 
 export interface MyData extends ExtraInfo {
   id: number;
-  name: string;
-  description: string;
-  isActive: boolean;
-  category?: string; // optional
+  title: string;
+  developer: string;
+  genre: string;
+  yearReleased: number;
+  platform: string
+  isCompleted: boolean;
 }

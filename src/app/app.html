@@ -1,25 +1,30 @@
 <!-- app.html-->
+<div class="container">
+  <h1>Video Games List:</h1>
 
+  <div *ngFor="let game of games" class="vid-game-card">
+    <h2>{{ game.title }}</h2> <br />
+    <p><span class="label-name">ID:</span> {{ game.id }}</p>
+    <p><span class="label-name">Developer(s):</span> {{ game.developer }}</p>
+    <p><span class="label-name">Genre(s):</span> {{ game.genre }}</p>
+    <p><span class="label-name">Year Released:</span> {{ game.yearReleased }}</p>
+    <p><span class="label-name">Platform:</span> {{ game.platform }}</p>
 
-<!--
-  Assignment 1 code
-<h1>I am {{name}}.</h1>
-<p>Defining&nbsp;<span>{{number}}</span>&nbsp;things about myself with the letters of my name.</p><br>
+    <p>
+      <span class="label-name">Notes: </span>
+      <span *ngIf="game.notes; else noNotes">{{ game.notes }}</span>
+      <ng-template #noNotes>N/A</ng-template>
+    </p> <br />
 
-<div>
-<ul>
-  <li>Faithful – Have a strong connection to belief and principles.</li>
-  <li>Aware - Always deeply observant of myself and others.</li>
-  <li>Authentic - True to my values, not fake or pretentious.</li>
-  <li>Reserved – Prefer solitude but with quiet strength.</li>
-  <li>Introspective – Reflect deeply on meaning and self.</li>
-  <li>Zen-like – Seek calmness despite chaos.</li>
-</ul>
+    <p>
+      <span class="label-name">Status:</span>
+      <span [ngClass]="game.isCompleted ? 'status-completed' : 'status-incomplete'">
+        {{ game.isCompleted ? 'Completed' : 'Incomplete' }}
+      </span>
+    </p>
+
+    <button (click)="toggleGameStatus(game)" class="toggle-button">
+      Toggle Game Status
+    </button>
+  </div>
 </div>
-
-
-  In case if not suppose to use any other var type than strings,
-  though it was not specified in the assignment's instructions.
-
-<h2>JavaScript is {{opinion}}.</h2>
--->

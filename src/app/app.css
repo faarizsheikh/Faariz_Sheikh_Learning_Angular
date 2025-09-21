@@ -1,45 +1,73 @@
-/* HTML */
-:root { /* Also called html */
-  font-size: 62.5%; /* 62.5% x default font size (16px) =  10px [Learned long ago from YT Channel, Danni Krossing] */
+/* -- COMPONENT-LEVEL STYLING (SCSS) -- */
+
+.container {
+  background-color: #f0f0f0;
+  margin: 0 auto;
+  padding: 20px;
+  max-width: 600px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  .vid-game-card {
+    background-color: #fff;
+    margin-bottom: 15px;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    h2 {
+      color: #006400;
+      font-size: 2.4em;
+      margin: 0;
+    }
+
+    p {
+      color: #000;
+      font-size: 1.6em;
+      margin: 5px 0;
+
+      &:first-child {
+        margin-top: 10px;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      .label-name {
+        font-weight: bold;
+      }
+    }
+
+    .toggle-button {
+      background-color: #007bff;
+      color: white;
+      font-size: 1.5em;
+      margin-top: 10px;
+      padding: 5px 10px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #0056b3;
+      }
+    }
+
+    .status-completed {
+      color: green;
+    }
+
+    .status-incomplete {
+      color: red;
+    }
+  }
 }
 
-/* HEADINGS: H1, H2 */
-h1, h2 {
-  text-align: center;
-}
+/* H1 outside container */
 h1 {
-  font-size: 3.2em; /* 3.2em x root's font (See line 3 to see how the root html/:font changed from 16 to 10px) = 32px */
-}
-h2 {
-  font-size: 3.0em;
-}
-
-/* DIV, SPANS, PARAGRAPH & LISTING */
-div, p, ul{
-  &:not(ul) {
-    display: flex;
-  }
-  &:not(li) {
-    justify-content: center;
-  }
-}
-span {
-  text-decoration: underline;
-}
-p {
-  font-size: 2.4em;
-  height: 50px;
-}
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-li {
-  font-size: 2em;
-  align-items: center;
-}
-
-ul > li::first-letter{
-  font-weight: bold;
+  color: #333;
+  font-size: 3.2em;
+  text-align: center;
+  margin-bottom: 20px;
 }
