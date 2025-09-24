@@ -5,6 +5,7 @@ import { NgClass, NgIf, NgForOf } from '@angular/common';
 @Component({
   selector: 'app-root',
   imports: [NgForOf, NgClass, NgIf],
+
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
