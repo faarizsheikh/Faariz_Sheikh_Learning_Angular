@@ -10,4 +10,5 @@ export interface MyData extends ExtraInfo {
   yearReleased: number;
   platform: string
   isCompleted: boolean;
+  imageUrl: string;
 }

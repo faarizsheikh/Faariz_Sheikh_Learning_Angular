@@ -1,5 +1,6 @@
 <!-- game-list-item.component.html -->
 <div class="game-list-item" [ngClass]="isEven ? 'even' : 'odd'">
+  <img [src]="game.imageUrl" alt="{{ game.title }} image" class="game-image" />
   <h2>{{ game.title }}</h2>
   <p><span class="label-name">ID:</span> {{ game.id }}</p>
   <p><span class="label-name">Developer(s):</span> {{ game.developer }}</p>

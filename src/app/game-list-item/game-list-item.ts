@@ -4,13 +4,15 @@ import {NgClass, NgIf} from '@angular/common';
 
 @Component({
   selector: 'app-game-list-item',
+  standalone: true,
   imports: [
     NgClass,
     NgIf
   ],
   templateUrl: './game-list-item.html',
-  styleUrl: './game-list-item.css'
+  styleUrls: ['./game-list-item.css']
 })
+
 export class GameListItem {
   // 👇 This makes [game] a valid input binding
   @Input() game!: MyData;
