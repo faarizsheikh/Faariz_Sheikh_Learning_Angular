@@ -1,0 +1,56 @@
+/* game-list-item.component.css */
+.game-list-item {
+  border: 2px solid #000; /* black border */
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  color: blue;
+  font-size: 2.4em;
+  margin-bottom: 10px;
+}
+
+p {
+  color: #000;
+  font-size: 1.6em;
+  margin: 5px 0;
+
+  &:first-child {
+    margin-top: 10px;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  .label-name {
+    font-weight: bold;
+  }
+}
+
+.toggle-button {
+  background-color: #007bff;
+  color: white;
+  font-size: 1.5em;
+  margin-top: 10px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #0056b3;
+  }
+}
+
+.status-completed {
+  color: green;
+}
+
+.status-incomplete {
+  color: red;
+}

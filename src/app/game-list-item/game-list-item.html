@@ -1,5 +1,6 @@
-<div class="vid-game-card">
-  <h2>{{ game.title }}</h2> <br />
+<!-- game-list-item.component.html -->
+<div class="game-list-item">
+  <h2>{{ game.title }}</h2>
   <p><span class="label-name">ID:</span> {{ game.id }}</p>
   <p><span class="label-name">Developer(s):</span> {{ game.developer }}</p>
   <p><span class="label-name">Genre(s):</span> {{ game.genre }}</p>
@@ -7,10 +8,10 @@
   <p><span class="label-name">Platform:</span> {{ game.platform }}</p>
 
   <p>
-    <span class="label-name">Notes: </span>
-    <span *ngIf="game.notes; else noNotes">{{ game.notes }}</span>
-    <ng-template #noNotes>N/A</ng-template>
-  </p> <br />
+    <span class="label-name">Notes:</span>
+    <span *ngIf="game.notes; else noNotes"> {{ game.notes }}</span>
+    <ng-template #noNotes> N/A</ng-template>
+  </p>
 
   <p>
     <span class="label-name">Status:</span>
@@ -18,4 +19,8 @@
       {{ game.isCompleted ? 'Completed' : 'Incomplete' }}
     </span>
   </p>
+
+  <button (click)="toggleGameStatus()" class="toggle-button">
+    Toggle Game Status
+  </button>
 </div>
