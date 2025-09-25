@@ -14,6 +14,7 @@ import {NgClass, NgIf} from '@angular/common';
 export class GameListItem {
   // 👇 This makes [game] a valid input binding
   @Input() game!: MyData;
+  @Input() isEven: boolean = false; // 👈 new input for alternating background
 
   toggleGameStatus(): void {
     this.game.isCompleted = !this.game.isCompleted;

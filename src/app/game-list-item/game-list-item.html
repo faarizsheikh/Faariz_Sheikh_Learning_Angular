@@ -1,5 +1,5 @@
 <!-- game-list-item.component.html -->
-<div class="game-list-item">
+<div class="game-list-item" [ngClass]="isEven ? 'even' : 'odd'">
   <h2>{{ game.title }}</h2>
   <p><span class="label-name">ID:</span> {{ game.id }}</p>
   <p><span class="label-name">Developer(s):</span> {{ game.developer }}</p>

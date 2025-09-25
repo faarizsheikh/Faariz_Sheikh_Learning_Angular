@@ -1,4 +1,7 @@
-<!-- game-list.component.html -->
 <div>
-  <app-game-list-item *ngFor="let game of games" [game]="game"></app-game-list-item>
+  <app-game-list-item
+    *ngFor="let game of games; let i = index"
+    [game]="game"
+    [isEven]="i % 2 === 0">
+  </app-game-list-item>
 </div>

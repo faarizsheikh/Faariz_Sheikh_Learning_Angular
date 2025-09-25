@@ -8,14 +8,22 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+.game-list-item.even {
+  background-color: #330;
+}
+
+.game-list-item.odd {
+  background-color: #333;
+}
+
 h2 {
-  color: blue;
+  color: white;
   font-size: 2.4em;
   margin-bottom: 10px;
 }
 
 p {
-  color: #000;
+  color: #fff;
   font-size: 1.6em;
   margin: 5px 0;
 
@@ -45,6 +53,10 @@ p {
   &:hover {
     background-color: #0056b3;
   }
+}
+
+.status-completed, .status-incomplete {
+  font-weight: bold;
 }
 
 .status-completed {
