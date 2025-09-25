@@ -12,10 +12,10 @@
     <span class="label-name">Notes:</span>
     <span *ngIf="game.notes; else noNotes"> {{ game.notes }}</span>
     <ng-template #noNotes> N/A</ng-template>
-  </p>
+  </p> <br />
 
   <p>
-    <span class="label-name">Status:</span>
+    <span class="label-name">Status: </span>
     <span [ngClass]="game.isCompleted ? 'status-completed' : 'status-incomplete'">
       {{ game.isCompleted ? 'Completed' : 'Incomplete' }}
     </span>
