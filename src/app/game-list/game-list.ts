@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
 import {MyData} from '../models/my-data';
 import {GameListItem} from '../game-list-item/game-list-item';
+import {NgForOf} from '@angular/common';
 
 @Component({
   selector: 'app-game-list',
   imports: [
-    GameListItem
+    GameListItem,
+    NgForOf
   ],
   templateUrl: './game-list.html',
   styleUrl: './game-list.css'
@@ -41,8 +43,4 @@ export class GameList {
       platform: 'PC', isCompleted: true,
       notes: 'Tense jump-scare experience where players monitor cameras to survive animatronic attacks.'}
   ];
-
-  toggleGameStatus(game: MyData): void {
-    game.isCompleted = !game.isCompleted;
-  }
 }

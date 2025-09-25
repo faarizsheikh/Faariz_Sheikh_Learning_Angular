@@ -1,0 +1,21 @@
+<div class="vid-game-card">
+  <h2>{{ game.title }}</h2> <br />
+  <p><span class="label-name">ID:</span> {{ game.id }}</p>
+  <p><span class="label-name">Developer(s):</span> {{ game.developer }}</p>
+  <p><span class="label-name">Genre(s):</span> {{ game.genre }}</p>
+  <p><span class="label-name">Year Released:</span> {{ game.yearReleased }}</p>
+  <p><span class="label-name">Platform:</span> {{ game.platform }}</p>
+
+  <p>
+    <span class="label-name">Notes: </span>
+    <span *ngIf="game.notes; else noNotes">{{ game.notes }}</span>
+    <ng-template #noNotes>N/A</ng-template>
+  </p> <br />
+
+  <p>
+    <span class="label-name">Status:</span>
+    <span [ngClass]="game.isCompleted ? 'status-completed' : 'status-incomplete'">
+      {{ game.isCompleted ? 'Completed' : 'Incomplete' }}
+    </span>
+  </p>
+</div>
