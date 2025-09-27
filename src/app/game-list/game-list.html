@@ -1,9 +1,8 @@
-<div>
-  @for (game of games; track game.id; let $index = $index) {
-    <app-game-list-item
-      [game]="game"
-      [class.even]="$index % 2 === 0"
-      [class.odd]="$index % 2 !== 0">
-    </app-game-list-item>
-  }
-</div>
+  <div>
+  <app-game-list-item
+    *ngFor="let game of games; let i = index"
+    [game]="game"
+    [isEven]="i % 2 === 0">
+  </app-game-list-item>
+  </div>
+

@@ -8,8 +8,6 @@ import { GameList } from './game-list/game-list';
   templateUrl: './app.html',
   styleUrls: ['./app.css']
 })
-
 export class App {
   protected readonly title = signal('FaarizSheikhLearnAngular');
-
 }
