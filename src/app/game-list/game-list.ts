@@ -1,12 +1,11 @@
-import { Component } from '@angular/core';
-import { GameListItem } from '../game-list-item/game-list-item';
-import { NgForOf } from '@angular/common';
-import { MyData } from '../models/my-data';
+import { Component } from "@angular/core";
+import {MyData} from "../models/my-data";
+import {GameListItem} from "../game-list-item/game-list-item";
 
 @Component({
   selector: 'app-game-list',
   standalone: true,
-  imports: [GameListItem, NgForOf],
+  imports: [GameListItem],
   templateUrl: './game-list.html',
   styleUrls: ['./game-list.css']
 })
@@ -75,5 +74,5 @@ export class GameList {
       notes: "I play this all the time. It felt fast, colorful, and fun," +
         "especially with the hoverboards and characters. Addictive for killing time.",
       imageUrl: "assets/subway_surfers.jpeg"},
-  ];
+];
 }

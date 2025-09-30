@@ -18,6 +18,6 @@ export class GameListItem {
   @Input() isEven: boolean = false;
 
   toggleGameStatus(): void {
-    this.game.isCompleted = !this.game.isCompleted;
+    this.game!.isCompleted = !this.game.isCompleted;
   }
 }
