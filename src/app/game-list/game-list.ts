@@ -17,6 +17,6 @@ export class GameList implements OnInit {
   constructor(private gameService: GameDataService) {}
 
   ngOnInit(): void {
-        throw new Error("Method not implemented.");
-    }
+    this.gameService.getAll().subscribe(data => this.games = data);
+  }
 }
