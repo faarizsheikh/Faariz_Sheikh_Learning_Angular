@@ -5,6 +5,9 @@ h1 {
   text-align: center;
   margin-bottom: 20px;
 }
+h3 {
+  font-size: 2.4rem;
+}
 
 .container {
   background-color: #f0f0f0;

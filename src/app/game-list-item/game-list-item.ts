@@ -14,10 +14,12 @@ import {NgClass, NgIf} from '@angular/common';
 })
 
 export class GameListItem {
-  @Input() game!: MyData;
+  @Input() game?: MyData;
   @Input() isEven: boolean = false;
 
   toggleGameStatus(): void {
-    this.game!.isCompleted = !this.game.isCompleted;
+      if (this.game) {
+        this.game.isCompleted = !this.game.isCompleted;
+      }
   }
 }
