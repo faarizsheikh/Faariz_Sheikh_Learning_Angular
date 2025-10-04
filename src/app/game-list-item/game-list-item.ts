@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {MyData} from '../models/my-data';
 import {NgClass, NgIf} from '@angular/common';
 
@@ -12,14 +12,21 @@ import {NgClass, NgIf} from '@angular/common';
   templateUrl: './game-list-item.html',
   styleUrls: ['./game-list-item.css']
 })
-
 export class GameListItem {
   @Input() game?: MyData;
   @Input() isEven: boolean = false;
 
+  @Output() selectGame = new EventEmitter<MyData>();
+
   toggleGameStatus(): void {
-      if (this.game) {
-        this.game.isCompleted = !this.game.isCompleted;
-      }
+    if (this.game) {
+      this.game.isCompleted = !this.game.isCompleted;
+    }
+  }
+
+  onClick(): void {
+    if (this.game) {
+      this.selectGame.emit(this.game);
+    }
   }
 }
