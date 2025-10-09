@@ -4,11 +4,12 @@ import { GameListItem } from './game-list-item/game-list-item';
 import { GameDataService } from './services/game-data';
 import { MyData } from './models/my-data';
 import { NgIf } from '@angular/common';
+import {RouterOutlet} from '@angular/router';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [GameList, GameListItem, NgIf],
+  imports: [GameList, GameListItem, NgIf, RouterOutlet],
   templateUrl: './app.html',
   styleUrls: ['./app.css']
 })
