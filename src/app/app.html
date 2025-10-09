@@ -1,10 +1,5 @@
-<!-- app.component.html -->
+<!-- app.html -->
 <div class="container">
   <h1>Video Games List:</h1>
-  <h3>Selected:</h3>
-  <app-game-list-item *ngIf="singleGame" [game]="singleGame"></app-game-list-item>
-
-  <h3>Full List:</h3>
-  <app-game-list (selectGame)="singleGame = $event"></app-game-list>
   <router-outlet></router-outlet>
 </div>

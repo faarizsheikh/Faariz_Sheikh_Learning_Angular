@@ -2,11 +2,12 @@ import {Component, EventEmitter, OnInit, Output} from "@angular/core";
 import {MyData} from "../models/my-data";
 import {GameListItem} from "../game-list-item/game-list-item";
 import {GameDataService} from '../services/game-data';
+import {RouterLink} from '@angular/router';
 
 @Component({
   selector: 'app-game-list',
   standalone: true,
-  imports: [GameListItem],
+  imports: [GameListItem, RouterLink],
   templateUrl: './game-list.html',
   styleUrls: ['./game-list.css']
 })
