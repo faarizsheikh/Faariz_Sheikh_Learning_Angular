@@ -1,9 +1,13 @@
-// app.routes.ts
 import { Routes } from '@angular/router';
 import { GameList } from './game-list/game-list';
-import { GameListItem } from './game-list-item/game-list-item';
+import { ModifyListItem } from './modify-list-item/modify-list-item';
+import { PageNotFound } from './page-not-found/page-not-found';
+import {GameDetails} from './game-details/game-details';
 
 export const routes: Routes = [
-  { path: '', component: GameList },
-  { path: 'game/:id', component: GameListItem },
+  { path: '', redirectTo: '/games', pathMatch: 'full'},
+  { path: 'games', component: GameList},
+  { path: 'games/:id', component: GameDetails },
+  { path: 'modify', component: ModifyListItem },
+  { path: '**', component: PageNotFound }
 ];

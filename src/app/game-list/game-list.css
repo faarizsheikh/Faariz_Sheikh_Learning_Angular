@@ -1,5 +1,9 @@
 /* game-list.component.css */
 :host {
-  display: block;
   padding: 20px;
+  display: block;
+}
+
+div {
+  cursor: pointer;
 }

@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {MyData} from '../models/my-data';
 import {NgClass, NgIf} from '@angular/common';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-game-list-item',
@@ -18,15 +19,10 @@ export class GameListItem {
 
   @Output() selectGame = new EventEmitter<MyData>();
 
-  toggleGameStatus(): void {
-    if (this.game) {
-      this.game.isCompleted = !this.game.isCompleted;
-    }
-  }
+  constructor(private router: Router) {}
 
-  onClick(): void {
-    if (this.game) {
-      this.selectGame.emit(this.game);
-    }
+  onClick() {
+    if (!this.game) return;
+    this.router.navigate(['/games', this.game.id]);
   }
 }

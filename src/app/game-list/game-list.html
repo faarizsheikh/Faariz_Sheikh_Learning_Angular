@@ -1,10 +1,5 @@
-<div>
-  @for (game of games; track game.id; let i = $index) {
-    <a [routerLink]="['/game', game.id]" style="text-decoration:none; color:inherit;">
-      <app-game-list-item
-        [game]="game"
-        [isEven]="i % 2 === 0">
-      </app-game-list-item>
-    </a>
-  }
+<div class="game-list">
+  <div *ngFor="let game of games; let i = index" [routerLink]="['/games', game.id]">
+    <app-game-list-item [game]="game" [isEven]="i % 2 === 0"></app-game-list-item>
+  </div>
 </div>
