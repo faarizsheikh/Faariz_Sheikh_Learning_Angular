@@ -30,3 +30,21 @@ h2 {
   border-radius: 5px;
   object-fit: cover;
 }
+
+p {
+  color: #000;
+  font-size: 1.6em;
+  margin: 5px 0;
+
+  &:first-child {
+    margin-top: 10px;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  .label-name {
+    font-weight: bold;
+  }
+}

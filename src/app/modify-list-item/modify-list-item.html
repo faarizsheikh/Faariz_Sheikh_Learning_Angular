@@ -2,10 +2,13 @@
 <div
   *ngFor="let game of games;
   let i = index" class="game-item"
-  [ngClass]="i % 2 === 0 ? 'even' : 'odd'"
 >
   <h3>{{ game.title }}</h3>
-  <p>Status: {{ game.isCompleted ? 'Completed' : 'Incomplete' }}</p>
+  <p>
+    <span class="label-name">Status: </span>
+    <span [ngClass]="game.isCompleted ? 'status-completed' : 'status-incomplete'">
+      {{ game.isCompleted ? 'Completed' : 'Incomplete' }}
+    </span>
+  </p>
   <button (click)="toggleStatus(game)" class="toggle-button">Toggle Status</button>
 </div>
-

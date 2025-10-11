@@ -1,4 +1,10 @@
 <div *ngIf="game" class="game-list-item" [ngClass]="isEven ? 'even' : 'odd'">
-  <img [src]="game.imageUrl" alt="{{ game.title }} image" class="game-image" />
+  <img
+    [src]="game.imageUrl"
+    [alt]="game.title + ' by ' + game.developer.split(',')[0]"
+    [title]="game.title + ' by ' + game.developer.split(',')[0]"
+    class="game-image"
+  />
+
   <h2>{{ game.title }}</h2>
 </div>

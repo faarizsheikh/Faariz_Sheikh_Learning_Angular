@@ -1,7 +1,6 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {MyData} from '../models/my-data';
 import {NgClass, NgIf} from '@angular/common';
-import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-game-list-item',
@@ -18,11 +17,4 @@ export class GameListItem {
   @Input() isEven: boolean = false;
 
   @Output() selectGame = new EventEmitter<MyData>();
-
-  constructor(private router: Router) {}
-
-  onClick() {
-    if (!this.game) return;
-    this.router.navigate(['/games', this.game.id]);
-  }
 }
