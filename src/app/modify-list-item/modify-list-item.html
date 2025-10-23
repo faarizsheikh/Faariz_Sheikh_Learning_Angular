@@ -1,7 +1,6 @@
 <h2>Modify Game List</h2>
-<div
-  *ngFor="let game of games;
-  let i = index" class="game-item">
+
+<div *ngFor="let game of games" class="game-item">
   <h3>{{ game.title }}</h3>
   <p>
     <span class="label-name">Status: </span>
@@ -9,5 +8,7 @@
       {{ game.isCompleted ? 'Completed' : 'Incomplete' }}
     </span>
   </p>
-  <button (click)="toggleStatus(game)" class="toggle-button">Toggle Status</button>
+  <button (click)="editGame(game)">Edit</button>
+  <button (click)="deleteGame(game)">Delete</button>
+  <button (click)="toggleStatus(game)">Toggle Status</button>
 </div>

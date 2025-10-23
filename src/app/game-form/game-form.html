@@ -1,0 +1,14 @@
+<form [formGroup]="gameForm" (ngSubmit)="submitForm()">
+  <input formControlName="title" placeholder="Title" />
+  <input formControlName="developer" placeholder="Developer" />
+  <input formControlName="genre" placeholder="Genre" />
+  <input formControlName="yearReleased" type="number" placeholder="Year Released" />
+  <input formControlName="platform" placeholder="Platform" />
+  <input formControlName="imageUrl" placeholder="Image URL" />
+  <textarea formControlName="notes" placeholder="Notes"></textarea>
+  <label>
+    Completed:
+    <input type="checkbox" formControlName="isCompleted" />
+  </label>
+  <button type="submit">{{ isEditMode ? 'Update' : 'Add' }}</button>
+</form>
