@@ -13,7 +13,7 @@
   <p><span class="label-name">Platform:</span> {{ game.platform }}</p>
 
   <p>
-    <span class="label-name">Notes:</span>
+    <span class="label-name">Notes: </span>
     <span *ngIf="game.notes; else noNotes">{{ game.notes }}</span>
     <ng-template #noNotes>N/A</ng-template>
   </p>
