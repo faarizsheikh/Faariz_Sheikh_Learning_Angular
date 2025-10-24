@@ -22,7 +22,8 @@ export class ModifyListItem implements OnInit {
     private fb: FormBuilder,
     private router: Router
   ) {
-    // Initialize the reactive form
+
+    // Initialize: Reactive Form
     this.gameForm = this.fb.group({
       id: [''],
       title: ['', Validators.required],
@@ -52,7 +53,7 @@ export class ModifyListItem implements OnInit {
   editGame(game: MyData) {
     this.isEditMode = true;
     this.gameForm.patchValue(game);
-    this.router.navigate(['/modify-form']); // redirect to a form route if separate
+    this.router.navigate(['/modify-form']); // Redirects to a form route if separate.
   }
 
   deleteGame(game: MyData) {
