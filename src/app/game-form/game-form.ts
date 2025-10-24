@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
+import {FormBuilder, FormGroup, isFormControl, ReactiveFormsModule, Validators} from '@angular/forms';
 import { GameDataService } from '../services/game-data';
 import { MyData } from '../models/my-data';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -65,5 +65,7 @@ export class GameForm implements OnInit {
       });
     }
   }
+
+  protected readonly isFormControl = isFormControl;
 }
 
