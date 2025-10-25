@@ -28,7 +28,7 @@ export class GameForm implements OnInit {
       title: ['', Validators.required],
       developer: ['', Validators.required],
       genre: ['', Validators.required],
-      yearReleased: ['', [Validators.required, Validators.min(1970)]],
+      yearReleased: ['', [Validators.required, Validators.min(1970), Validators.max(2025)]],
       platform: ['', Validators.required],
       isCompleted: [false],
       notes: [''],

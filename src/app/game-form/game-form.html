@@ -1,28 +1,29 @@
 <form [formGroup]="gameForm" (ngSubmit)="submitForm()">
   <label for="forControlName(title)">Title:</label>
-  <input formControlName="title" placeholder="Title" />
+  <input formControlName="title" placeholder="Title">
 
-  <label for="forControlName(title)">Developer:</label>
+  <label for="forControlName(developer)">Developer:</label>
   <input formControlName="developer" placeholder="Developer" />
 
-  <label for="forControlName(title)">Genre:</label>
+  <label for="forControlName(genre)">Genre:</label>
   <input formControlName="genre" placeholder="Genre" />
 
-  <label for="forControlName(title)">Year of Release:</label>
+  <label for="forControlName(yearReleased)">Year of Release:</label>
   <input formControlName="yearReleased" type="number" placeholder="Year Released" />
 
-  <label for="forControlName(title)">Platform:</label>
+  <label for="forControlName(platform)">Platform:</label>
   <input formControlName="platform" placeholder="Platform" />
 
-  <label for="forControlName(title)">Image URL:</label>
+  <label for="forControlName(imageUrl)">Image URL:</label>
   <input formControlName="imageUrl" placeholder="Image URL" />
 
-  <label for="forControlName(title)">Notes?:</label>
-  <textarea formControlName="notes" placeholder="Notes"></textarea>
+  <label for="forControlName(notes)">Notes (optional):</label>
+  <textarea maxlength="160" formControlName="notes" placeholder="Notes"></textarea>
 
-  <label>
-    Completed:
+  <div class = "completed">
+    <label for="formControlName(isCompleted)">Completed:</label>
     <input type="checkbox" formControlName="isCompleted" />
-  </label>
+  </div>
+
   <button type="submit">{{ isEditMode ? 'Update' : 'Add' }}</button>
 </form>
