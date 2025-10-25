@@ -1,9 +1,25 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, isFormControl, ReactiveFormsModule, Validators} from '@angular/forms';
+import {
+  AbstractControl,
+  FormBuilder,
+  FormGroup,
+  isFormControl,
+  ReactiveFormsModule,
+  ValidationErrors, ValidatorFn,
+  Validators
+} from '@angular/forms';
 import { GameDataService } from '../services/game-data';
 import { MyData } from '../models/my-data';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
+
+export function forbiddenCharsValidator(forbiddenChars: string[]): ValidatorFn {
+  return (control: AbstractControl): ValidationErrors | null => {
+    if (!control.value) return null;
+    const hasForbidden = forbiddenChars.some(char => control.value.includes(char));
+    return hasForbidden ? { forbiddenChars: true } : null;
+  };
+}
 
 @Component({
   selector: 'app-game-form',
@@ -23,12 +39,17 @@ export class GameForm implements OnInit {
     private router: Router,
     private route: ActivatedRoute
   ) {
-    this.gameForm = this.fb.group({
-      id: [''],
-      title: ['', Validators.required],
+    this.gameForm = this.fb.group({ /* VALIDATION: Patterns, min/max, year input up to current year, etc. */
+      id: ['', [Validators.required, Validators.min(1), Validators.pattern(/^\d+$/)]],
+      title: ['', [
+        Validators.required,
+        forbiddenCharsValidator([
+          '/', '<', '>', '?', '!', '*', '|', '#', '%', '&', '{', '}', '"', "'", ':'
+        ])
+      ]],
       developer: ['', Validators.required],
       genre: ['', Validators.required],
-      yearReleased: ['', [Validators.required, Validators.min(1970), Validators.max(2025)]],
+      yearReleased: ['', [Validators.required, Validators.min(1970), Validators.max(new Date().getFullYear())]],
       platform: ['', Validators.required],
       isCompleted: [false],
       notes: [''],
@@ -68,4 +89,3 @@ export class GameForm implements OnInit {
 
   protected readonly isFormControl = isFormControl;
 }
-

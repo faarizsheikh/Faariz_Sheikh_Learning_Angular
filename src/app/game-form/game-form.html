@@ -1,7 +1,7 @@
 <form [formGroup]="gameForm" (ngSubmit)="submitForm()">
   <div>
     <label for="title">Title:</label>
-    <input id="title" formControlName="title" placeholder="Title" />
+    <input id="title" formControlName="title" placeholder="Title" (input)="gameForm.get('title')?.updateValueAndValidity()"/>
   </div>
 
   <div>
