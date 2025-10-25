@@ -10,7 +10,7 @@ import {NgClass, NgIf} from '@angular/common';
     NgIf
   ],
   templateUrl: './game-list-item.html',
-  styleUrls: ['./game-list-item.css']
+  styleUrls: ['./game-list-item.scss']
 })
 export class GameListItem {
   @Input() game?: MyData;

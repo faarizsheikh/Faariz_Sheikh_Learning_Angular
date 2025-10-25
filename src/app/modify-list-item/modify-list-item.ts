@@ -9,7 +9,7 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './modify-list-item.html',
-  styleUrls: ['./modify-list-item.css']
+  styleUrls: ['./modify-list-item.scss']
 })
 export class ModifyListItem implements OnInit {
   games: MyData[] = [];

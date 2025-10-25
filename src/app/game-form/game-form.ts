@@ -10,7 +10,7 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './game-form.html',
-  styleUrls: ['./game-form.css']
+  styleUrls: ['./game-form.scss']
 })
 export class GameForm implements OnInit {
   gameForm: FormGroup;

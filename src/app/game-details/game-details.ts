@@ -9,7 +9,7 @@ import { MyData } from '../models/my-data';
   standalone: true,
   imports: [CommonModule, RouterLink],
   templateUrl: './game-details.html',
-  styleUrls: ['./game-details.css']
+  styleUrls: ['./game-details.scss']
 })
 export class GameDetails implements OnInit {
   game?: MyData;

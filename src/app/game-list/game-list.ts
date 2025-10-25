@@ -10,7 +10,7 @@ import {NgForOf} from '@angular/common';
   standalone: true,
   imports: [GameListItem, RouterLink, GameListItem, NgForOf],
   templateUrl: './game-list.html',
-  styleUrls: ['./game-list.css']
+  styleUrls: ['./game-list.scss']
 })
 
 export class GameList implements OnInit {
