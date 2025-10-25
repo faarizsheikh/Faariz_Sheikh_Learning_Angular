@@ -24,8 +24,14 @@ form > .completed {
   gap: 8px;
 }
 
-form > label {
+form > label,
+form > .completed > label {
   font: bold 16px sans-serif;
+}
+
+form .completed input[type="checkbox"] {
+  width: 25px;
+  height: 25px;
 }
 
 form > button {
@@ -37,6 +43,10 @@ form > input::placeholder,
 form > textarea::placeholder {
   text-align: center;
 }
+
+/*form > textarea::placeholder {*/
+/*  vert-align: middle;*/
+/*}*/
 
 form > label:nth-of-type(1) {
   grid-area: titleLbl;
