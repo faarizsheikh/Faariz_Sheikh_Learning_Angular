@@ -10,17 +10,13 @@
   &.even {
     background-color: #330;
 
-    &:hover h2 {
-      color: #ffcc00;
-    }
+    &:hover h2 { color: #ffcc00; }
   }
 
   &.odd {
     background-color: #333;
 
-    &:hover h2 {
-      color: #00bfff;
-    }
+    &:hover h2 { color: #00bfff; }
   }
 
   h2 {

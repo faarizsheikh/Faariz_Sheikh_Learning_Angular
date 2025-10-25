@@ -1,28 +1,42 @@
 <form [formGroup]="gameForm" (ngSubmit)="submitForm()">
-  <label for="forControlName(title)">Title:</label>
-  <input formControlName="title" placeholder="Title">
+  <div>
+    <label for="title">Title:</label>
+    <input id="title" formControlName="title" placeholder="Title" />
+  </div>
 
-  <label for="forControlName(developer)">Developer:</label>
-  <input formControlName="developer" placeholder="Developer" />
+  <div>
+    <label for="developer">Developer:</label>
+    <input id="developer" formControlName="developer" placeholder="Developer" />
+  </div>
 
-  <label for="forControlName(genre)">Genre:</label>
-  <input formControlName="genre" placeholder="Genre" />
+  <div>
+    <label for="genre">Genre:</label>
+    <input id="genre" formControlName="genre" placeholder="Genre" />
+  </div>
 
-  <label for="forControlName(yearReleased)">Year of Release:</label>
-  <input formControlName="yearReleased" type="number" placeholder="Year Released" />
+  <div>
+    <label for="yearReleased">Year of Release:</label>
+    <input id="yearReleased" formControlName="yearReleased" type="number" placeholder="Year Released" />
+  </div>
 
-  <label for="forControlName(platform)">Platform:</label>
-  <input formControlName="platform" placeholder="Platform" />
+  <div>
+    <label for="platform">Platform:</label>
+    <input id="platform" formControlName="platform" placeholder="Platform" />
+  </div>
 
-  <label for="forControlName(imageUrl)">Image URL:</label>
-  <input formControlName="imageUrl" placeholder="Image URL" />
+  <div>
+    <label for="imageUrl">Image URL:</label>
+    <input id="imageUrl" formControlName="imageUrl" placeholder="Image URL" />
+  </div>
 
-  <label for="forControlName(notes)">Notes (optional):</label>
-  <textarea maxlength="160" formControlName="notes" placeholder="Notes"></textarea>
+  <div class="notes">
+    <label for="notes">Notes (optional):</label>
+    <textarea id="notes" maxlength="300" formControlName="notes" placeholder="Notes"></textarea>
+  </div>
 
-  <div class = "completed">
-    <label for="formControlName(isCompleted)">Completed:</label>
-    <input type="checkbox" formControlName="isCompleted" />
+  <div class="completed">
+    <label for="isCompleted">Completed:</label>
+    <input id="isCompleted" type="checkbox" formControlName="isCompleted" />
   </div>
 
   <button type="submit">{{ isEditMode ? 'Update' : 'Add' }}</button>
