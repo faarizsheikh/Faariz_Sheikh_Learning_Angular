@@ -37,13 +37,13 @@ export class GameForm implements OnInit {
   }
 
   ngOnInit(): void {
-    // Check if route has id for editing
+    // CHECK: If id has route for editing (source: https://v17.angular.io/api/router/ActivatedRouteSnapshot )
     const idParam = this.route.snapshot.paramMap.get('id');
     if (idParam) {
       this.currentId = Number(idParam);
       this.isEditMode = true;
       this.gameService.getById(this.currentId).subscribe(game => {
-        if (game) {
+        if (game) { /* source: https://v17.angular.io/api/router/ActivatedRouteSnapshot#parammap */
           this.gameForm.patchValue(game);
         }
       });

@@ -6,17 +6,7 @@ h3 {
   font-size: 2.6em;
 }
 
-.toggle-button {
-  background-color: #007bff;
-  color: white;
-  font-size: 1.5em;
-  margin-top: 10px;
-  padding: 5px 10px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-
-  &:hover {
-    background-color: #0056b3;
-  }
+.existing-games > button {
+  display: flex;
+  gap: 25px;
 }
