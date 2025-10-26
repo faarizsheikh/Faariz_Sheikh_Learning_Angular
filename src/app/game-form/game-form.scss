@@ -1,4 +1,6 @@
 form {
+  background-color: darkgreen;
+  color: #fff;
   display: grid;
   grid-template-areas:
     "title dev"
@@ -11,58 +13,59 @@ form {
   gap: 15px 25px;
   justify-items: center;
   text-align: center;
-}
+  padding: 15px;
 
-form div {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+  input,
+  textarea {
+    width: 230px;
+    padding: 8px;
+    text-align: center;
+  }
 
-form label {
-  font: bold 16px sans-serif;
-  margin-bottom: 5px;
-}
+  div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
-form input,
-form textarea {
-  width: 230px;
-  padding: 8px;
-  text-align: center;
-}
+  label {
+    font: bold 16px sans-serif;
+    margin-bottom: 5px;
+  }
 
-form textarea {
-  resize: none;
-  height: 100px;
-  width: 500px;
-}
+  textarea {
+    resize: none;
+    height: 100px;
+    width: 500px;
+  }
 
-/* NOTE: I wrote these in single lines to make code cleaner - I learned it from VSC extension: Prettier Formatter */
-form > div:nth-of-type(1) { grid-area: title; }
-form > div:nth-of-type(2) { grid-area: dev; }
-form > div:nth-of-type(3) { grid-area: genre; }
-form > div:nth-of-type(4) { grid-area: year; }
-form > div:nth-of-type(5) { grid-area: platform; }
-form > div:nth-of-type(6) { grid-area: img; }
-form > .notes { grid-area: notes; }
-form > .completed { grid-area: completed; }
+  .completed {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+  }
 
-form .completed {
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-}
+  .completed input[type="checkbox"] {
+    width: 25px;
+    height: 25px;
+  }
 
-form .completed input[type="checkbox"] {
-  width: 25px;
-  height: 25px;
-}
+  button {
+    grid-area: submit;
+    justify-self: center;
+    padding: 8px 16px;
+    font: bold 15px sans-serif;
+    cursor: pointer;
+  }
 
-form button {
-  grid-area: submit;
-  justify-self: center;
-  padding: 8px 16px;
-  font: bold 15px sans-serif;
-  cursor: pointer;
+  /* NOTE: I wrote these in single lines to make code cleaner - I learned it from VSC extension: Prettier Formatter */
+  div:nth-of-type(1) { grid-area: title; }
+  div:nth-of-type(2) { grid-area: dev; }
+  div:nth-of-type(3) { grid-area: genre; }
+  div:nth-of-type(4) { grid-area: year; }
+  div:nth-of-type(5) { grid-area: platform; }
+  div:nth-of-type(6) { grid-area: img; }
+  .notes { grid-area: notes; }
+  .completed { grid-area: completed; }
 }

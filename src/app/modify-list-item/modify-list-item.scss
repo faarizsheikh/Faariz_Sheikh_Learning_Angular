@@ -1,12 +1,41 @@
+.modify-area, .game-card-area {
+  background-color: #200;
+}
+
+.modify-area {
+  padding-block: 5px 25px;
+  border-radius: 75px;
+}
+
 div {
   text-align: center;
 }
 
-h3 {
-  font-size: 2.6em;
+h2 {
+  color: #fff;
 }
 
-.existing-games > button {
+.game-card-area {
+  padding-block: 15px 45px;
+  border-radius: 35px;
+
+  h3 {
+    color: lightblue;
+    font-size: 2.6em;
+  }
+
+  .label-name {
+    color: orange;
+  }
+}
+
+.existing-games {
   display: flex;
-  gap: 25px;
+  justify-content: center;
+  gap: 15px;
+
+    button {
+      height: 40px;
+      width: 100px;
+    }
 }
