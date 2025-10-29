@@ -1,25 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import {
-  AbstractControl,
   FormBuilder,
   FormGroup,
   isFormControl,
   ReactiveFormsModule,
-  ValidationErrors, ValidatorFn,
   Validators
 } from '@angular/forms';
 import { GameDataService } from '../services/game-data';
 import { MyData } from '../models/my-data';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
-
-export function forbiddenCharsValidator(forbiddenChars: string[]): ValidatorFn {
-  return (control: AbstractControl): ValidationErrors | null => {
-    if (!control.value) return null;
-    const hasForbidden = forbiddenChars.some(char => control.value.includes(char));
-    return hasForbidden ? { forbiddenChars: true } : null;
-  };
-}
 
 @Component({
   selector: 'app-game-form',
@@ -39,14 +29,16 @@ export class GameForm implements OnInit {
     private router: Router,
     private route: ActivatedRoute
   ) {
-    this.gameForm = this.fb.group({ /* VALIDATION: Patterns, min/max, year input up to current year, etc. */
-      id: ['', [Validators.required, Validators.min(1), Validators.pattern(/^\d+$/)]],
-      title: ['', [
-        Validators.required,
-        forbiddenCharsValidator([
-          '/', '<', '>', '?', '!', '*', '|', '#', '%', '&', '{', '}', '"', "'", ':'
-        ])
-      ]],
+    this.gameForm = this.fb.group({
+      /*
+      VALIDATION - MOST code was removed due to the form not being able to submit. It's bonus anyway :(
+      (Sense of humour. Not to be taken seriously.)
+      * Though, it was working before...
+      * I must've done something like removing/changing something after successful run of the validations.
+      * I will look into it more later, for sure. I am interested in this bonus part.
+      */
+      id: [''],
+      title: [''],
       developer: ['', Validators.required],
       genre: ['', Validators.required],
       yearReleased: ['', [Validators.required, Validators.min(1970), Validators.max(new Date().getFullYear())]],
@@ -82,7 +74,7 @@ export class GameForm implements OnInit {
       });
     } else {
       this.gameService.create(formValue).subscribe(() => {
-        this.router.navigate(['/modify']); // Return to list
+        this.router.navigate(['/modify']); // Returns to list
       });
     }
   }
