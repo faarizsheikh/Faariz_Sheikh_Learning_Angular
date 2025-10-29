@@ -1,22 +1,8 @@
 <div class="modify-area">
   <h2>Modify Game List</h2>
   <button (click)="addNewGame()">Add New Game</button>
+
+  <p>You can also edit or delete games from the main game list.</p>
+  <a routerLink="/games">Go to Game List</a>
 </div>
 
-<div class="game-card-area">
-  <div *ngFor="let game of games" class="game-item">
-    <h3>{{ game.title }}</h3>
-    <p>
-      <span class="label-name">Status: </span>
-      <span [ngClass]="game.isCompleted ? 'status-completed' : 'status-incomplete'">
-        {{ game.isCompleted ? 'Completed' : 'Incomplete' }}
-      </span>
-    </p>
-
-    <div class="existing-games">
-      <button (click)="editGame(game)">Edit</button>
-      <button (click)="deleteGame(game)">Delete</button>
-      <button (click)="toggleStatus(game)">Toggle Status</button>
-    </div>
-  </div>
-</div>

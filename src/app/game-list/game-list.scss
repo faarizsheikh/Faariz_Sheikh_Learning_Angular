@@ -5,3 +5,17 @@
 }
 
 div { cursor: pointer; }
+
+button {
+  height: 40px;
+  width: 150px;
+}
+
+button:first-of-type {
+  margin-bottom: 45px;
+}
+
+button:not(:first-of-type) {
+  margin-top: 10px;
+}
+

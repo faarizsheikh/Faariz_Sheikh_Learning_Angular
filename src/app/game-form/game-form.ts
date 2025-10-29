@@ -70,11 +70,11 @@ export class GameForm implements OnInit {
 
     if (this.isEditMode) {
       this.gameService.update(formValue).subscribe(() => {
-        this.router.navigate(['/modify']); // Returns to list
+        this.router.navigate(['/games']); // Returns to list
       });
     } else {
       this.gameService.create(formValue).subscribe(() => {
-        this.router.navigate(['/modify']); // Returns to list
+        this.router.navigate(['/games']); // Returns to list
       });
     }
   }
