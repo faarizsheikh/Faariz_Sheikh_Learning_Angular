@@ -1,6 +1,6 @@
 <div class="game-list">
   <h2>All Games</h2>
-  <button (click)="addNewGame()">Add New Game</button>
+  <button (click)="addNewGame()" class="add-btn">Add New Game</button>
 
   <div *ngFor="let game of games; let i = index" class="game-entry">
     <app-game-list-item [game]="game" [isEven]="i % 2 === 0"></app-game-list-item>

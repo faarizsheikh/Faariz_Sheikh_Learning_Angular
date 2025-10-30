@@ -12,6 +12,7 @@ import {NgClass, NgIf} from '@angular/common';
   templateUrl: './game-list-item.html',
   styleUrls: ['./game-list-item.scss']
 })
+
 export class GameListItem {
   @Input() game?: MyData;
   @Input() isEven: boolean = false;

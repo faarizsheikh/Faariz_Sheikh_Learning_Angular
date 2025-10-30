@@ -1,3 +1,4 @@
+/* -- GAME-FORM STYLING -- */
 form {
   background-color: darkgreen;
   color: #fff;
@@ -15,18 +16,27 @@ form {
   text-align: center;
   padding: 15px;
 
-  input,
-  textarea {
-    width: 230px;
-    padding: 8px;
-    text-align: center;
+  /* DIVS */
+  div {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
   }
 
-  div {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
+  .completed {
+    align-items: center;
+    flex-direction: row;
+    gap: 8px;
+    justify-content: center;
+  }
+
+  /* FORM ELEMENTS */
+  input,
+  textarea {
+    text-align: center;
+    padding: 8px;
+    width: 230px;
+  }
 
   label {
     font: bold 16px sans-serif;
@@ -39,27 +49,23 @@ form {
     width: 500px;
   }
 
-  .completed {
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-  }
-
+  /* BUTTONS */
   .completed input[type="checkbox"] {
-    width: 25px;
     height: 25px;
+    width: 25px;
   }
 
   button {
+    font: bold 15px sans-serif;
     grid-area: submit;
     justify-self: center;
     padding: 8px 16px;
-    font: bold 15px sans-serif;
-    cursor: pointer;
   }
 
-  /* NOTE: I wrote these in single lines to make code cleaner - I learned it from VSC extension: Prettier Formatter */
+  /** APPLYING GRID AREAS
+    * I wrote these in single lines to make code cleaner
+    * I learned it from VSC extension: Prettier Formatter
+   */
   div:nth-of-type(1) { grid-area: title; }
   div:nth-of-type(2) { grid-area: dev; }
   div:nth-of-type(3) { grid-area: genre; }

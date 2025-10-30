@@ -25,19 +25,19 @@ export class GameList implements OnInit {
     this.gameService.getAll().subscribe(data => this.games = data);
   }
 
-  // EDIT button → opens form for existing game
+  // EDIT button ➡ opens form for existing game
   editGame(game: MyData) {
     this.router.navigate(['/modify', game.id]);
   }
 
-  // DELETE button → removes item from list
+  // DELETE button ➡ removes item from list
   deleteGame(game: MyData) {
     if (confirm(`Delete "${game.title}"?`)) {
       this.gameService.delete(game.id).subscribe(() => this.loadGames());
     }
   }
 
-  // ADD button → creates new game
+  // ADD button ➡ creates new game
   addNewGame() {
     this.router.navigate(['/modify/new']);
   }

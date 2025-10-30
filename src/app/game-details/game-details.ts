@@ -11,6 +11,7 @@ import { MyData } from '../models/my-data';
   templateUrl: './game-details.html',
   styleUrls: ['./game-details.scss']
 })
+
 export class GameDetails implements OnInit {
   game?: MyData;
 

@@ -1,21 +1,16 @@
-/* game-list.component.css */
+/* -- GAME-LIST STYLING -- */
 :host {
-  padding: 20px;
   display: block;
+  padding: 20px;
 }
 
-div { cursor: pointer; }
+/* BUTTONS */
+.game-list > button {
+  margin-bottom: 25px;
 
-button {
-  height: 40px;
-  width: 150px;
 }
 
-button:first-of-type {
-  margin-bottom: 45px;
+.game-actions {
+  text-align: center;
+  margin-block: 10px 15px;
 }
-
-button:not(:first-of-type) {
-  margin-top: 10px;
-}
-

@@ -1,4 +1,4 @@
-/* game-list-item.component.scss */
+/* -- GAME-LIST-ITEM STYLING -- */
 .game-list-item {
   background-color: #fff;
   padding: 15px;
@@ -6,6 +6,7 @@
   border-radius: 25px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
+  /* EVEN / ODD CARDS */
   &.even {
     background-color: #330;
 
@@ -18,9 +19,9 @@
     &:hover h2 { color: #00bfff; }
   }
 
+  /* OTHER */
   h2 {
-    color: white;
-    text-align: center;
+    color: #fff;
   }
 
   img {

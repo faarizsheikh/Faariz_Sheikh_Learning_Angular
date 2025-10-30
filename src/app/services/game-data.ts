@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Observable, of} from 'rxjs';
 import {MyData} from '../models/my-data';
 import {MOCK_CONTENT} from '../data/mock-content';
@@ -19,6 +19,9 @@ export class GameDataService {
   }
 
   create(newGame: MyData): Observable<MyData[]> {
+    // Generate new ID
+    newGame.id = this.games.length ? Math.max(...this.games.map(g => g.id)) + 1 : 1;
+
     this.games.push(newGame);
     return of(this.games);
   }

@@ -1,36 +1,9 @@
 /* -- COMPONENT LEVEL STYLING -- */
-h1 {
-  color: #333;
-  font-size: 3.2em;
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-h3 {  font-size: 2.4rem;}
-
 .container {
-  background-color: #f0f0f0;
-  margin: 0 auto;
   padding: 20px;
-  max-width: 600px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.navbar {
-  background: linear-gradient(90deg, #141e30, #243b55);
-  padding: 10px;
-
-  a {
-    font-size: 1.8em;
-    color: #f5f5f5;
-    text-decoration: none;
-    margin-right: 15px;
-    cursor: pointer;
-  }
-
-  a:hover {
-    color: #00e676;
-    text-decoration: underline;
-  }
+h1 {
+  color: #000;
+  margin-bottom: 20px;
 }

@@ -1,8 +1,10 @@
+/* -- GAME-DETAILS STYLING -- */
 .info-p,
 h2 {
   margin: 0;
 }
 
+/* PARAGRAPHS */
 .info-p {
   background-color: #222;
   padding-block: 15px;
@@ -11,9 +13,16 @@ h2 {
 
   p {
     color: #fff;
+
+    &:first-child {margin-top: 10px; }
+
+    &:last-child { margin-bottom: 0; }
+
+    .label-name { font-weight: bold; }
   }
 }
 
+/* OTHER */
 img {
   margin: 0;
   border-radius: 25%;
