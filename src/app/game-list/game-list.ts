@@ -12,6 +12,7 @@ import { NgForOf } from '@angular/common';
   templateUrl: './game-list.html',
   styleUrls: ['./game-list.scss']
 })
+
 export class GameList implements OnInit {
   games: MyData[] = [];
 

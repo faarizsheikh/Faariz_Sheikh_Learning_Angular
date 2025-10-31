@@ -9,6 +9,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './modify-list-item.html',
   styleUrls: ['./modify-list-item.scss']
 })
+
 export class ModifyListItem {
   constructor(private router: Router) {}
 

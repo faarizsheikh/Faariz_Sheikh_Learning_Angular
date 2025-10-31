@@ -8,5 +8,6 @@ import {RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
   templateUrl: './app.html',
   styleUrls: ['./app.scss']
 })
+
 export class App {
 }
