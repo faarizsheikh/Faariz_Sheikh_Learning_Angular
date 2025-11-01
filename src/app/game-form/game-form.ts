@@ -39,7 +39,7 @@ export class GameForm implements OnInit {
       * I will look into it more later, for sure. I am interested in this bonus part.
       */
       id: [''],
-      title: [''],
+      title: ['', Validators.required],
       developer: ['', Validators.required],
       genre: ['', Validators.required],
       yearReleased: ['', [Validators.required, Validators.min(1970), Validators.max(new Date().getFullYear())]],
