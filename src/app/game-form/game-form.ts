@@ -52,11 +52,9 @@ export class GameForm implements OnInit {
 
   ngOnInit(): void {
     // CHECK: If id has route for editing (source: https://v17.angular.io/api/router/ActivatedRouteSnapshot )
-    const idParam = this.route.snapshot.paramMap.get('id');
-    if (idParam) {
-      this.currentId = Number(idParam);
-      this.isEditMode = true;
-      this.gameService.getById(this.currentId).subscribe(game => {
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    if (id) {
+      this.gameService.getGameById(id).subscribe(game => {
         if (game) { /* source: https://v17.angular.io/api/router/ActivatedRouteSnapshot#parammap */
           this.gameForm.patchValue(game);
         }
@@ -64,21 +62,26 @@ export class GameForm implements OnInit {
     }
   }
 
-  submitForm() {
-    if (this.gameForm.invalid) return;
-
-    const formValue: MyData = this.gameForm.value;
-
-    if (this.isEditMode) {
-      this.gameService.update(formValue).subscribe(() => {
-        this.router.navigate(['/games']); // Returns to list
-      });
-    } else {
-      this.gameService.create(formValue).subscribe(() => {
-        this.router.navigate(['/games']); // Returns to list
-      });
+  submitForm(): void {
+    if (this.gameForm.valid) {
+      const game: MyData = this.gameForm.value;
+      if (game.id) {
+        this.gameService.updateGame(game).subscribe(
+          () => this.router.navigate(['/games'])); // Returns to list
+      } else {
+        this.gameService.addGame(game).subscribe(
+          () => this.router.navigate(['/games'])); // Returns to list
+      }
     }
   }
+
+  onDelete(): void {
+    const id = this.gameForm.value.id;
+    if (id) {
+      this.gameService.deleteGame(id).subscribe(() => this.router.navigate(['/games']));
+    }
+  }
+
 
   protected readonly isFormControl = isFormControl;
 }

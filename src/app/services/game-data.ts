@@ -1,45 +1,40 @@
-import {Injectable} from '@angular/core';
-import {Observable, of} from 'rxjs';
-import {MyData} from '../models/my-data';
-import {MOCK_CONTENT} from '../data/mock-content';
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable, map, switchMap } from 'rxjs';
+import { MyData } from '../models/my-data';
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class GameDataService {
-  private games = MOCK_CONTENT;
+  private apiUrl = 'api/games';
 
-  getAll(): Observable<MyData[]> {
-    return of(this.games);
+  constructor(private http: HttpClient) {}
+
+  getGames(): Observable<MyData[]> {
+    return this.http.get<MyData[]>(this.apiUrl);
   }
 
-  getById(id: number): Observable<MyData | undefined> {
-    return of(this.games.find(game => game.id === id));
+  getGameById(id: number): Observable<MyData> {
+    return this.http.get<MyData>(`${this.apiUrl}/${id}`);
   }
 
-  create(newGame: MyData): Observable<MyData[]> {
-    // Generate new ID
-    newGame.id = this.games.length ? Math.max(...this.games.map(g => g.id)) + 1 : 1;
-
-    this.games.push(newGame);
-    return of(this.games);
+  addGame(game: MyData): Observable<MyData> {
+    return this.getGames().pipe(
+      map(games => {
+        const maxId = games.length > 0 ? Math.max(...games.map(g => g.id)) : 0;
+        return { ...game, id: maxId + 1 };
+      }),
+      switchMap(gameWithId => this.http.post<MyData>(this.apiUrl, gameWithId))
+    );
   }
 
-  update(updatedGame: MyData): Observable<MyData[]> {
-    const index = this.games.findIndex(game => game.id === updatedGame.id);
-    if (index > -1) {
-      this.games[index] = updatedGame;
-    }
-    return of(this.games);
+  updateGame(game: MyData): Observable<MyData> {
+    return this.http.put<MyData>(`${this.apiUrl}/${game.id}`, game);
   }
 
-  delete(id: number): Observable<MyData | undefined> {
-    const index = this.games.findIndex(game => game.id === id);
-    if (index > -1) {
-      const removed = this.games.splice(index, 1)[0];
-      return of(removed);
-    }
-    return of(undefined);
+  deleteGame(id: number): Observable<{}> {
+    return this.http.delete(`${this.apiUrl}/${id}`);
   }
 }

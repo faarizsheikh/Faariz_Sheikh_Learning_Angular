@@ -23,7 +23,9 @@ export class GameList implements OnInit {
   }
 
   loadGames() {
-    this.gameService.getAll().subscribe(data => this.games = data);
+    this.gameService.getGames().subscribe((data: MyData[]) => {
+      this.games = data;
+    });
   }
 
   // EDIT button ➡ opens form for existing game
@@ -34,7 +36,7 @@ export class GameList implements OnInit {
   // DELETE button ➡ removes item from list
   deleteGame(game: MyData) {
     if (confirm(`Delete "${game.title}"?`)) {
-      this.gameService.delete(game.id).subscribe(() => this.loadGames());
+      this.gameService.deleteGame(game.id).subscribe(() => this.loadGames());
     }
   }
 

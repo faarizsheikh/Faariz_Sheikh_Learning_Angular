@@ -20,9 +20,10 @@ export class GameDetails implements OnInit {
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
     if (id) {
-      this.gameService.getById(Number(id)).subscribe(game => {
+      this.gameService.getGameById(Number(id)).subscribe((game: MyData) => {
         this.game = game;
       });
     }
   }
+
 }
