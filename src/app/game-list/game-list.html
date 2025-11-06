@@ -2,6 +2,9 @@
   <h2>All Games</h2>
   <button (click)="addNewGame()" class="add-btn">Add New Game</button>
 
+  <!-- error message -->
+  <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+
   <div *ngFor="let game of games; let i = index" class="game-entry">
     <app-game-list-item [game]="game" [isEven]="i % 2 === 0"></app-game-list-item>
 

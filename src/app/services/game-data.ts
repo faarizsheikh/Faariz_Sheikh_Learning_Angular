@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, map, switchMap } from 'rxjs';
+import { Observable } from 'rxjs';
 import { MyData } from '../models/my-data';
 
 @Injectable({
@@ -21,13 +21,23 @@ export class GameDataService {
   }
 
   addGame(game: MyData): Observable<MyData> {
-    return this.getGames().pipe(
-      map(games => {
-        const maxId = games.length > 0 ? Math.max(...games.map(g => g.id)) : 0;
-        return { ...game, id: maxId + 1 };
-      }),
-      switchMap(gameWithId => this.http.post<MyData>(this.apiUrl, gameWithId))
-    );
+    return new Observable<MyData>((observer) => {
+      this.getGames().subscribe({
+        next: (games) => {
+          const maxId = games.length > 0 ? Math.max(...games.map(g => g.id)) : 0;
+          const gameWithId = { ...game, id: maxId + 1 };
+
+          this.http.post<MyData>(this.apiUrl, gameWithId).subscribe({
+            next: (addedGame) => {
+              observer.next(addedGame);
+              observer.complete();
+            },
+            error: (err) => observer.error(err)
+          });
+        },
+        error: (err) => observer.error(err)
+      });
+    });
   }
 
   updateGame(game: MyData): Observable<MyData> {

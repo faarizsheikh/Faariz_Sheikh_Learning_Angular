@@ -22,7 +22,10 @@ import { CommonModule } from '@angular/common';
 export class GameForm implements OnInit {
   gameForm: FormGroup;
   isEditMode: boolean = false;
+  errorMessage: string = '';
+  Date = new Date().getFullYear();
   currentId?: number;
+
 
   constructor(
     private fb: FormBuilder,
@@ -42,7 +45,7 @@ export class GameForm implements OnInit {
       title: ['', Validators.required],
       developer: ['', Validators.required],
       genre: ['', Validators.required],
-      yearReleased: ['', [Validators.required, Validators.min(1970), Validators.max(new Date().getFullYear())]],
+      yearReleased: ['', [Validators.required]],
       platform: ['', Validators.required],
       isCompleted: [false],
       notes: [''],
@@ -51,11 +54,14 @@ export class GameForm implements OnInit {
   }
 
   ngOnInit(): void {
-    // CHECK: If id has route for editing (source: https://v17.angular.io/api/router/ActivatedRouteSnapshot )
     const id = Number(this.route.snapshot.paramMap.get('id'));
+
     if (id) {
+      this.isEditMode = true; // ✅ Mark as edit mode
+      this.currentId = id;
+
       this.gameService.getGameById(id).subscribe(game => {
-        if (game) { /* source: https://v17.angular.io/api/router/ActivatedRouteSnapshot#parammap */
+        if (game) {
           this.gameForm.patchValue(game);
         }
       });
@@ -64,13 +70,27 @@ export class GameForm implements OnInit {
 
   submitForm(): void {
     if (this.gameForm.valid) {
+      this.errorMessage = '';
       const game: MyData = this.gameForm.value;
+
       if (game.id) {
-        this.gameService.updateGame(game).subscribe(
-          () => this.router.navigate(['/games'])); // Returns to list
+        this.gameService.updateGame(game).subscribe({
+          next: () => this.router.navigate(['/games']),
+          error: () =>
+            this.errorMessage =
+              '⚠️ Failed to update game.' +
+              'Try again later.' +
+              'If the issue still persists, contact support at +1 (123) 456 7890.'
+        });
       } else {
-        this.gameService.addGame(game).subscribe(
-          () => this.router.navigate(['/games'])); // Returns to list
+        this.gameService.addGame(game).subscribe({
+          next: () => this.router.navigate(['/games']),
+          error: () =>
+            this.errorMessage =
+              '⚠️ Failed to add game.' +
+              'Try again later.' +
+              'If the issue still persists, contact support at +1 (123) 456 7890.'
+        });
       }
     }
   }
@@ -78,10 +98,17 @@ export class GameForm implements OnInit {
   onDelete(): void {
     const id = this.gameForm.value.id;
     if (id) {
-      this.gameService.deleteGame(id).subscribe(() => this.router.navigate(['/games']));
+      this.errorMessage = '';
+      this.gameService.deleteGame(id).subscribe({
+        next: () => this.router.navigate(['/games']),
+        error: () =>
+          this.errorMessage =
+            '⚠️ Failed to delete game.' +
+            'Try again later.' +
+            'If the issue still persists, contact support at +1 (123) 456 7890.'
+      });
     }
   }
-
 
   protected readonly isFormControl = isFormControl;
 }

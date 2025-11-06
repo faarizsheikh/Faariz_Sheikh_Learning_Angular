@@ -25,5 +25,4 @@ export class GameDetails implements OnInit {
       });
     }
   }
-
 }

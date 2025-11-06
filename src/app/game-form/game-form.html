@@ -1,7 +1,10 @@
 <form [formGroup]="gameForm" (ngSubmit)="submitForm()">
+  <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+
   <div>
     <label for="title">Title:</label>
-    <input id="title" formControlName="title" placeholder="Title" (input)="gameForm.get('title')?.updateValueAndValidity()"/>
+    <input id="title" formControlName="title"
+           placeholder="Title" (input)="gameForm.get('title')?.updateValueAndValidity()"/>
   </div>
 
   <div>
@@ -16,7 +19,8 @@
 
   <div>
     <label for="yearReleased">Year of Release:</label>
-    <input id="yearReleased" formControlName="yearReleased" type="number" placeholder="Year Released" />
+    <input id="yearReleased" formControlName="yearReleased" type="number"
+           placeholder="Year Released" min = "1950" max = {{Date}} />
   </div>
 
   <div>
