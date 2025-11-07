@@ -42,7 +42,7 @@ export const MOCK_CONTENT: MyData[] = [
     genre: "Action-Adventure, Educational, Indie, Puzzle/Strategy, Survival Horror", yearReleased: 2018,
     platform: "PC", isCompleted: false,
     notes: "Fun and quirky educational horror experience.",
-    imageUrl: "assets/baldis_basics_edu_learn.jpeg"},
+    imageUrl: "assets/baldi_basics.jpeg"},
   { id: 8,
     title: "Schoolboy Runaway", developer: "Linked Squad",
     genre: "Action-Adventure, Indie, Puzzle/Strategy, Stealth", yearReleased: 2024,
@@ -65,10 +65,19 @@ export const MOCK_CONTENT: MyData[] = [
     imageUrl: "assets/subway_surfers.jpeg"},
   { id: 11,
     title: "Murder Mystery 2 (Roblox)", developer: "Nikilis",
-    genre: "Horror, Social Deduction, Survival", yearReleased: 2002,
+    genre: "Social Deduction, Survival Horror", yearReleased: 2002,
     platform: "PC", isCompleted: false,
     notes: "Fast-paced and unpredictable gameplay that" +
       "mixes strategy, deception, and survival." +
       "The tension of not knowing who the murderer is makes every round thrilling.",
     imageUrl: "assets/mm2.jpeg"},
+  { id: 12,
+    title: "Survive and Kill the Killers in Area 51 (Roblox)", developer: "Homermafia1",
+    genre: "FPS, Adventure, Survival Horror", yearReleased: 2014,
+    platform: "Roblox, PC", isCompleted: false,
+    notes: "Amazing! You can have so much fun with this game." +
+      "It has so many modes and missions. A game like this," +
+      "where you go down to Area 51, find weapons, survive," +
+      "and kill the killers, NEVER—and I mean NEVER—bores you.",
+    imageUrl: "assets/blox_saktkia51.jpeg"},
 ];

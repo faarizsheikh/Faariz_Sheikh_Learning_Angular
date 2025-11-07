@@ -10,61 +10,36 @@ export class InMemoryDataService implements InMemoryDbService {
 
   createDb(): { games: MyData[] } {
     const games: MyData[] = [
-      {
-        id: 1,
-        title: "Granny 1",
-        developer: "DVloper (Dennis Vukanovic), DVapps AB",
-        genre: "Action-Adventure, Indie, Puzzle/Strategy, Survival Horror",
-        yearReleased: 2017,
-        platform: "iOS",
-        isCompleted: true,
+      { id: 1,
+        title: "Granny 1", developer: "DVloper (Dennis Vukanovic), DVapps AB",
+        genre: "Action-Adventure, Indie, Puzzle/Strategy, Survival Horror", yearReleased: 2017,
+        platform: "iOS", isCompleted: true,
         notes: "Spooky, suspenseful gameplay with multiple endings.",
-        imageUrl: "assets/granny.jpeg"
-      },
-      {
-        id: 2,
-        title: "Boom Beach",
-        developer: "SuperCell, Space Ace Games",
-        genre: "Real-Time Strategy, Shooter",
-        yearReleased: 2014,
-        platform: "iOS",
-        isCompleted: false,
+        imageUrl: "assets/granny.jpeg"},
+      { id: 2,
+        title: "Boom Beach", developer: "SuperCell, Space Ace Games",
+        genre: "Real-Time Strategy, Shooter", yearReleased: 2014,
+        platform: "iOS", isCompleted: false,
         notes: "One of the most balanced mobile strategy games I’ve played.",
-        imageUrl: "assets/boom_beach.jpeg"
-      },
-      {
-        id: 3,
-        title: "Five Nights At Freddy's",
-        developer: "Scott Cawthon, Scottgames",
-        genre: "Action-Adventure, Graphic Adventure, Indie, Simulation, Survival Horror",
-        yearReleased: 2014,
-        platform: "PC",
-        isCompleted: true,
+        imageUrl: "assets/boom_beach.jpeg"},
+      { id: 3,
+        title: "Five Nights At Freddy\'s", developer: "Scott Cawthon, Scottgames",
+        genre: "Action-Adventure, Graphic Adventure, Indie, Simulation, Survival Horror", yearReleased: 2014,
+        platform: "PC", isCompleted: true,
         notes: "Tense jump-scare experience where players monitor cameras to survive animatronic attacks.",
-        imageUrl: "assets/fnaf.jpeg"
-      },
-      {
-        id: 4,
-        title: "Assassin's Creed 1",
-        developer: "Ubisoft, Ubisoft Montréal",
-        genre: "Action-Adventure, Non-Linear, Open World, Stealth",
-        yearReleased: 2007,
-        platform: "PlayStation 5",
-        isCompleted: false,
+        imageUrl: "assets/fnaf.jpeg"},
+      { id: 4,
+        title: "Assassin\'s Creed 1", developer: "Ubisoft, Ubisoft Montréal",
+        genre: "Action-Adventure, Non-Linear, Open World, Stealth", yearReleased: 2007,
+        platform: "PlayStation 5", isCompleted: false,
         notes: "Immersive historical settings with stealth mechanics and parkour-based exploration.",
-        imageUrl: "assets/assassins_creed.jpeg"
-      },
-      {
-        id: 5,
-        title: "The Rainman",
-        developer: "CopperBolt (Daniel Weldink)",
-        genre: "Action-Adventure, Indie, Survival Horror",
-        yearReleased: 2023,
-        platform: "PC",
-        isCompleted: true,
+        imageUrl: "assets/assassins_creed.jpeg"},
+      { id: 5,
+        title: "The Rainman", developer: "CopperBolt (Daniel Weldink)",
+        genre: "Action-Adventure, Indie, Survival Horror", yearReleased: 2023,
+        platform: "PC", isCompleted: true,
         notes: "Intense atmosphere with a gripping narrative.",
-        imageUrl: "assets/rainman.jpeg"
-      },
+        imageUrl: "assets/rainman.jpeg"},
       { id: 6,
         title: "Piggy: Book 1 (Roblox)", developer: "MiniToon (Kohl Couture), IK3As",
         genre: "Action-Adventure, Episodic, Multiplayer, Puzzle/Strategy, Survival Horror", yearReleased: 2020,
@@ -76,7 +51,7 @@ export class InMemoryDataService implements InMemoryDbService {
         genre: "Action-Adventure, Educational, Indie, Puzzle/Strategy, Survival Horror", yearReleased: 2018,
         platform: "PC", isCompleted: false,
         notes: "Fun and quirky educational horror experience.",
-        imageUrl: "assets/baldis_basics_edu_learn.jpeg"},
+        imageUrl: "assets/baldi_basics.jpeg"},
       { id: 8,
         title: "Schoolboy Runaway", developer: "Linked Squad",
         genre: "Action-Adventure, Indie, Puzzle/Strategy, Stealth", yearReleased: 2024,
@@ -99,12 +74,21 @@ export class InMemoryDataService implements InMemoryDbService {
         imageUrl: "assets/subway_surfers.jpeg"},
       { id: 11,
         title: "Murder Mystery 2 (Roblox)", developer: "Nikilis",
-        genre: "Horror, Social Deduction, Survival", yearReleased: 2002,
+        genre: "Social Deduction, Survival Horror", yearReleased: 2002,
         platform: "PC", isCompleted: false,
         notes: "Fast-paced and unpredictable gameplay that" +
           "mixes strategy, deception, and survival." +
           "The tension of not knowing who the murderer is makes every round thrilling.",
         imageUrl: "assets/mm2.jpeg"},
+      { id: 12,
+        title: "Survive and Kill the Killers in Area 51 (Roblox)", developer: "Homermafia1",
+        genre: "FPS, Adventure, Survival Horror", yearReleased: 2014,
+        platform: "Roblox, PC", isCompleted: false,
+        notes: "Amazing! You can have so much fun with this game." +
+          "It has so many modes and missions. A game like this," +
+          "where you go down to Area 51, find weapons, survive," +
+          "and kill the killers, NEVER—and I mean NEVER—bores you.",
+        imageUrl: "assets/blox_saktkia51.jpeg"},
     ];
     return { games };
   }
