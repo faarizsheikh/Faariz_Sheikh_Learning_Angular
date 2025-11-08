@@ -7,6 +7,7 @@ form {
     "title dev"
     "genre year"
     "platform img"
+    "price price"
     "notes notes"
     "completed completed"
     "submit submit";
@@ -71,7 +72,8 @@ form {
   div:nth-of-type(3) { grid-area: genre; }
   div:nth-of-type(4) { grid-area: year; }
   div:nth-of-type(5) { grid-area: platform; }
-  div:nth-of-type(6) { grid-area: img; }
+  div:nth-of-type(6) { grid-area: price; }
+  div:nth-of-type(7) { grid-area: img; }
   .notes { grid-area: notes; }
   .completed { grid-area: completed; }
 }

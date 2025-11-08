@@ -1,13 +1,14 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {MyData} from '../models/my-data';
-import {NgClass, NgIf} from '@angular/common';
+import {NgClass, NgIf, TitleCasePipe} from '@angular/common';
 
 @Component({
   selector: 'app-game-list-item',
   standalone: true,
   imports: [
     NgClass,
-    NgIf
+    NgIf,
+    TitleCasePipe
   ],
   templateUrl: './game-list-item.html',
   styleUrls: ['./game-list-item.scss']

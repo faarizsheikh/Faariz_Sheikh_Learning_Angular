@@ -47,6 +47,7 @@ export class GameForm implements OnInit {
       genre: ['', Validators.required],
       yearReleased: ['', [Validators.required]],
       platform: ['', Validators.required],
+      price: ['', [Validators.required]],
       isCompleted: [false],
       notes: [''],
       imageUrl: ['', Validators.required]

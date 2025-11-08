@@ -25,4 +25,6 @@ export class GameDetails implements OnInit {
       });
     }
   }
+
+  protected readonly isNaN = isNaN;
 }

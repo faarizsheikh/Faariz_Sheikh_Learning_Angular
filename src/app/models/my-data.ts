@@ -8,7 +8,8 @@ export interface MyData extends ExtraInfo {
   developer: string;
   genre: string;
   yearReleased: number;
-  platform: string
+  platform: string;
+  price: number;
   isCompleted: boolean;
   imageUrl: string;
 }
