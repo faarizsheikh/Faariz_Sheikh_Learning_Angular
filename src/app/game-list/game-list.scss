@@ -16,11 +16,11 @@
 }
 
 .error {
-  display: block;
   background: #ffe0e0;
   color: #a30000;
+  font-weight: 500;
+  display: block;
+  margin-bottom: 12px;
   padding: 8px;
   border-radius: 6px;
-  margin-bottom: 12px;
-  font-weight: 500;
 }
