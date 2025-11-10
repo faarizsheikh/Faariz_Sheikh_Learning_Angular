@@ -33,23 +33,20 @@ export class GameForm implements OnInit {
     private route: ActivatedRoute
   ) {
     this.gameForm = this.fb.group({
-      /*
-      VALIDATION - MOST code was removed due to the form not being able to submit. It's bonus anyway :(
-      (Sense of humour. Not to be taken seriously.)
-      * Though, it was working before...
-      * I must've done something like removing/changing something after successful run of the validations.
-      * I will look into it more later, for sure. I am interested in this bonus part.
-      */
       id: [''],
-      title: ['', [Validators.required]],
-      developer: ['', [Validators.required]],
-      genre: ['', [Validators.required]],
-      yearReleased: ['', [Validators.required, Validators.min(1950), Validators.max(this.Date)]],
-      platform: ['', [Validators.required]],
-      price: ['', [Validators.required]],
+      title: ['', [Validators.required, this.noWhitespaceValidator]],
+      sequentialNumbering: [''],
+      developer: ['', [Validators.required, this.noWhitespaceValidator]],
+      genre: ['', [Validators.required, this.noWhitespaceValidator]],
+      yearReleased: [
+        '',
+        [Validators.required, Validators.min(1950), Validators.max(this.Date)]
+      ],
+      platform: ['', [Validators.required, this.noWhitespaceValidator]],
+      price: [''],
       isCompleted: [false],
       notes: [''],
-      imageUrl: ['', [Validators.required]]
+      imageUrl: ['', [Validators.required, this.noWhitespaceValidator]],
     });
   }
 
@@ -72,25 +69,24 @@ export class GameForm implements OnInit {
     const messages: string[] = [];
     const controls = this.gameForm.controls;
 
-    if (controls['title'].hasError('required'))
+    if (controls['title'].hasError('whitespace'))
       messages.push('Title is required.');
-    if (controls['developer'].hasError('required'))
+    if (controls['developer'].hasError('whitespace'))
       messages.push('Developer is required.');
-    if (controls['genre'].hasError('required'))
+    if (controls['genre'].hasError('whitespace'))
       messages.push('Genre is required.');
     if (controls['yearReleased'].hasError('required'))
       messages.push('Year of release is required.');
     if (controls['yearReleased'].hasError('min') || controls['yearReleased'].hasError('max'))
       messages.push(`Year must be between 1950 and ${this.Date}.`);
-    if (controls['platform'].hasError('required'))
-      messages.push('Platform is required.');
+    if (controls['platform'].hasError('whitespace'))
+      messages.push('Platform cannot be empty or only spaces.');
+    if (controls['imageUrl'].hasError('whitespace'))
+      messages.push('Image URL is required.');
     if (controls['price'].hasError('required'))
       messages.push('Price is required.');
-    if (controls['price'].hasError('min'))
-      messages.push('Price must be a positive number.');
-    if (controls['imageUrl'].hasError('required'))
-      messages.push('Image URL is required.');
-
+    if (controls['price'].hasError('min') || controls['price'].hasError('max'))
+      messages.push(`Price must be between 0 (free) and 99999.`);
     return messages;
   }
 
@@ -131,5 +127,10 @@ export class GameForm implements OnInit {
     }
   }
 
+  noWhitespaceValidator(control: any) {
+    const isWhitespace = (control.value || '').trim().length === 0;
+    const isValid = !isWhitespace;
+    return isValid ? null : { whitespace: true };
+  }
   protected readonly isFormControl = isFormControl;
 }

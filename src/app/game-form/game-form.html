@@ -8,19 +8,25 @@
   <!-- Title -->
   <div>
     <label for="title">Title:</label>
-    <input id="title" formControlName="title" placeholder="Title" />
+    <input id="title" formControlName="title" placeholder="Call of Duty: Black Ops" />
+  </div>
+
+  <!-- Sequential Order -->
+  <div>
+    <label for="sequentialNumbering">Sequential Order:</label>
+    <input id="sequentialNumbering" formControlName="sequentialNumbering" type="number" placeholder="1" />
   </div>
 
   <!-- Developer -->
   <div>
     <label for="developer">Developer:</label>
-    <input id="developer" formControlName="developer" placeholder="Developer" />
+    <input id="developer" formControlName="developer" placeholder="Activision" />
   </div>
 
   <!-- Genre -->
   <div>
     <label for="genre">Genre:</label>
-    <input id="genre" formControlName="genre" placeholder="Genre" />
+    <input id="genre" formControlName="genre" placeholder="Action, FPS, Multiplayer..." />
   </div>
 
   <!-- Year Released -->
@@ -30,7 +36,7 @@
       id="yearReleased"
       formControlName="yearReleased"
       type="number"
-      placeholder="Year Released"
+      placeholder="2010"
       min="1950"
       [max]="Date"
     />
@@ -39,19 +45,23 @@
   <!-- Platform -->
   <div>
     <label for="platform">Platform:</label>
-    <input id="platform" formControlName="platform" placeholder="Platform" />
+    <input id="platform" formControlName="platform" placeholder="Mobile, PC, PlayStation, XBox..." />
   </div>
 
   <!-- Price -->
   <div>
     <label for="price">Price:</label>
-    <input id="price" formControlName="price" type="number" placeholder="Price" />
+    <input id="price" formControlName="price" type="number" placeholder="$39.99" [min] = "0" />
   </div>
 
   <!-- Image URL -->
   <div>
     <label for="imageUrl">Image URL:</label>
-    <input id="imageUrl" formControlName="imageUrl" placeholder="Image URL" />
+    <input
+      id="imageUrl"
+      formControlName="imageUrl"
+      placeholder="https://www.google.com/images/cod-bo1-banner.jpeg"
+    />
   </div>
 
   <!-- Notes -->
@@ -61,7 +71,7 @@
       id="notes"
       maxlength="300"
       formControlName="notes"
-      placeholder="Notes"
+      placeholder="Fun, multiplayer game with various modes and weapons."
     ></textarea>
   </div>
 
