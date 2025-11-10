@@ -1,11 +1,22 @@
-<div *ngIf="game" class="game-list-item" [ngClass]="isEven ? 'even' : 'odd'">
-  <img
-    [src]="game.imageUrl"
-    [alt]="
-    (game.title.trim() | titlecase) + ' by ' + game.developer.trim().split(',')[0] | titlecase"
-    [title]="(game.title.trim() | titlecase) + ' by ' + game.developer.trim().split(',')[0] | titlecase"
-    class="game-image"
-  />
+@if (game) {
+  <div class="game-list-item" [ngClass]="isEven ? 'even' : 'odd'">
+    <img
+      [src]="game.imageUrl"
 
-  <h2>{{ game.title.trim() | titlecase }}</h2>
-</div>
+      [alt]="
+        (game.title.trim() | Normalizespaces | Titlecase) +
+        ' by ' +
+        (game.developer.trim().split(',')[0] | Normalizespaces | titlecase)
+      "
+
+      [title]="
+        (game.title.trim() | Normalizespaces | Titlecase) +
+        ' by ' +
+        (game.developer.trim().split(',')[0] | Normalizespaces | titlecase)
+      "
+      class="game-image"
+    />
+
+    <h2>{{ game | GamenameYear | Normalizespaces | Titlecase }}</h2>
+  </div>
+}

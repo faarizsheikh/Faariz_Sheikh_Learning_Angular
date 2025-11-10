@@ -1,52 +1,76 @@
-<form [formGroup]="gameForm" (ngSubmit)="submitForm()">
-  <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+<div class="err-box">
+  @if (errorMessage) {
+    <div class="error-box">{{ errorMessage }}</div>
+  }
+</div>
 
+<form [formGroup]="gameForm" (ngSubmit)="submitForm()">
+  <!-- Title -->
   <div>
     <label for="title">Title:</label>
-    <input id="title" formControlName="title"
-           placeholder="Title" (input)="gameForm.get('title')?.updateValueAndValidity()"/>
+    <input id="title" formControlName="title" placeholder="Title" />
   </div>
 
+  <!-- Developer -->
   <div>
     <label for="developer">Developer:</label>
     <input id="developer" formControlName="developer" placeholder="Developer" />
   </div>
 
+  <!-- Genre -->
   <div>
     <label for="genre">Genre:</label>
     <input id="genre" formControlName="genre" placeholder="Genre" />
   </div>
 
+  <!-- Year Released -->
   <div>
     <label for="yearReleased">Year of Release:</label>
-    <input id="yearReleased" formControlName="yearReleased" type="number"
-           placeholder="Year Released" min = "1950" max = {{Date}} />
+    <input
+      id="yearReleased"
+      formControlName="yearReleased"
+      type="number"
+      placeholder="Year Released"
+      min="1950"
+      [max]="Date"
+    />
   </div>
 
+  <!-- Platform -->
   <div>
     <label for="platform">Platform:</label>
     <input id="platform" formControlName="platform" placeholder="Platform" />
   </div>
 
+  <!-- Price -->
   <div>
-    <label for="platform">Price:</label>
-    <input id="platform" formControlName="price" placeholder="Price" />
+    <label for="price">Price:</label>
+    <input id="price" formControlName="price" type="number" placeholder="Price" />
   </div>
 
+  <!-- Image URL -->
   <div>
     <label for="imageUrl">Image URL:</label>
     <input id="imageUrl" formControlName="imageUrl" placeholder="Image URL" />
   </div>
 
+  <!-- Notes -->
   <div class="notes">
     <label for="notes">Notes (optional):</label>
-    <textarea id="notes" maxlength="300" formControlName="notes" placeholder="Notes"></textarea>
+    <textarea
+      id="notes"
+      maxlength="300"
+      formControlName="notes"
+      placeholder="Notes"
+    ></textarea>
   </div>
 
+  <!-- Completed -->
   <div class="completed">
     <label for="isCompleted">Completed:</label>
     <input id="isCompleted" type="checkbox" formControlName="isCompleted" />
   </div>
 
+  <!-- Submit -->
   <button type="submit">{{ isEditMode ? 'Update' : 'Add' }}</button>
 </form>

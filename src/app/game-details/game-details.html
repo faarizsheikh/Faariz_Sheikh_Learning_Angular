@@ -1,76 +1,110 @@
-<div *ngIf="game; else notFound" class="game-details">
-  <h2>{{ game.title }}</h2>
-
-  <img
-    [src]="game.imageUrl"
-    [alt]="
-    (game.title.trim() | titlecase) + ' by ' + game.developer.trim().split(',')[0] | titlecase"
-    [title]="(game.title.trim() | titlecase) + ' by ' + game.developer.trim().split(',')[0] | titlecase"
-    class="game-image"
-  />
-
-  <div class="info-p">
-    <p><span class="label-name">ID:</span> {{ game.id }}</p>
-
-    <p><span class="label-name">
-      {{
-        (game.developer.split(',').length || 0)
-          | i18nPlural : {
-          '=1': 'Developer:',
-          'other': 'Developers:'
-        }
-      }}
-    </span>
-      {{ game.developer.trim().replaceAll(',', ' |') | titlecase}}
-    </p>
-
-    <p><span class="label-name">
-      {{
-        (game.genre.split(',').length || 0)
-          | i18nPlural : {
-          '=1': 'Genre:',
-          'other': 'Genres:'
-        }
-      }}
-    </span>
-      {{ game.genre.trim().replaceAll(',', ' |') | titlecase }}
-    </p>
-
-    <p><span class="label-name">Year Released:</span> {{ game.yearReleased }}</p>
-
-    <p><span class="label-name">
-      {{
-        (game.platform.split(',').length || 0)
-          | i18nPlural : {
-          '=1': 'Platform:',
-          'other': 'Platforms:'
-        }
-      }}
-    </span>
-      {{ game.platform.trim().replaceAll(',', ' |') | titlecase}}
-    </p>
-
-    <p><span class="label-name">
-      Price:</span> {{    !isNaN(+game.price)
-      ? (+game.price === 0 ? 'Free' : ('$' + (+game.price | number:'1.2-2')))
-      : 'N/A'}}</p>
-
-    <p>
-      <span class="label-name">Notes: </span>
-      <span *ngIf="game.notes; else noNotes">{{ game.notes }}</span>
-      <ng-template #noNotes>N/A</ng-template>
-    </p>
-
-    <p>
-      <span class="label-name">Status: </span>
-      <span [ngClass]="game.isCompleted ? 'status-completed' : 'status-incomplete'">
-        {{ game.isCompleted ? 'Completed' : 'Incomplete' }}
-      </span>
-    </p>
+@if (loading) {
+  <div class="loading-screen">
+    <p>🧐 Loading game details...</p>
+    <div class="spinner"></div>
   </div>
-</div>
+} @else {
+  @if (game) {
+    <div class="game-details">
+      <!-- Title -->
+      <h2>{{ game.title.trim() | Normalizespaces | Titlecase }}</h2>
 
-<ng-template #notFound>
-  <p>Game not found.</p>
-  <a routerLink="/">Back to Home</a>
-</ng-template>
+      <!-- Image -->
+      <img
+        [src]="game.imageUrl"
+        [alt]="
+          (game.title.trim() | Normalizespaces | Titlecase) +
+          ' by ' +
+          (game.developer.trim().split(',')[0] | Normalizespaces | titlecase)
+        "
+        [title]="
+          (game.title.trim() | Normalizespaces | Titlecase) +
+          ' by ' +
+          (game.developer.trim().split(',')[0] | Normalizespaces | titlecase)
+        "
+        class="game-image"
+      />
+
+      <div class="info-p">
+        <!-- ID -->
+        <p><span class="label-name">ID:</span> {{ game.id }}</p>
+
+        <!-- Sequential Numbering -->
+        <p><span class="label-name">
+          Sequential Numbering:</span> {{ game.sequentialNumbering ? game.sequentialNumbering : 'N/A'}}</p>
+
+        <!-- Developer -->
+        <p>
+          <span class="label-name">
+            {{
+              (game.developer.trim().split(',').length || 0)
+                | i18nPlural: { '=1': 'Developer:', other: 'Developers:' }
+            }}
+          </span>
+          {{ game.developer.trim().replaceAll(',', ' |') | Titlecase }}
+        </p>
+
+        <!-- Genre -->
+        <p>
+          <span class="label-name">
+            {{
+              (game.genre.trim().split(',').length || 0)
+                | i18nPlural: { '=1': 'Genre:', other: 'Genres:' }
+            }}
+          </span>
+          {{ game.genre.trim().replaceAll(',', ' |') | Titlecase }}
+        </p>
+
+        <!-- Year Released -->
+        <p>
+          <span class="label-name">Year Released:</span>
+          {{ game.yearReleased }}
+        </p>
+
+        <!-- Platform -->
+        <p>
+          <span class="label-name">
+            {{
+              (game.platform.trim().split(',').length || 0)
+                | i18nPlural: { '=1': 'Platform:', other: 'Platforms:' }
+            }}
+          </span>
+          {{ game.platform.trim().replaceAll(',', ' |') | Titlecase }}
+        </p>
+
+        <!-- Price -->
+        <p>
+          <span class="label-name">Price:</span>
+          {{
+            !isNaN(+game.price)
+              ? (+game.price === 0
+                ? 'Free'
+                : ('$' + (+game.price | number: '1.2-2')))
+              : 'N/A'
+          }}
+        </p>
+
+        <!-- Notes -->
+        <p>
+          <span class="label-name">Notes:</span>
+          @if (game.notes) {
+            {{ game.notes.trim() }}
+          } @else {
+            N/A
+          }
+        </p>
+
+        <!-- Status -->
+        <p>
+          <span class="label-name">Status:</span>
+          <span [ngClass]="game.isCompleted ? 'status-completed' : 'status-incomplete'">
+            {{ game.isCompleted ? 'Completed' : 'Incomplete' }}
+          </span>
+        </p>
+      </div>
+    </div>
+  } @else {
+    <p>Game not found.</p>
+    <a routerLink="/">Back to Home</a>
+  }
+}

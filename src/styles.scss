@@ -91,3 +91,26 @@ button:not(.add-btn, .return-home) {
     text-decoration: underline;
   }
 }
+
+.loading-screen {
+  text-align: center;
+  margin-top: 50px;
+  font-style: italic;
+  color: #888;
+}
+
+.spinner {
+  width: 30px;
+  height: 30px;
+  margin: 1rem auto;
+  border: 3px solid #ccc;
+  border-top-color: #00bcd4;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

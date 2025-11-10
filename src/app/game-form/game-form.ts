@@ -6,7 +6,7 @@ import {
   ReactiveFormsModule,
   Validators
 } from '@angular/forms';
-import { GameDataService } from '../services/game-data';
+import { GameDataService } from '../services/game-data-service';
 import { MyData } from '../models/my-data';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
@@ -26,7 +26,6 @@ export class GameForm implements OnInit {
   Date = new Date().getFullYear();
   currentId?: number;
 
-
   constructor(
     private fb: FormBuilder,
     private gameService: GameDataService,
@@ -42,15 +41,15 @@ export class GameForm implements OnInit {
       * I will look into it more later, for sure. I am interested in this bonus part.
       */
       id: [''],
-      title: ['', Validators.required],
-      developer: ['', Validators.required],
-      genre: ['', Validators.required],
-      yearReleased: ['', [Validators.required]],
-      platform: ['', Validators.required],
+      title: ['', [Validators.required]],
+      developer: ['', [Validators.required]],
+      genre: ['', [Validators.required]],
+      yearReleased: ['', [Validators.required, Validators.min(1950), Validators.max(this.Date)]],
+      platform: ['', [Validators.required]],
       price: ['', [Validators.required]],
       isCompleted: [false],
       notes: [''],
-      imageUrl: ['', Validators.required]
+      imageUrl: ['', [Validators.required]]
     });
   }
 
@@ -58,7 +57,7 @@ export class GameForm implements OnInit {
     const id = Number(this.route.snapshot.paramMap.get('id'));
 
     if (id) {
-      this.isEditMode = true; // ✅ Mark as edit mode
+      this.isEditMode = true;
       this.currentId = id;
 
       this.gameService.getGameById(id).subscribe(game => {
@@ -69,30 +68,51 @@ export class GameForm implements OnInit {
     }
   }
 
+  private collectValidationErrors(): string[] {
+    const messages: string[] = [];
+    const controls = this.gameForm.controls;
+
+    if (controls['title'].hasError('required'))
+      messages.push('Title is required.');
+    if (controls['developer'].hasError('required'))
+      messages.push('Developer is required.');
+    if (controls['genre'].hasError('required'))
+      messages.push('Genre is required.');
+    if (controls['yearReleased'].hasError('required'))
+      messages.push('Year of release is required.');
+    if (controls['yearReleased'].hasError('min') || controls['yearReleased'].hasError('max'))
+      messages.push(`Year must be between 1950 and ${this.Date}.`);
+    if (controls['platform'].hasError('required'))
+      messages.push('Platform is required.');
+    if (controls['price'].hasError('required'))
+      messages.push('Price is required.');
+    if (controls['price'].hasError('min'))
+      messages.push('Price must be a positive number.');
+    if (controls['imageUrl'].hasError('required'))
+      messages.push('Image URL is required.');
+
+    return messages;
+  }
+
   submitForm(): void {
     if (this.gameForm.valid) {
       this.errorMessage = '';
       const game: MyData = this.gameForm.value;
 
-      if (game.id) {
-        this.gameService.updateGame(game).subscribe({
-          next: () => this.router.navigate(['/games']),
-          error: () =>
-            this.errorMessage =
-              '⚠️ Failed to update game.' +
-              'Try again later.' +
-              'If the issue still persists, contact support at +1 (123) 456 7890.'
-        });
-      } else {
-        this.gameService.addGame(game).subscribe({
-          next: () => this.router.navigate(['/games']),
-          error: () =>
-            this.errorMessage =
-              '⚠️ Failed to add game.' +
-              'Try again later.' +
-              'If the issue still persists, contact support at +1 (123) 456 7890.'
-        });
-      }
+      const request$ = this.isEditMode
+        ? this.gameService.updateGame(game)
+        : this.gameService.addGame(game);
+
+      request$.subscribe({
+        next: () => this.router.navigate(['/games']),
+        error: () =>
+          (this.errorMessage =
+            '⚠️ Operation failed. Try again later. If it persists, contact support.')
+      });
+    } else {
+      const errors = this.collectValidationErrors();
+      this.errorMessage = errors.join(' ');
+      this.gameForm.markAllAsTouched();
     }
   }
 

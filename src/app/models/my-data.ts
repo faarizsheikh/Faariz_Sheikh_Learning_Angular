@@ -5,6 +5,7 @@ export interface ExtraInfo {
 export interface MyData extends ExtraInfo {
   id: number;
   title: string;
+  sequentialNumbering?: number;
   developer: string;
   genre: string;
   yearReleased: number;

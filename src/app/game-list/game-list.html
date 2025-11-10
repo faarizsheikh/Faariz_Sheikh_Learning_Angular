@@ -2,16 +2,36 @@
   <h2>All Games</h2>
   <button (click)="addNewGame()" class="add-btn">Add New Game</button>
 
-  <!-- error message -->
-  <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
-
-  <div *ngFor="let game of games; let i = index" class="game-entry">
-    <app-game-list-item [game]="game" [isEven]="i % 2 === 0"></app-game-list-item>
-
-    <div class="game-actions">
-      <button (click)="editGame(game)">Edit</button>
-      <button (click)="deleteGame(game)">Delete</button>
-      <button [routerLink]="['/games', game.id]">View Details</button>
+  <!-- Show loading animation -->
+  @if (loading) {
+    <div class="loading-screen">
+      <p>🎮 Loading games...</p>
+      <div class="spinner"></div>
     </div>
-  </div>
+  } @else {
+    <!-- Error message -->
+    @if (errorMessage) {
+      <div class="error">{{ errorMessage }}</div>
+    }
+
+    <!-- Show games list -->
+    @if (games.length > 0) {
+      @for (game of games; track game.id; let i = $index) {
+        <div class="game-entry">
+          <app-game-list-item
+            [game]="game"
+            [isEven]="i % 2 === 0">
+          </app-game-list-item>
+
+          <div class="game-actions">
+            <button (click)="editGame(game)">Edit</button>
+            <button (click)="deleteGame(game)">Delete</button>
+            <button [routerLink]="['/games', game.id]">View Details</button>
+          </div>
+        </div>
+      }
+    } @else {
+      <p class="no-games">No games found.</p>
+    }
+  }
 </div>
