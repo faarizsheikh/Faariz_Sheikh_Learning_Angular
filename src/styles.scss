@@ -76,7 +76,10 @@ button:not(.add-btn, .return-home) {
 .navbar {
   background: linear-gradient(90deg, #141e30, #243b55);
   text-align: center;
-  padding: 10px;
+
+  li {
+    list-style: none;
+  }
 
   a {
     color: #f5f5f5;
@@ -89,6 +92,28 @@ button:not(.add-btn, .return-home) {
   a:hover {
     color: #00e676;
     text-decoration: underline;
+  }
+}
+
+.navbar:last-of-type {
+  ul {
+    padding-block: 15px;
+  }
+
+  li {
+    text-align: center;
+    width: 100%;
+    float: left;
+    overflow: hidden;
+  }
+
+  a {
+    display: block;
+  }
+
+  p {
+    color: white;
+    display: inline-block;
   }
 }
 

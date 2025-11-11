@@ -1,3 +1,5 @@
+<h2 type="submit">{{ isEditMode ? 'Update an existing game' : 'Add a new game' }}</h2>
+
 <div class="err-box">
   @if (errorMessage) {
     <div class="error-box">{{ errorMessage }}</div>
@@ -14,7 +16,12 @@
   <!-- Sequential Order -->
   <div>
     <label for="sequentialNumbering">Sequential Order:</label>
-    <input id="sequentialNumbering" formControlName="sequentialNumbering" type="number" placeholder="1" />
+    <input
+      id="sequentialNumbering"
+      formControlName="sequentialNumbering"
+      type="number" placeholder="1"
+      [min] = "0"
+      [max] = "1000" />
   </div>
 
   <!-- Developer -->

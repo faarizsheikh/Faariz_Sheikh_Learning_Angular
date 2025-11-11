@@ -22,7 +22,11 @@ import { CommonModule } from '@angular/common';
 export class GameForm implements OnInit {
   gameForm: FormGroup;
   isEditMode: boolean = false;
-  errorMessage: string = '';
+  /**
+   * Added trim
+   * In case if I ever add extra space(s) accidentally and enable the error message box
+   **/
+  errorMessage: string = ''.trim();
   Date = new Date().getFullYear();
   currentId?: number;
 
@@ -71,6 +75,8 @@ export class GameForm implements OnInit {
 
     if (controls['title'].hasError('whitespace'))
       messages.push('Title is required.');
+    if (controls['sequentialNumbering'].hasError('min') || controls['sequentialNumbering'].hasError('max'))
+      messages.push(`Sequential number must be between 0 and 1000.`);
     if (controls['developer'].hasError('whitespace'))
       messages.push('Developer is required.');
     if (controls['genre'].hasError('whitespace'))
@@ -80,7 +86,7 @@ export class GameForm implements OnInit {
     if (controls['yearReleased'].hasError('min') || controls['yearReleased'].hasError('max'))
       messages.push(`Year must be between 1950 and ${this.Date}.`);
     if (controls['platform'].hasError('whitespace'))
-      messages.push('Platform cannot be empty or only spaces.');
+      messages.push('Platform is required.');
     if (controls['imageUrl'].hasError('whitespace'))
       messages.push('Image URL is required.');
     if (controls['price'].hasError('required'))
@@ -103,7 +109,7 @@ export class GameForm implements OnInit {
         next: () => this.router.navigate(['/games']),
         error: () =>
           (this.errorMessage =
-            '⚠️ Operation failed. Try again later. If it persists, contact support.')
+            '⚠️ Operation failed. Try again later. If it persists, contact support at +1 (123) 456 7890.')
       });
     } else {
       const errors = this.collectValidationErrors();
