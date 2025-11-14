@@ -5,11 +5,12 @@ import { GameDataService } from '../services/game-data-service';
 import { MyData } from '../models/my-data';
 import {NormalizeSpacesPipe} from '../pipes/custom-normalize-spaces.pipe';
 import {CustomTitlecasePipe} from '../pipes/custom-titlecase.pipe';
+import {GameStatusColorPipe} from '../pipes/custom-game-status-colour.pipe';
 
 @Component({
   selector: 'app-game-details',
   standalone: true,
-  imports: [CommonModule, RouterLink, NormalizeSpacesPipe, CustomTitlecasePipe],
+  imports: [CommonModule, RouterLink, NormalizeSpacesPipe, CustomTitlecasePipe, GameStatusColorPipe],
   templateUrl: './game-details.html',
   styleUrls: ['./game-details.scss']
 })

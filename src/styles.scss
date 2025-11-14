@@ -27,7 +27,11 @@ p {
 
 /* STATUS COLOURS */
 .status-completed,
-.status-incomplete { font-weight: bold; }
+.status-incomplete {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+}
 
 .status-completed { color: #00e676; }
 .status-incomplete { color: #ff5252; }

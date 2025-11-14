@@ -7,18 +7,31 @@ h2 {
 /* PARAGRAPHS */
 .info-p {
   background-color: #222;
-  padding-block: 15px;
+  padding-block: 15px 35px;
   padding-inline: 75px;
   border-radius: 75px;
 
   p {
     color: #fff;
+    margin: 0;
 
     &:first-child {margin-top: 10px; }
 
-    &:last-child { margin-bottom: 0; }
-
     .label-name { font-weight: bold; }
+
+    &.notes-p {
+      text-align: center;
+      .label-name {
+        text-align: center;
+        display: block;
+        margin-top: 35px;
+      }
+    }
+
+    &.status {
+      margin-bottom: 25px;
+      margin-top: initial;
+    }
   }
 }
 

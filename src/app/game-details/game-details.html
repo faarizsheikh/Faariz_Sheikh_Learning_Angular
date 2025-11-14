@@ -26,12 +26,17 @@
       />
 
       <div class="info-p">
+        <!-- Status -->
+        <p
+          [ngClass]="game.isCompleted ? 'status-completed' : 'status-incomplete'"
+          class = "status"
+          [style.color]="game.isCompleted | GamestatusColor:'status'"
+        >
+          {{ game.isCompleted ? 'Completed' : 'Incomplete' }}
+        </p>
+
         <!-- ID -->
         <p><span class="label-name">ID:</span> {{ game.id }}</p>
-
-        <!-- Sequential Numbering -->
-        <p><span class="label-name">
-          Sequential Numbering:</span> {{ game.sequentialNumbering ? game.sequentialNumbering : 'N/A'}}</p>
 
         <!-- Developer -->
         <p>
@@ -43,6 +48,10 @@
           </span>
           {{ game.developer.trim().replaceAll(',', ' |') | Titlecase }}
         </p>
+
+        <!-- Sequential Numbering -->
+        <p><span class="label-name">
+          Sequential Numbering:</span> {{ game.sequentialNumbering ? game.sequentialNumbering : 'N/A'}}</p>
 
         <!-- Genre -->
         <p>
@@ -75,31 +84,26 @@
         <!-- Price -->
         <p>
           <span class="label-name">Price:</span>
-          {{
-            !isNaN(+game.price)
-              ? (+game.price === 0
-                ? 'Free'
-                : ('$' + (+game.price | number: '1.2-2')))
-              : 'N/A'
-          }}
+
+          <span [style.color]="game.price | GamestatusColor:'price'" >
+            {{
+              !isNaN(+game.price)
+                ? (+game.price === 0
+                  ? 'Free'
+                  : ('$' + (+game.price | number: '1.2-2')))
+                : 'N/A'
+            }}
+          </span>
         </p>
 
         <!-- Notes -->
-        <p>
+        <p class="notes-p">
           <span class="label-name">Notes:</span>
           @if (game.notes) {
             {{ game.notes.trim() }}
           } @else {
             N/A
           }
-        </p>
-
-        <!-- Status -->
-        <p>
-          <span class="label-name">Status:</span>
-          <span [ngClass]="game.isCompleted ? 'status-completed' : 'status-incomplete'">
-            {{ game.isCompleted ? 'Completed' : 'Incomplete' }}
-          </span>
         </p>
       </div>
     </div>
