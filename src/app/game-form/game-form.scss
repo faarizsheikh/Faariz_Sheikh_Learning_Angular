@@ -36,6 +36,7 @@ form {
   /* FORM ELEMENTS */
   input,
   textarea {
+    font-size: 18px;
     text-align: center;
     padding: 8px;
     width: 230px;
@@ -69,16 +70,45 @@ form {
     * I wrote these in single lines to make code cleaner
     * I learned it from VSC extension: Prettier Formatter
    */
-  div:nth-of-type(1) { grid-area: title; }
-  div:nth-of-type(2) { grid-area: dev; }
-  div:nth-of-type(3) { grid-area: sequentialOrder; }
-  div:nth-of-type(4) { grid-area: genre; }
-  div:nth-of-type(5) { grid-area: year; }
-  div:nth-of-type(6) { grid-area: platform; }
-  div:nth-of-type(7) { grid-area: price; }
-  div:nth-of-type(8) { grid-area: img; }
-  .notes { grid-area: notes; }
-  .completed { grid-area: completed; }
+  div:nth-of-type(1) {
+    grid-area: title;
+  }
+
+  div:nth-of-type(2) {
+    grid-area: dev;
+  }
+
+  div:nth-of-type(3) {
+    grid-area: sequentialOrder;
+  }
+
+  div:nth-of-type(4) {
+    grid-area: genre;
+  }
+
+  div:nth-of-type(5) {
+    grid-area: year;
+  }
+
+  div:nth-of-type(6) {
+    grid-area: platform;
+  }
+
+  div:nth-of-type(7) {
+    grid-area: price;
+  }
+
+  div:nth-of-type(8) {
+    grid-area: img;
+  }
+
+  .notes {
+    grid-area: notes;
+  }
+
+  .completed {
+    grid-area: completed;
+  }
 }
 
 .err-box {
@@ -99,7 +129,14 @@ form {
   border-radius: 5px;
 }
 
-input:focus, textarea:focus {
+input:focus,
+textarea:focus {
   background: darkslategray;
   color: white;
+}
+
+input:focus::placeholder,
+textarea:focus::placeholder {
+  font-size: 18px;
+  color: yellow;
 }

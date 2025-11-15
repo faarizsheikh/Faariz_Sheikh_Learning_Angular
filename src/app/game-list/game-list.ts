@@ -3,11 +3,12 @@ import { MyData } from "../models/my-data";
 import { GameListItem } from "../game-list-item/game-list-item";
 import { GameDataService } from '../services/game-data-service';
 import { Router, RouterLink } from '@angular/router';
+import { HoverHighlightDirective } from '../directives/hover-highlight.directive';
 
 @Component({
   selector: 'app-game-list',
   standalone: true,
-  imports: [GameListItem, RouterLink, GameListItem],
+  imports: [GameListItem, RouterLink, GameListItem, HoverHighlightDirective],
   templateUrl: './game-list.html',
   styleUrls: ['./game-list.scss']
 })
@@ -17,7 +18,7 @@ export class GameList implements OnInit {
   errorMessage: string = '';
   loading = true;
 
-  constructor(private gameService: GameDataService, private router: Router) {}
+  constructor(private gameService: GameDataService, private router: Router) { }
 
   ngOnInit(): void {
     this.loadGames();

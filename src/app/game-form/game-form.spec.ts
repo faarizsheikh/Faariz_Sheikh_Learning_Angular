@@ -10,7 +10,7 @@ describe('GameForm', () => {
     await TestBed.configureTestingModule({
       imports: [GameForm]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(GameForm);
     component = fixture.componentInstance;

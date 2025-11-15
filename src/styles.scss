@@ -6,7 +6,9 @@
 }
 
 /* COMMON HEADINGS */
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   color: #000;
   font-weight: bold;
   text-align: center;
@@ -33,11 +35,17 @@ p {
   text-align: center;
 }
 
-.status-completed { color: #00e676; }
-.status-incomplete { color: #ff5252; }
+.status-completed {
+  color: #00e676;
+}
+
+.status-incomplete {
+  color: #ff5252;
+}
 
 /* IMAGES */
-.game-image, img {
+.game-image,
+img {
   margin-bottom: 10px;
   max-height: 500px;
   width: 100%;
@@ -59,7 +67,6 @@ button {
 
 button:hover {
   background: linear-gradient(90deg, #243b55, #141e30);
-  color: #00e676;
 }
 
 button:not(.add-btn, .return-home) {
@@ -94,7 +101,6 @@ button:not(.add-btn, .return-home) {
   }
 
   a:hover {
-    color: #00e676;
     text-decoration: underline;
   }
 }

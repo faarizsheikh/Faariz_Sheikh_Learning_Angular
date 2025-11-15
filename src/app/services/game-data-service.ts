@@ -10,7 +10,7 @@ import { MyData } from '../models/my-data';
 export class GameDataService {
   private apiUrl = 'api/games';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   getGames(): Observable<MyData[]> {
     return this.http.get<MyData[]>(this.apiUrl);

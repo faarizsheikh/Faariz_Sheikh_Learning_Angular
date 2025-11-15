@@ -39,15 +39,15 @@ export class GameForm implements OnInit {
     this.gameForm = this.fb.group({
       id: [''],
       title: ['', [Validators.required, this.noWhitespaceValidator]],
-      sequentialNumbering: [''],
+      sequentialNumbering: ['', [Validators.max(1000), Validators.min(0), this.integerValidator]],
       developer: ['', [Validators.required, this.noWhitespaceValidator]],
       genre: ['', [Validators.required, this.noWhitespaceValidator]],
       yearReleased: [
         '',
-        [Validators.required, Validators.min(1950), Validators.max(this.Date)]
+        [Validators.required, Validators.max(this.Date), Validators.min(1950), this.integerValidator]
       ],
       platform: ['', [Validators.required, this.noWhitespaceValidator]],
-      price: [''],
+      price: ['', [Validators.max(99999), Validators.min(0), this.blockInvalidPrice]],
       isCompleted: [false],
       notes: [''],
       imageUrl: ['', [Validators.required, this.noWhitespaceValidator]],
@@ -77,6 +77,8 @@ export class GameForm implements OnInit {
       messages.push('Title is required.');
     if (controls['sequentialNumbering'].hasError('min') || controls['sequentialNumbering'].hasError('max'))
       messages.push(`Sequential number must be between 0 and 1000.`);
+    if (controls['sequentialNumbering'].hasError('notInteger'))
+      messages.push('Sequential number must be a whole number.');
     if (controls['developer'].hasError('whitespace'))
       messages.push('Developer is required.');
     if (controls['genre'].hasError('whitespace'))
@@ -85,6 +87,8 @@ export class GameForm implements OnInit {
       messages.push('Year of release is required.');
     if (controls['yearReleased'].hasError('min') || controls['yearReleased'].hasError('max'))
       messages.push(`Year must be between 1950 and ${this.Date}.`);
+    if (controls['yearReleased'].hasError('notInteger'))
+      messages.push('Year must be a whole number.');
     if (controls['platform'].hasError('whitespace'))
       messages.push('Platform is required.');
     if (controls['imageUrl'].hasError('whitespace'))
@@ -108,8 +112,8 @@ export class GameForm implements OnInit {
       request$.subscribe({
         next: () => this.router.navigate(['/games']),
         error: () =>
-          (this.errorMessage =
-            '⚠️ Operation failed. Try again later. If it persists, contact support at +1 (123) 456 7890.')
+        (this.errorMessage =
+          '⚠️ Operation failed. Try again later. If it persists, contact support at +1 (123) 456 7890.')
       });
     } else {
       const errors = this.collectValidationErrors();
@@ -126,17 +130,41 @@ export class GameForm implements OnInit {
         next: () => this.router.navigate(['/games']),
         error: () =>
           this.errorMessage =
-            '⚠️ Failed to delete game.' +
-            'Try again later.' +
-            'If the issue still persists, contact support at +1 (123) 456 7890.'
+          '⚠️ Failed to delete game.' +
+          'Try again later.' +
+          'If the issue still persists, contact support at +1 (123) 456 7890.'
       });
     }
   }
 
+  // CHECK: For extra whitespaces
   noWhitespaceValidator(control: any) {
     const isWhitespace = (control.value || '').trim().length === 0;
     const isValid = !isWhitespace;
     return isValid ? null : { whitespace: true };
   }
+
+  // CHECK: For whole number inputs.
+  integerValidator(control: any) {
+    const value = control.value;
+    if (value === null || value === undefined || value === '') return null;
+    return Number.isInteger(Number(value)) ? null : { notInteger: true };
+  }
+
+  /* PREVENTING: Certain input characters for number inputs, depending on form field */
+  blockInvalidKeys(event: KeyboardEvent) {
+    const invalidKeys = ['e', 'E', '+', '-', '.'];
+    if (invalidKeys.includes(event.key)) {
+      event.preventDefault();
+    }
+  }
+
+  blockInvalidPrice(event: KeyboardEvent) {
+    const invalidKeys = ['e', 'E', '+', '-'];
+    if (invalidKeys.includes(event.key)) {
+      event.preventDefault();
+    }
+  }
+
   protected readonly isFormControl = isFormControl;
 }

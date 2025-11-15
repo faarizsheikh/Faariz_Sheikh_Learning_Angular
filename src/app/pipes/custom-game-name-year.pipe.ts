@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import {MyData } from "../models/my-data";
+import { MyData } from "../models/my-data";
 
 @Pipe({
   name: 'GamenameYear'

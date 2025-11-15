@@ -10,7 +10,7 @@ describe('GameListItem', () => {
     await TestBed.configureTestingModule({
       imports: [GameListItem]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(GameListItem);
     component = fixture.componentInstance;

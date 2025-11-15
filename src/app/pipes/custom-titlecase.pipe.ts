@@ -28,8 +28,8 @@ export class CustomTitlecasePipe implements PipeTransform {
      **/
     titleCased =
       titleCased.replace(/([(\[])(\s*)([a-z])/g, (_, bracket, spaces, letter) => {
-      return bracket + spaces + letter.toUpperCase();
-    });
+        return bracket + spaces + letter.toUpperCase();
+      });
 
     return titleCased
 
