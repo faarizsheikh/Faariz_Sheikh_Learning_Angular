@@ -1,114 +1,106 @@
 @if (loading) {
-  <div class="loading-screen">
-    <p>🧐 Loading game details...</p>
-    <div class="spinner"></div>
-  </div>
+<div class="loading-screen">
+  <p>🧐 Loading game details...</p>
+  <div class="spinner"></div>
+</div>
 } @else {
-  @if (game) {
-    <div class="game-details">
-      <!-- Title -->
-      <h2>{{ game.title.trim() | Normalizespaces | Titlecase }}</h2>
+@if (game) {
+<div class="game-details">
+  <!-- Title -->
+  <h2>{{ game.title.trim() | Normalizespaces | Titlecase }}</h2>
 
-      <!-- Image -->
-      <img
-        [src]="game.imageUrl"
-        [alt]="
+  <!-- Image -->
+  <img [src]="game.imageUrl" [alt]="
           (game.title.trim() | Normalizespaces | Titlecase) +
           ' by ' +
           (game.developer.trim().split(',')[0] | Normalizespaces | titlecase)
-        "
-        [title]="
+        " [title]="
           (game.title.trim() | Normalizespaces | Titlecase) +
           ' by ' +
           (game.developer.trim().split(',')[0] | Normalizespaces | titlecase)
-        "
-        class="game-image"
-      />
+        " class="game-image" />
 
-      <div class="info-p">
-        <!-- Status -->
-        <p
-          [ngClass]="game.isCompleted ? 'status-completed' : 'status-incomplete'"
-          class = "status"
-          [style.color]="game.isCompleted | GamestatusColor:'status'"
-        >
-          {{ game.isCompleted ? 'Completed' : 'Incomplete' }}
-        </p>
+  <div class="info-p">
+    <!-- Status -->
+    <p [ngClass]="game.isCompleted ? 'status-completed' : 'status-incomplete'" class="status"
+      [style.color]="game.isCompleted | GamestatusColor:'status'">
+      {{ game.isCompleted ? 'Completed' : 'Incomplete' }}
+    </p>
 
-        <!-- ID -->
-        <p><span class="label-name">ID:</span> {{ game.id }}</p>
+    <!-- ID -->
+    <p><span class="label-name">ID:</span> {{ game.id }}</p>
 
-        <!-- Developer -->
-        <p>
-          <span class="label-name">
-            {{
-              (game.developer.trim().split(',').length || 0)
-                | i18nPlural: { '=1': 'Developer:', other: 'Developers:' }
-            }}
-          </span>
-          {{ game.developer.trim().replaceAll(',', ' |') | Titlecase }}
-        </p>
+    <!-- Developer -->
+    <p>
+      <span class="label-name">
+        {{
+        (game.developer.trim().split(',').length || 0)
+        | i18nPlural: { '=1': 'Developer:', other: 'Developers:' }
+        }}
+      </span>
+      {{ game.developer.trim().replaceAll(',', ' |') | Titlecase }}
+    </p>
 
-        <!-- Sequential Numbering -->
-        <p><span class="label-name">
-          Sequential Numbering:</span> {{ game.sequentialNumbering ? game.sequentialNumbering : 'N/A'}}</p>
+    <!-- Sequential Numbering -->
+    <p><span class="label-name">
+        Sequential Numbering:</span> {{ game.sequentialNumbering ? game.sequentialNumbering : 'N/A'}}</p>
 
-        <!-- Genre -->
-        <p>
-          <span class="label-name">
-            {{
-              (game.genre.trim().split(',').length || 0)
-                | i18nPlural: { '=1': 'Genre:', other: 'Genres:' }
-            }}
-          </span>
-          {{ game.genre.trim().replaceAll(',', ' |') | Titlecase }}
-        </p>
+    <!-- Genre -->
+    <p>
+      <span class="label-name">
+        {{
+        (game.genre.trim().split(',').length || 0)
+        | i18nPlural: { '=1': 'Genre:', other: 'Genres:' }
+        }}
+      </span>
+      {{ game.genre.trim().replaceAll(',', ' |') | Titlecase }}
+    </p>
 
-        <!-- Year Released -->
-        <p>
-          <span class="label-name">Year Released:</span>
-          {{ game.yearReleased }}
-        </p>
+    <!-- Year Released -->
+    <p>
+      <span class="label-name">Year Released:</span>
+      {{ game.yearReleased }}
+    </p>
 
-        <!-- Platform -->
-        <p>
-          <span class="label-name">
-            {{
-              (game.platform.trim().split(',').length || 0)
-                | i18nPlural: { '=1': 'Platform:', other: 'Platforms:' }
-            }}
-          </span>
-          {{ game.platform.trim().replaceAll(',', ' |') | Titlecase }}
-        </p>
+    <!-- Platform -->
+    <p>
+      <span class="label-name">
+        {{
+        (game.platform.trim().split(',').length || 0)
+        | i18nPlural: { '=1': 'Platform:', other: 'Platforms:' }
+        }}
+      </span>
+      {{ game.platform.trim().replaceAll(',', ' |') | Titlecase }}
+    </p>
 
-        <!-- Price -->
-        <p>
-          <span class="label-name">Price:</span>
+    <!-- Price -->
+    <p>
+      <span class="label-name">Price:</span>
 
-          <span [style.color]="game.price | GamestatusColor:'price'" >
-            {{
-              !isNaN(+game.price)
-                ? (+game.price === 0
-                  ? 'Free'
-                  : ('$' + (+game.price | number: '1.2-2')))
-                : 'N/A'
-            }}
-          </span>
-        </p>
+      <span [style.color]="game.price | GamestatusColor:'price'">
+        {{
+        !isNaN(+game.price)
+        ? (+game.price === 0
+        ? 'Free'
+        : ('$' + (+game.price | number: '1.2-2')))
+        : 'N/A'
+        }}
+      </span>
+    </p>
 
-        <!-- Notes -->
-        <p class="notes-p">
-          <span class="label-name">Notes:</span>
-          @if (game.notes) {
-            {{ game.notes.trim() }}
-          } @else {
-            N/A
-          }
-        </p>
-      </div>
-    </div>
-  } @else {
-    <p>Game not found.</p>
-    <a routerLink="/">Back to Home</a>
-  }
+    <!-- Notes -->
+    <p class="notes-p">
+      <span class="label-name">Notes:</span>
+      @if (game.notes) {
+      {{ game.notes.trim() }}
+      } @else {
+      N/A
+      }
+    </p>
+  </div>
+</div>
+} @else {
+<p>Game not found.</p>
+<a routerLink="/">Back to Home</a>
+}
 }

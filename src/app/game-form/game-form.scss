@@ -131,12 +131,13 @@ form {
 
 input:focus,
 textarea:focus {
-  background: darkslategray;
+  background-color: darkslategray;
   color: white;
+  border: none;
 }
 
 input:focus::placeholder,
 textarea:focus::placeholder {
-  font-size: 18px;
   color: yellow;
+  font-size: 18px;
 }

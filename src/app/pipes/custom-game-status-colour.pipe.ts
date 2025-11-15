@@ -4,6 +4,7 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'GamestatusColor',
   pure: true
 })
+
 export class GameStatusColorPipe implements PipeTransform {
   transform(value: any, mode: 'status' | 'price'): string {
 

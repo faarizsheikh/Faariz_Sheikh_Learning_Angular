@@ -10,11 +10,12 @@ import { GameDataService } from '../services/game-data-service';
 import { MyData } from '../models/my-data';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { HighlightOnFocusDirective } from '../directives/form-focus-highlight.directives';
 
 @Component({
   selector: 'app-game-form',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, HighlightOnFocusDirective],
   templateUrl: './game-form.html',
   styleUrls: ['./game-form.scss']
 })
