@@ -48,7 +48,7 @@ export class GameForm implements OnInit {
         [Validators.required, Validators.max(this.Date), Validators.min(1950), this.integerValidator]
       ],
       platform: ['', [Validators.required, this.noWhitespaceValidator]],
-      price: ['', [Validators.max(99999), Validators.min(0), this.blockInvalidPrice]],
+      price: ['', [Validators.max(99999), Validators.min(0)]],
       isCompleted: [false],
       notes: [''],
       imageUrl: ['', [Validators.required, this.noWhitespaceValidator]],
@@ -94,8 +94,6 @@ export class GameForm implements OnInit {
       messages.push('Platform is required.');
     if (controls['imageUrl'].hasError('whitespace'))
       messages.push('Image URL is required.');
-    if (controls['price'].hasError('required'))
-      messages.push('Price is required.');
     if (controls['price'].hasError('min') || controls['price'].hasError('max'))
       messages.push(`Price must be between 0 (free) and 99999.`);
     return messages;
@@ -161,9 +159,31 @@ export class GameForm implements OnInit {
   }
 
   blockInvalidPrice(event: KeyboardEvent) {
-    const invalidKeys = ['e', 'E', '+', '-'];
-    if (invalidKeys.includes(event.key)) {
+    const key = event.key;
+    const input = event.target as HTMLInputElement;
+    const value = input.value;
+
+    if (['e', 'E', '+', '-', "_"].includes(key)) {
       event.preventDefault();
+      return;
+    }
+
+    const allowedSpecial = ['Backspace', 'Delete', 'ArrowLeft', 'ArrowRight', 'Tab'];
+    if (allowedSpecial.includes(key)) return;
+
+    if (key === '.' && value === '') {
+      event.preventDefault();
+      return;
+    }
+
+    if (key === '.' && value.includes('.')) {
+      event.preventDefault();
+      return;
+    }
+
+    if (!/^[0-9.]$/.test(key)) {
+      event.preventDefault();
+      return;
     }
   }
 

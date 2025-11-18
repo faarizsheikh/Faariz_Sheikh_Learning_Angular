@@ -38,7 +38,7 @@ export class CustomTitlecasePipe implements PipeTransform {
       .replace(/\bdb\b/g, 'DB')
 
       /* Platforms: */
-      .replace(/\bIos\b/g, 'iOS') /* Source for RegEx: */
+      .replace(/\bIos\b/g, 'iOS')
       .replace(/\bPc\b/g, 'PC')
       .replace(/\broblox\b/g, 'Roblox')
 

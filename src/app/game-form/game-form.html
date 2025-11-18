@@ -11,55 +11,55 @@
   <div>
     <label for="title">Title:</label>
     <input id="title" formControlName="title" placeholder="e.g. Call of Duty: Black Ops"
-      [appOnFocusHighlight]="'orange'" />
+      [appOnFocusHighlight]="'white'" />
   </div>
 
   <!-- Sequential Order -->
   <div>
-    <label for="sequentialNumbering">Sequential Order:</label>
+    <label for="sequentialNumbering">Sequential Order (optional):</label>
     <input id="sequentialNumbering" formControlName="sequentialNumbering" type="number" step="1" placeholder="e.g 1"
-      [max]="1000" [min]="0" (keydown)="blockInvalidKeys($event)" [appOnFocusHighlight]="'orange'" />
+      [max]="1000" [min]="0" (keydown)="blockInvalidKeys($event)" [appOnFocusHighlight]="'white'" />
   </div>
 
   <!-- Developer -->
   <div>
     <label for="developer">Developer:</label>
-    <input id="developer" formControlName="developer" placeholder="e.g. Activision" [appOnFocusHighlight]="'orange'" />
+    <input id="developer" formControlName="developer" placeholder="e.g. Activision" [appOnFocusHighlight]="'white'" />
   </div>
 
   <!-- Genre -->
   <div>
     <label for="genre">Genre:</label>
     <input id="genre" formControlName="genre" placeholder="e.g. Action, FPS, Multiplayer..."
-      [appOnFocusHighlight]="'orange'" />
+      [appOnFocusHighlight]="'white'" />
   </div>
 
   <!-- Year Released -->
   <div>
     <label for="yearReleased">Year of Release:</label>
     <input id="yearReleased" formControlName="yearReleased" type="number" step="1" placeholder="e.g. 2010" [max]=Date
-      [min]="1950" (keydown)="blockInvalidKeys($event)" [appOnFocusHighlight]="'orange'" />
+      [min]="1950" (keydown)="blockInvalidKeys($event)" [appOnFocusHighlight]="'white'" />
   </div>
 
   <!-- Platform -->
   <div>
     <label for="platform">Platform:</label>
     <input id="platform" formControlName="platform" placeholder="e.g. Mobile, PC, PlayStation, XBox..."
-      [appOnFocusHighlight]="'orange'" />
+      [appOnFocusHighlight]="'white'" />
   </div>
 
   <!-- Price -->
   <div>
-    <label for="price">Price:</label>
+    <label for="price">Price (optional):</label>
     <input id="price" formControlName="price" type="number" step="1" placeholder="e.g. 39.99 or 75" [max]="99999"
-      [min]="0" (keydown)="blockInvalidKeys($event)" [appOnFocusHighlight]="'orange'" />
+      [min]="0" (keydown)="blockInvalidPrice($event)" [appOnFocusHighlight]="'white'" />
   </div>
 
   <!-- Image URL -->
   <div>
     <label for="imageUrl">Image URL:</label>
     <input id="imageUrl" formControlName="imageUrl" placeholder="e.g. https://www.google.com/images/cod-bo1-banner.jpeg"
-      [appOnFocusHighlight]="'orange'" />
+      [appOnFocusHighlight]="'white'" />
   </div>
 
   <!-- Notes -->
@@ -67,13 +67,13 @@
     <label for="notes">Notes (optional):</label>
     <textarea id="notes" formControlName="notes" maxlength="300"
       placeholder="e.g. Fun, multiplayer game with various modes and weapons."
-      [appOnFocusHighlight]="'orange'"></textarea>
+      [appOnFocusHighlight]="'white'"></textarea>
   </div>
 
   <!-- Completed -->
   <div class="completed">
     <label for="isCompleted">Completed:</label>
-    <input id="isCompleted" type="checkbox" formControlName="isCompleted" [appOnFocusHighlight]="'orange'" />
+    <input id="isCompleted" type="checkbox" formControlName="isCompleted" [appOnFocusHighlight]="'white'" />
   </div>
 
   <!-- Submit -->
