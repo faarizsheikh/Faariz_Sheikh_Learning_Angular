@@ -11,17 +11,18 @@ import { Directive, ElementRef, HostListener, Input } from '@angular/core';
 })
 
 export class HighlightOnFocusDirective {
-  @Input() appOnFocusHighlight: string = 'lightblue';
+  @Input() appOnFocusHighlight?: string;
 
   constructor(private el: ElementRef) { }
 
   @HostListener('focus')
   onFocus() {
-    this.el.nativeElement.style.outline = `2px solid ${this.appOnFocusHighlight}`;
+    const color = this.appOnFocusHighlight?.trim() || 'cyan';
+    this.el.nativeElement.style.outline = `2px solid ${color}`;
   }
 
   @HostListener('blur')
-  onBlur() {
+  onBlur() { // Element receives focus
     this.el.nativeElement.style.outline = '';
   }
 }
