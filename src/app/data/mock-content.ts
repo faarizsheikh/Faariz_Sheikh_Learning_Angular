@@ -9,7 +9,7 @@ export const MOCK_CONTENT: MyData[] = [
     notes: "A fun and tense multiplayer social deduction game" +
       " where crewmates complete tasks while impostors try to eliminate them." +
       " Great for strategy, deception, and group play with friends or online players.",
-    imageUrl: "assets/among_us.jpeg"
+    imageUrl: "assets/among-us.jpeg"
   },
   {
     id: 2,
@@ -17,7 +17,7 @@ export const MOCK_CONTENT: MyData[] = [
     genre: "Action-Adventure, Non-Linear, Open World, Stealth", yearReleased: 2007,
     platform: "PlayStation 5, XBox", price: 19.99, isCompleted: false,
     notes: "Immersive historical settings with stealth mechanics and parkour-based exploration.",
-    imageUrl: "assets/assassins_creed.jpeg"
+    imageUrl: "assets/assassins-creed.jpeg"
   },
   {
     id: 3,
@@ -26,7 +26,7 @@ export const MOCK_CONTENT: MyData[] = [
     platform: "Android, iOS", price: 0.00, isCompleted: false,
     notes: "Freaked me out. At first it was funny babysitting," +
       " but the supernatural stuff made it scary and gave me chills.",
-    imageUrl: "assets/baby_yellow.jpeg"
+    imageUrl: "assets/baby-yellow.jpeg"
   },
   {
     id: 4,
@@ -34,7 +34,7 @@ export const MOCK_CONTENT: MyData[] = [
     genre: "Action-Adventure, Educational, Indie, Puzzle/Strategy, Survival Horror", yearReleased: 2018,
     platform: "PC", price: 0.00, isCompleted: false,
     notes: "Fun and quirky educational horror experience.",
-    imageUrl: "assets/baldi_basics.jpeg"
+    imageUrl: "assets/baldi-basics.jpeg"
   },
   {
     id: 5,
@@ -43,7 +43,7 @@ export const MOCK_CONTENT: MyData[] = [
     platform: "Android, iOS", isCompleted: false,
     price: 0.00,
     notes: "One of the most balanced mobile strategy games I’ve played.",
-    imageUrl: "assets/boom_beach.jpeg"
+    imageUrl: "assets/boom-beach.jpeg"
   },
   {
     id: 6,
@@ -79,7 +79,7 @@ export const MOCK_CONTENT: MyData[] = [
     genre: "Action-Adventure, Episodic, Multiplayer, Puzzle/Strategy, Survival Horror", yearReleased: 2020,
     platform: "Android, iOS, PC, Playstation, Roblox, XBox", price: 0.00, isCompleted: false,
     notes: "Creative horror challenges with a memorable storyline.",
-    imageUrl: "assets/blox_piggy.jpeg"
+    imageUrl: "assets/blox-piggy.jpeg"
   },
   {
     id: 10,
@@ -90,7 +90,7 @@ export const MOCK_CONTENT: MyData[] = [
       "It has so many modes and missions. A game like this," +
       "where you go down to Area 51, find weapons, survive," +
       " and kill the killers. This game NEVER—and I mean NEVER—bores you.",
-    imageUrl: "assets/blox_saktkia51.jpeg"
+    imageUrl: "assets/blox-saktkia51.jpeg"
   },
   {
     id: 11,
@@ -98,7 +98,7 @@ export const MOCK_CONTENT: MyData[] = [
     genre: "Action-Adventure, Indie, Puzzle/Strategy, Stealth", yearReleased: 2024,
     platform: "Android, iOS, PC", price: 7.79, isCompleted: true,
     notes: "Stealth mechanics are unique and engaging.",
-    imageUrl: "assets/schoolboy_runaway.jpeg"
+    imageUrl: "assets/schoolboy-runaway.jpeg"
   },
   {
     id: 12,
@@ -107,7 +107,7 @@ export const MOCK_CONTENT: MyData[] = [
     platform: "Android, iOS", price: 0.00, isCompleted: false,
     notes: "I play this all the time. It felt fast, colorful, and fun," +
       " especially with the hoverboards and characters. Addictive for killing time.",
-    imageUrl: "assets/subway_surfers.jpeg"
+    imageUrl: "assets/subway-surfers.jpeg"
   },
   {
     id: 13,

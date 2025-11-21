@@ -10,7 +10,7 @@ import { GameDataService } from '../services/game-data-service';
 import { MyData } from '../models/my-data';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { HighlightOnFocusDirective } from '../directives/form-focus-highlight.directives';
+import {HighlightOnFocusDirective} from '../directives/form-focus-highlight.directives';
 
 @Component({
   selector: 'app-game-form',
@@ -48,7 +48,7 @@ export class GameForm implements OnInit {
         [Validators.required, Validators.max(this.Date), Validators.min(1950), this.integerValidator]
       ],
       platform: ['', [Validators.required, this.noWhitespaceValidator]],
-      price: ['', [Validators.max(99999), Validators.min(0)]],
+      price: ['', [Validators.required, Validators.max(99999), Validators.min(0)]],
       isCompleted: [false],
       notes: [''],
       imageUrl: ['', [Validators.required, this.noWhitespaceValidator]],
