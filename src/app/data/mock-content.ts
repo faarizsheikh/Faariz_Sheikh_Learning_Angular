@@ -8,8 +8,8 @@ export const MOCK_CONTENT: MyData[] = [
     platform: "Android, iOS, PC", price: 0.00, isCompleted: false,
     notes: "A fun and tense multiplayer social deduction game" +
       " where crewmates complete tasks while impostors try to eliminate them." +
-      " Great for Strategy, deception, and group play with friends or online players.",
-    imageUrl: "assets/among-us.jpeg"
+      " Great for strategy, deception, and group play with friends or online players.",
+    imageUrl: "assets/among_us.jpeg"
   },
   {
     id: 2,
@@ -17,7 +17,7 @@ export const MOCK_CONTENT: MyData[] = [
     genre: "Action-Adventure, Non-Linear, Open World, Stealth", yearReleased: 2007,
     platform: "PlayStation 5, XBox", price: 19.99, isCompleted: false,
     notes: "Immersive historical settings with stealth mechanics and parkour-based exploration.",
-    imageUrl: "assets/assassins-creed.jpeg"
+    imageUrl: "assets/assassins_creed.jpeg"
   },
   {
     id: 3,
@@ -26,7 +26,7 @@ export const MOCK_CONTENT: MyData[] = [
     platform: "Android, iOS", price: 0.00, isCompleted: false,
     notes: "Freaked me out. At first it was funny babysitting," +
       " but the supernatural stuff made it scary and gave me chills.",
-    imageUrl: "assets/baby-yellow.jpeg"
+    imageUrl: "assets/baby_yellow.jpeg"
   },
   {
     id: 4,
@@ -34,7 +34,7 @@ export const MOCK_CONTENT: MyData[] = [
     genre: "Action-Adventure, Educational, Indie, Puzzle/Strategy, Survival Horror", yearReleased: 2018,
     platform: "PC", price: 0.00, isCompleted: false,
     notes: "Fun and quirky educational horror experience.",
-    imageUrl: "assets/baldi-basics.jpeg"
+    imageUrl: "assets/baldi_basics.jpeg"
   },
   {
     id: 5,
@@ -42,8 +42,8 @@ export const MOCK_CONTENT: MyData[] = [
     genre: "Real-Time Strategy, Shooter", yearReleased: 2014,
     platform: "Android, iOS", isCompleted: false,
     price: 0.00,
-    notes: "One of the most balanced mobile Strategy games I’ve played.",
-    imageUrl: "assets/boom-beach.jpeg"
+    notes: "One of the most balanced mobile strategy games I’ve played.",
+    imageUrl: "assets/boom_beach.jpeg"
   },
   {
     id: 6,
@@ -69,7 +69,7 @@ export const MOCK_CONTENT: MyData[] = [
     genre: "Social Deduction, Survival Horror", yearReleased: 2014,
     platform: "Android, iOS, PC, Playstation, Roblox, XBox", price: 0.00, isCompleted: false,
     notes: "Fast-paced and unpredictable gameplay that" +
-      "mixes Strategy, deception, and survival." +
+      "mixes strategy, deception, and survival." +
       " The tension of not knowing who the murderer is makes every round thrilling.",
     imageUrl: "assets/mm2.jpeg"
   },
@@ -79,7 +79,7 @@ export const MOCK_CONTENT: MyData[] = [
     genre: "Action-Adventure, Episodic, Multiplayer, Puzzle/Strategy, Survival Horror", yearReleased: 2020,
     platform: "Android, iOS, PC, Playstation, Roblox, XBox", price: 0.00, isCompleted: false,
     notes: "Creative horror challenges with a memorable storyline.",
-    imageUrl: "assets/blox-piggy.jpeg"
+    imageUrl: "assets/blox_piggy.jpeg"
   },
   {
     id: 10,
@@ -90,7 +90,7 @@ export const MOCK_CONTENT: MyData[] = [
       "It has so many modes and missions. A game like this," +
       "where you go down to Area 51, find weapons, survive," +
       " and kill the killers. This game NEVER—and I mean NEVER—bores you.",
-    imageUrl: "assets/blox-saktkia51.jpeg"
+    imageUrl: "assets/blox_saktkia51.jpeg"
   },
   {
     id: 11,
@@ -98,7 +98,7 @@ export const MOCK_CONTENT: MyData[] = [
     genre: "Action-Adventure, Indie, Puzzle/Strategy, Stealth", yearReleased: 2024,
     platform: "Android, iOS, PC", price: 7.79, isCompleted: true,
     notes: "Stealth mechanics are unique and engaging.",
-    imageUrl: "assets/schoolboy-runaway.jpeg"
+    imageUrl: "assets/schoolboy_runaway.jpeg"
   },
   {
     id: 12,
@@ -107,7 +107,7 @@ export const MOCK_CONTENT: MyData[] = [
     platform: "Android, iOS", price: 0.00, isCompleted: false,
     notes: "I play this all the time. It felt fast, colorful, and fun," +
       " especially with the hoverboards and characters. Addictive for killing time.",
-    imageUrl: "assets/subway-surfers.jpeg"
+    imageUrl: "assets/subway_surfers.jpeg"
   },
   {
     id: 13,

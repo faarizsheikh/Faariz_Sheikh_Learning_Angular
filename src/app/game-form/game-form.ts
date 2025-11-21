@@ -10,16 +10,12 @@ import { GameDataService } from '../services/game-data-service';
 import { MyData } from '../models/my-data';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatButton } from '@angular/material/button';
-import { MatCheckbox } from '@angular/material/checkbox';
-import { MatInput } from '@angular/material/input';
-import { MatTooltip } from '@angular/material/tooltip';
+import { HighlightOnFocusDirective } from '../directives/form-focus-highlight.directives';
 
 @Component({
   selector: 'app-game-form',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, MatFormFieldModule, MatCheckbox, MatButton, MatInput, MatTooltip],
+  imports: [CommonModule, ReactiveFormsModule, HighlightOnFocusDirective],
   templateUrl: './game-form.html',
   styleUrls: ['./game-form.scss']
 })
@@ -31,7 +27,6 @@ export class GameForm implements OnInit {
    * Added trim
    * In case if I ever add extra space(s) accidentally and enable the error message box
    **/
-  submitted = false; // 🔹 add this
   errorMessage: string = ''.trim();
   Date = new Date().getFullYear();
   currentId?: number;
@@ -45,19 +40,18 @@ export class GameForm implements OnInit {
     this.gameForm = this.fb.group({
       id: [''],
       title: ['', [Validators.required, this.noWhitespaceValidator]],
-      sequentialNumbering: ['', [Validators.max(1000), Validators.min(0)]],
+      sequentialNumbering: ['', [Validators.max(1000), Validators.min(0), this.integerValidator]],
       developer: ['', [Validators.required, this.noWhitespaceValidator]],
       genre: ['', [Validators.required, this.noWhitespaceValidator]],
       yearReleased: [
         '',
-        [Validators.required, Validators.max(this.Date), Validators.min(1950)]
+        [Validators.required, Validators.max(this.Date), Validators.min(1950), this.integerValidator]
       ],
       platform: ['', [Validators.required, this.noWhitespaceValidator]],
-      price: ['', [Validators.required, Validators.max(99999), Validators.min(0)]],
+      price: ['', [Validators.max(99999), Validators.min(0)]],
       isCompleted: [false],
       notes: [''],
       imageUrl: ['', [Validators.required, this.noWhitespaceValidator]],
-      description: ''
     });
   }
 
@@ -76,35 +70,36 @@ export class GameForm implements OnInit {
     }
   }
 
-  // private collectValidationErrors(): string[] {
-  //   const messages: string[] = [];
-  //   const controls = this.gameForm.controls;
-  //
-  //   if (controls['title'].hasError('whitespace'))
-  //     messages.push('Title is required.');
-  //   if (controls['sequentialNumbering'].hasError('min') || controls['sequentialNumbering'].hasError('max'))
-  //     messages.push(`Sequential number must be between 0 and 1000.`);
-  //   if (controls['developer'].hasError('whitespace'))
-  //     messages.push('Developer is required.');
-  //   if (controls['genre'].hasError('whitespace'))
-  //     messages.push('Genre is required.');
-  //   if (controls['yearReleased'].hasError('required'))
-  //     messages.push('Year of release is required.');
-  //   if (controls['yearReleased'].hasError('min') || controls['yearReleased'].hasError('max'))
-  //     messages.push(`Year must be between 1950 and ${this.Date}.`);
-  //   if (controls['platform'].hasError('whitespace'))
-  //     messages.push('Platform is required.');
-  //   if (controls['imageUrl'].hasError('whitespace'))
-  //     messages.push('Image URL is required.');
-  //   if (controls['price'].hasError('required'))
-  //     messages.push(`Price is required.`);
-  //   if (controls['price'].hasError('min') || controls['price'].hasError('max'))
-  //     messages.push(`Price must be between 0 (free) and 99999.`);
-  //   return messages;
-  // }
+  private collectValidationErrors(): string[] {
+    const messages: string[] = [];
+    const controls = this.gameForm.controls;
+
+    if (controls['title'].hasError('whitespace'))
+      messages.push('Title is required.');
+    if (controls['sequentialNumbering'].hasError('min') || controls['sequentialNumbering'].hasError('max'))
+      messages.push(`Sequential number must be between 0 and 1000.`);
+    if (controls['sequentialNumbering'].hasError('notInteger'))
+      messages.push('Sequential number must be a whole number.');
+    if (controls['developer'].hasError('whitespace'))
+      messages.push('Developer is required.');
+    if (controls['genre'].hasError('whitespace'))
+      messages.push('Genre is required.');
+    if (controls['yearReleased'].hasError('required'))
+      messages.push('Year of release is required.');
+    if (controls['yearReleased'].hasError('min') || controls['yearReleased'].hasError('max'))
+      messages.push(`Year must be between 1950 and ${this.Date}.`);
+    if (controls['yearReleased'].hasError('notInteger'))
+      messages.push('Year must be a whole number.');
+    if (controls['platform'].hasError('whitespace'))
+      messages.push('Platform is required.');
+    if (controls['imageUrl'].hasError('whitespace'))
+      messages.push('Image URL is required.');
+    if (controls['price'].hasError('min') || controls['price'].hasError('max'))
+      messages.push(`Price must be between 0 (free) and 99999.`);
+    return messages;
+  }
 
   submitForm(): void {
-    this.submitted = true; // 🔹 mark form as submitted
     if (this.gameForm.valid) {
       this.errorMessage = '';
       const game: MyData = this.gameForm.value;
@@ -117,13 +112,11 @@ export class GameForm implements OnInit {
         next: () => this.router.navigate(['/games']),
         error: () =>
         (this.errorMessage =
-          '⚠️ Failed to delete game. ' +
-          'Try again later. ' +
-          'If the issue still persists, contact support at +1 (123) 456 7890.')
+          '⚠️ Operation failed. Try again later. If it persists, contact support at +1 (123) 456 7890.')
       });
     } else {
-      // const errors = this.collectValidationErrors();
-      // this.errorMessage = errors.join(' ');
+      const errors = this.collectValidationErrors();
+      this.errorMessage = errors.join(' ');
       this.gameForm.markAllAsTouched();
     }
   }
@@ -136,8 +129,8 @@ export class GameForm implements OnInit {
         next: () => this.router.navigate(['/games']),
         error: () =>
           this.errorMessage =
-          '⚠️ Failed to delete game. ' +
-          'Try again later. ' +
+          '⚠️ Failed to delete game.' +
+          'Try again later.' +
           'If the issue still persists, contact support at +1 (123) 456 7890.'
       });
     }
@@ -148,6 +141,13 @@ export class GameForm implements OnInit {
     const isWhitespace = (control.value || '').trim().length === 0;
     const isValid = !isWhitespace;
     return isValid ? null : { whitespace: true };
+  }
+
+  // CHECK: For whole number inputs.
+  integerValidator(control: any) {
+    const value = control.value;
+    if (value === null || value === undefined || value === '') return null;
+    return Number.isInteger(Number(value)) ? null : { notInteger: true };
   }
 
   /* PREVENTING: Certain input characters for number inputs, depending on form field */
@@ -184,15 +184,6 @@ export class GameForm implements OnInit {
     if (!/^[0-9.]$/.test(key)) {
       event.preventDefault();
       return;
-    }
-  }
-
-  formatPrice(): void {
-    const value = this.gameForm.get('price')?.value;
-
-    if (value !== null && value !== '') {
-      const formatted = Number(value).toFixed(2);
-      this.gameForm.get('price')?.setValue(formatted, { emitEvent: false });
     }
   }
 
