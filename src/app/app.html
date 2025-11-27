@@ -2,10 +2,18 @@
   <div class="navbar">
     <nav>
       <ul>
-        ` <li>
-          <a routerLink="/" routerLinkActive="active" [appHoverHighlight]="'#00e676'">Home</a>
-          <a routerLink="/modify" routerLinkActive="active" [appHoverHighlight]="'#00e676'">Modify List</a>
-        </li>`
+        <li>
+          <mat-icon>eye</mat-icon>
+          <button mat-mini-fab aria-label="Icon button with a home icon" matTooltip="Go to home page." matTooltipClass="custom-tooltip" matTooltipPosition="above" routerLink="/" routerLinkActive="active" class="nav-icon"
+>
+            <mat-icon>home</mat-icon>
+          </button>
+
+          <button mat-mini-fab aria-label="Icon button with a edit icon" matTooltip="Visit the modification page." matTooltipClass="custom-tooltip" matTooltipPosition="below" routerLink="/modify" routerLinkActive="active" class="nav-icon"
+            >
+            <mat-icon>edit</mat-icon>
+          </button>
+        </li>
       </ul>
     </nav>
   </div>
@@ -17,11 +25,12 @@
     <nav>
       <ul>
         <li>
-          <a routerLink="/" routerLinkActive="active" [appHoverHighlight]="'#00e676'">Home</a>
-          <a routerLink="/modify" routerLinkActive="active" [appHoverHighlight]="'#00e676'">Modify List</a>
+          <a matTooltipClass="custom-tooltip footer-nav1" matTooltip="Go to home page." matTooltipPosition="right" routerLink="/" routerLinkActive="active" [appHoverHighlight]="'#00e676'">Home</a>
+          <a matTooltipClass="custom-tooltip footer-nav2" matTooltip="Visit the modification page." matTooltipPosition="left" routerLink="/modify" routerLinkActive="active" [appHoverHighlight]="'#00e676'">Modify List</a>
+          <a matTooltipClass="custom-tooltip footer-nav3" matTooltip="Add a new game." matTooltipPosition="below" (click)="addNewGame()" [appHoverHighlight]="'#00e676'">New game</a>
         </li>
       </ul>
-      <p>Copyright Faariz Haider Sheikh &#64;2025</p>
+      <p>&#64;2025 Faariz Haider Sheikh</p>
     </nav>
   </div>
 </div>

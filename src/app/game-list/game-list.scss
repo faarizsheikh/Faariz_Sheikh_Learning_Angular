@@ -4,23 +4,55 @@
   padding: 20px;
 }
 
-/* BUTTONS */
-.game-list>button {
-  margin-bottom: 25px;
+.error {
+  background-color: #ffe0e0;
+  color: #a30000;
+  font-size: 2.4em;
+  font-weight: 500;
+  line-height: 2;
+  display: block;
+  margin-bottom: 12px;
+  padding: 8px;
+  border-radius: 6px;
+}
 
+/* BUTTONS */
+.add-btn {
+  color: lightcyan;
+  margin-bottom: 25px;
+  height: 60px;
+  width: 60px;
+
+  mat-icon {
+    font-size: 2.2em;
+  }
+}
+.add-btn:hover {
+  color: cyan;
 }
 
 .game-actions {
   text-align: center;
   margin-block: 10px 15px;
-}
 
-.error {
-  background-color: #ffe0e0;
-  color: #a30000;
-  font-weight: 500;
-  display: block;
-  margin-bottom: 12px;
-  padding: 8px;
-  border-radius: 6px;
+  .edit-btn {
+    color: lightgoldenrodyellow;
+  }
+  .edit-btn:hover {
+    color: yellow;
+  }
+
+  .delete-btn {
+    color: lightcoral;
+  }
+  .delete-btn:hover {
+    color: red;
+  }
+
+  .view-btn {
+    color: lightgreen;
+  }
+  .view-btn:hover {
+    color: green;
+  }
 }

@@ -1,11 +1,31 @@
 /* -- GAME-FORM STYLING -- */
+.err-box {
+  background-color: green;
+  margin: 0;
+  padding-block: 15px;
+
+  .error-box {
+    background-color: #ffeaea;
+    color: #a00000;
+    font-size: medium;
+    font-weight: bold;
+    line-height: 1.5;
+    display: flex;
+    justify-content: center;
+    justify-self: center;
+    padding: 12px;
+    width: 75%;
+    border: 2px solid black;
+    border-radius: 5px;
+  }
+}
 
 form {
   background-color: green;
   color: #fff;
-  text-align: center;
   display: grid;
   grid-template-areas:
+    "h2 h2"
     "title sequentialOrder"
     "dev genre"
     "year platform"
@@ -14,52 +34,18 @@ form {
     "completed completed"
     "submit submit";
   grid-template-columns: 1fr 1fr;
-  gap: 15px 25px;
+  gap: 15px 5px;
   justify-items: center;
-  margin-bottom: 35px;
   padding: 15px;
   border-top-width: 0;
 
-  /* DIVS */
-  div {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-  }
-
-  .completed {
-    align-items: center;
-    flex-direction: row;
-    gap: 8px;
-    justify-content: center;
+  h2 {
+    grid-area: h2;
+    text-align: left;
+    margin: 0 0 15px 25px;
   }
 
   /* FORM ELEMENTS */
-  input,
-  textarea {
-    font-size: 18px;
-    text-align: center;
-    padding: 8px;
-    width: 230px;
-  }
-
-  label {
-    font: bold 16px sans-serif;
-    margin-bottom: 5px;
-  }
-
-  textarea {
-    height: 100px;
-    width: 500px;
-    resize: none;
-  }
-
-  /* BUTTONS */
-  .completed input[type="checkbox"] {
-    height: 25px;
-    width: 25px;
-  }
-
   button {
     font: bold 15px sans-serif;
     grid-area: submit;
@@ -67,79 +53,95 @@ form {
     padding: 8px 16px;
   }
 
-  /** APPLYING GRID AREAS
-    * I wrote these in single lines to make code cleaner
-    * I learned it from VSC extension: Prettier Formatter
-   */
-  div:nth-of-type(1) {
-    grid-area: title;
-  }
-
-  div:nth-of-type(2) {
-    grid-area: dev;
-  }
-
-  div:nth-of-type(3) {
-    grid-area: sequentialOrder;
-  }
-
-  div:nth-of-type(4) {
-    grid-area: genre;
-  }
-
-  div:nth-of-type(5) {
-    grid-area: year;
-  }
-
-  div:nth-of-type(6) {
-    grid-area: platform;
-  }
-
-  div:nth-of-type(7) {
-    grid-area: price;
-  }
-
-  div:nth-of-type(8) {
-    grid-area: img;
-  }
-
-  .notes {
-    grid-area: notes;
-  }
-
-  .completed {
+  mat-checkbox {
     grid-area: completed;
+    margin-bottom: 25px;
+
+    mat-label {
+      font-size: 2.4em;
+      font-weight: normal;
+    }
   }
-}
 
-.err-box {
-  background-color: green;
-  padding-top: 15px;
-}
+  div {
+    display: block;
+    width: 100%;
 
-.error-box {
-  background-color: #ffeaea;
-  color: #a00000;
-  font-size: medium;
-  font-weight: bold;
-  display: flex;
-  justify-self: center;
-  justify-content: center;
-  padding: 10px;
-  width: 75%;
-  border: 2px solid black;
-  border-radius: 5px;
-}
+    &:nth-of-type(1) {
+      grid-area: title;
+    }
 
-input:focus,
-textarea:focus {
-  background-color: darkslategray;
-  color: white;
-  border: none;
-}
+    &:nth-of-type(2) {
+      grid-area: sequentialOrder;
+    }
 
-input:focus::placeholder,
-textarea:focus::placeholder {
-  color: lightgrey;
-  font-size: 18px;
+    &:nth-of-type(3) {
+      grid-area: dev;
+    }
+
+    &:nth-of-type(4) {
+      grid-area: genre;
+    }
+
+    &:nth-of-type(5) {
+      grid-area: year;
+    }
+
+    &:nth-of-type(6) {
+      grid-area: platform;
+    }
+
+    &:nth-of-type(7) {
+      grid-area: img;
+    }
+
+    &:nth-of-type(8) {
+      grid-area: price;
+    }
+
+    &:nth-of-type(9) {
+      grid-area: notes;
+    }
+  }
+
+    mat-error {
+      font-size: 2em;
+      line-height: 1.5;
+    }
+
+  mat-form-field {
+    display: block;
+    width: 100%;
+
+    input,
+    textarea {
+      font-size: 1.8em;
+      text-align: center;
+
+      &:focus {
+        border: none;
+
+        ::placeholder {
+          color: lightgrey;
+          font-size: 1em;
+        }
+      }
+    }
+
+    mat-label {
+      color: white;
+      font: bold 16px sans-serif;
+      margin-bottom: 5px;
+    }
+
+    input {
+      height: 25px;
+    }
+
+    textarea {
+      margin-top: 24px;
+      height: 100px;
+      resize: none;
+    }
+  }
 }

@@ -1,6 +1,9 @@
 <div class="game-list">
   <h2>All Games</h2>
-  <button (click)="addNewGame()" class="add-btn" [appHoverHighlight]="'#00e676'">Add New Game</button>
+
+  <button mat-mini-fab aria-label="Add a new game" matTooltip="Add a new game." matTooltipClass="custom-tooltip" matTooltipPosition="above" (click)="addNewGame()" class="add-btn">
+    <mat-icon>add</mat-icon>
+  </button>
 
   <!-- Show loading animation -->
   @if (loading) {
@@ -22,9 +25,16 @@
     </app-game-list-item>
 
     <div class="game-actions">
-      <button (click)="editGame(game)" [appHoverHighlight]="'#00e676'">Edit</button>
-      <button (click)="deleteGame(game)" [appHoverHighlight]="'#00e676'">Delete</button>
-      <button [routerLink]="['/games', game.id]" [appHoverHighlight]="'#00e676'">View Details</button>
+      <button mat-mini-fab aria-label="Edit game" matTooltip="Edit the game {{game.title}}." matTooltipClass="custom-tooltip" matTooltipPosition="above" (click)="editGame(game)" class="edit-btn">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-mini-fab aria-label="Delete game" matTooltip="Delete the {{game.title}} game? (WARNING: This action cannot be undone.)" matTooltipClass="custom-tooltip" matTooltipPosition="below" (click)="deleteGame(game)" class="delete-btn"
+        >
+        <mat-icon>delete</mat-icon>
+      </button>
+      <button mat-mini-fab aria-label="View game" matTooltip="View details of {{game.title}}." matTooltipClass="custom-tooltip" matTooltipPosition="above" [routerLink]="['/games', game.id]" routerLinkActive="active" class="view-btn">
+        <mat-icon>remove_red_eye</mat-icon>
+      </button>
     </div>
   </div>
   }

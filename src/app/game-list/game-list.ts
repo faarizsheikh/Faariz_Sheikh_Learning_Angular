@@ -2,13 +2,15 @@ import { Component, OnInit } from "@angular/core";
 import { MyData } from "../models/my-data";
 import { GameListItem } from "../game-list-item/game-list-item";
 import { GameDataService } from '../services/game-data-service';
-import { Router, RouterLink } from '@angular/router';
-import { HoverHighlightDirective } from '../directives/hover-highlight.directive';
+import { Router, RouterLink, RouterLinkActive } from '@angular/router';
+import { MatIconModule } from '@angular/material/icon';
+import { MatMiniFabButton } from '@angular/material/button';
+import { MatTooltip } from '@angular/material/tooltip';
 
 @Component({
   selector: 'app-game-list',
   standalone: true,
-  imports: [GameListItem, RouterLink, GameListItem, HoverHighlightDirective],
+  imports: [GameListItem, RouterLink, GameListItem, MatIconModule, MatMiniFabButton, RouterLinkActive, MatTooltip],
   templateUrl: './game-list.html',
   styleUrls: ['./game-list.scss']
 })

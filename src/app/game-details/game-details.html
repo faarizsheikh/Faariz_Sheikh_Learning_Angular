@@ -91,11 +91,12 @@
     <!-- Notes -->
     <p class="notes-p">
       <span class="label-name">Notes:</span>
-      @if (game.notes) {
-      {{ game.notes.trim() }}
-      } @else {
-      N/A
-      }
+      <span class="notes-txt">
+        @if (game.notes) {
+        {{ game.notes.trim() }}
+        } @else {
+        N/A
+        }</span>
     </p>
   </div>
 </div>
