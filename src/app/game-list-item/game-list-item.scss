@@ -1,7 +1,6 @@
 /* -- GAME-LIST-ITEM STYLING -- */
 .game-list-item {
   background-color: #fff;
-  padding: 15px;
   border: 2px solid #000;
   border-radius: 25px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -23,9 +22,16 @@
     }
   }
 
+  mat-card-header {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
   /* OTHER */
-  h2 {
-    color: #fff;
+  h2,
+  h3 {
+    line-height: 1;
   }
 
   img {

@@ -1,5 +1,3 @@
-<h2 type="submit">{{ isEditMode ? 'Update an existing game' : 'Add a new game' }}</h2>
-
 <div class="err-box">
   @if (errorMessage) {
   <div class="error-box">{{ errorMessage }}</div>
@@ -7,75 +5,151 @@
 </div>
 
 <form [formGroup]="gameForm" (ngSubmit)="submitForm()">
+
+  <h2>{{ isEditMode ? 'Update an existing game' : 'Add a new game' }}</h2>
+
   <!-- Title -->
   <div>
-    <label for="title">Title:</label>
-    <input id="title" formControlName="title" placeholder="e.g. Call of Duty: Black Ops"
-      appOnFocusHighlight />
+    <mat-form-field appearance="fill">
+      <mat-label>Title</mat-label>
+      <input matInput formControlName="title" placeholder="e.g. Call of Duty">
+    </mat-form-field>
+
+    @if (submitted) {
+    @if (gameForm.controls['title'].hasError('whitespace')) {
+    <mat-error>Title is required.</mat-error>
+    }
+    }
   </div>
 
   <!-- Sequential Order -->
   <div>
-    <label for="sequentialNumbering">Sequential Order (optional):</label>
-    <input id="sequentialNumbering" formControlName="sequentialNumbering" type="number" step="1" placeholder="e.g 1"
-      [max]="1000" [min]="0" (keydown)="blockInvalidKeys($event)" appOnFocusHighlight />
+    <mat-form-field appearance="fill">
+      <mat-label>Sequential Order (optional)</mat-label>
+      <input matInput type="number" formControlName="sequentialNumbering" placeholder="e.g. Write 1 if first game."
+        [max]="1000" [min]="1" (keydown)="blockInvalidKeys($event)" [step]="1">
+    </mat-form-field>
+
+    @if (submitted) {
+    @if (gameForm.controls['sequentialNumbering'].hasError('min') ||
+    gameForm.controls['sequentialNumbering'].hasError('max')) {
+    <mat-error>Sequential Order must be between 0 and 1000.</mat-error>
+    }
+    }
   </div>
 
   <!-- Developer -->
   <div>
-    <label for="developer">Developer:</label>
-    <input id="developer" formControlName="developer" placeholder="e.g. Activision" [appOnFocusHighlight]="''" />
+    <mat-form-field appearance="fill">
+      <mat-label>Developer</mat-label>
+      <input matInput formControlName="developer" placeholder="e.g. Activision">
+    </mat-form-field>
+    @if (submitted) {
+    @if (gameForm.controls['developer'].hasError('whitespace')) {
+    <mat-error>At least one developer or organization name is required.</mat-error>
+    }
+    }
   </div>
 
   <!-- Genre -->
   <div>
-    <label for="genre">Genre:</label>
-    <input id="genre" formControlName="genre" placeholder="e.g. Action, FPS, Multiplayer..."
-      appOnFocusHighlight />
+    <mat-form-field appearance="fill">
+      <mat-label>Genre</mat-label>
+      <input matInput formControlName="genre" placeholder="e.g. Action">
+    </mat-form-field>
+
+    @if (submitted) {
+    @if (gameForm.controls['genre'].hasError('whitespace')) {
+    <mat-error>At least one genre is required.</mat-error>
+    }
+    }
   </div>
 
   <!-- Year Released -->
   <div>
-    <label for="yearReleased">Year of Release:</label>
-    <input id="yearReleased" formControlName="yearReleased" type="number" step="1" placeholder="e.g. 2010" [max]=Date
-      [min]="1950" (keydown)="blockInvalidKeys($event)" appOnFocusHighlight />
+    <mat-form-field appearance="fill">
+      <mat-label>Year Released</mat-label>
+      <input matInput type="number" formControlName="yearReleased" placeholder="e.g. 2010" [max]="Date" [min]="1950"
+        (keydown)="blockInvalidKeys($event)" [step]="1" />
+    </mat-form-field>
+
+    @if (submitted) {
+    @if (gameForm.controls['yearReleased'].hasError('required')) {
+    <mat-error>Year Released is required.</mat-error>
+    }
+    @else if (gameForm.controls['yearReleased'].hasError('min') ||
+    gameForm.controls['yearReleased'].hasError('max')) {
+    <mat-error>Year Released must be between 1950 and {{Date}}.</mat-error>
+    }
+    }
   </div>
 
   <!-- Platform -->
   <div>
-    <label for="platform">Platform:</label>
-    <input id="platform" formControlName="platform" placeholder="e.g. Mobile, PC, PlayStation, XBox..."
-      appOnFocusHighlight />
-  </div>
+    <mat-form-field appearance="fill">
+      <mat-label>Platform</mat-label>
+      <input matInput formControlName="platform" placeholder="e.g. PC">
+    </mat-form-field>
 
-  <!-- Price -->
-  <div>
-    <label for="price">Price:</label>
-    <input id="price" formControlName="price" type="number" step="1" placeholder="e.g. 39.99 or 75" [max]="99999"
-      [min]="0" (keydown)="blockInvalidPrice($event)" appOnFocusHighlight />
+    @if (submitted) {
+    @if (gameForm.controls['platform'].hasError('whitespace')) {
+    <mat-error>At least one platform name is required.</mat-error>
+    }
+    }
   </div>
 
   <!-- Image URL -->
   <div>
-    <label for="imageUrl">Image URL:</label>
-    <input id="imageUrl" formControlName="imageUrl" placeholder="e.g. https://www.google.com/images/cod-bo1-banner.jpeg"
-      appOnFocusHighlight />
+    <mat-form-field appearance="fill">
+      <mat-label>Image URL</mat-label>
+      <input matInput formControlName="imageUrl" placeholder="https://example.com/image.jpg"
+        pattern="https:\/{1,2}(www\.)?[a-zA-Z0-9-]+\.[a-zA-Z]{2,}(\/)?$">
+    </mat-form-field>
+
+    @if (submitted) {
+    @if (gameForm.controls['imageUrl'].hasError('whitespace')) {
+    <mat-error>Image URL is required.</mat-error>
+    } @else if (gameForm.controls['imageUrl'].hasError('pattern')) {
+    <mat-error>The Image URL requires:<br />- https<br />- domain name<br />- domain extension.</mat-error>
+    }
+    }
+  </div>
+
+  <!-- Price -->
+  <div>
+    <mat-form-field appearance="fill">
+      <mat-label>Price</mat-label>
+      <input matInput type="number" formControlName="price" placeholder="e.g. 39.99" [max]="99999" [min]="0"
+        (blur)="formatPrice()" (keydown)="blockInvalidPrice($event)" [step]="'0.50'">
+    </mat-form-field>
+
+    @if (submitted) {
+    @if (gameForm.controls['price'].hasError('required')) {
+    <mat-error>Price of the game is required;<br>If free, then write 0.</mat-error>
+    } @else if (gameForm.controls['price'].hasError('min') ||
+    gameForm.controls['price'].hasError('max')) {
+    <mat-error>Price must be between 0 (free) and 99999 (or 99999.00).</mat-error>
+    }
+    }
   </div>
 
   <!-- Notes -->
-  <div class="notes">
-    <label for="notes">Notes (optional):</label>
-    <textarea id="notes" formControlName="notes" maxlength="300"
-      placeholder="e.g. Fun, multiplayer game with various modes and weapons."
-      appOnFocusHighlight></textarea>
+  <div>
+    <mat-form-field appearance="fill" class="notes">
+      <mat-label>Notes (optional)</mat-label>
+      <textarea matInput formControlName="notes" maxlength="300"
+        placeholder="Write comment-like notes to describe your experience playing the game."></textarea>
+    </mat-form-field>
   </div>
 
-  <!-- Completed -->
-  <div class="completed">
-    <label for="isCompleted">Completed:</label>
-    <input id="isCompleted" type="checkbox" formControlName="isCompleted" appOnFocusHighlight />
-  </div>
+  <!-- COMPLETED (checkbox) -->
+  <mat-checkbox formControlName="isCompleted" class="completed">
+    <mat-label>Completed</mat-label>
+  </mat-checkbox>
 
   <!-- Submit -->
-  <button type="submit">{{ isEditMode ? 'Update' : 'Add' }}</button>
+  <button mat-raised-button type="submit" matTooltip="Submit the form." matTooltipClass="custom-tooltip"
+    matTooltipPosition="below">
+    {{ isEditMode ? 'Update' : 'Add' }}
+  </button>
 </form>

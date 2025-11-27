@@ -8,7 +8,7 @@ export const MOCK_CONTENT: MyData[] = [
     platform: "Android, iOS, PC", price: 0.00, isCompleted: false,
     notes: "A fun and tense multiplayer social deduction game" +
       " where crewmates complete tasks while impostors try to eliminate them." +
-      " Great for strategy, deception, and group play with friends or online players.",
+      " Great for Strategy, deception, and group play with friends or online players.",
     imageUrl: "assets/among-us.jpeg"
   },
   {
@@ -42,7 +42,7 @@ export const MOCK_CONTENT: MyData[] = [
     genre: "Real-Time Strategy, Shooter", yearReleased: 2014,
     platform: "Android, iOS", isCompleted: false,
     price: 0.00,
-    notes: "One of the most balanced mobile strategy games I’ve played.",
+    notes: "One of the most balanced mobile Strategy games I’ve played.",
     imageUrl: "assets/boom-beach.jpeg"
   },
   {
@@ -69,7 +69,7 @@ export const MOCK_CONTENT: MyData[] = [
     genre: "Social Deduction, Survival Horror", yearReleased: 2014,
     platform: "Android, iOS, PC, Playstation, Roblox, XBox", price: 0.00, isCompleted: false,
     notes: "Fast-paced and unpredictable gameplay that" +
-      "mixes strategy, deception, and survival." +
+      "mixes Strategy, deception, and survival." +
       " The tension of not knowing who the murderer is makes every round thrilling.",
     imageUrl: "assets/mm2.jpeg"
   },

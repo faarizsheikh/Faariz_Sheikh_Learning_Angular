@@ -1,0 +1,74 @@
+[33m4144f9f[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32massignment10[m[33m, [m[1;31morigin/assignment9[m[33m, [m[1;32massignment9[m[33m)[m v0.9.0: Package Version Change + Angular Material + Form Errors + Improvements/Changes + Typos/Readability.
+[33m0da5480[m v0.7.3.6: SCSS, Backgrounds, and Images.
+[33m3a376e9[m v0.7.3.5: Form Validation Bugs + Minor Fixes.
+[33ma58d40d[m v0.8.1.1: New Directives + Formatting
+[33m02d691e[m v0.8.1: Directives + Bug Fixes + Minor improvements.
+[33md7ca96d[m V0.7.3.4: Fixed duplicate code.
+[33m47d2248[m v0.7.2.1: Coloured Pipes, Organization, Updated info.
+[33mb4e257f[m v0.8.0: NEW Package Version.
+[33m0b8f70e[m[33m ([m[1;31morigin/assignment8[m[33m, [m[1;32massignment8[m[33m)[m 🧩 v0.7.3.3: Transitioned SPA to lazy loading for non-default routes.
+[33m9eec8f3[m 🧩 v0.7.3.2: Navigation, Form headings and validations.
+[33md258403[m 🧩 v0.7.3.1 — SCSS
+[33m1c96c99[m 🧩 v0.7.3 — Forms bug fixes and images' brightness.
+[33mbf3ee6c[m 🧩 v0.7.2 — Major Update: Structural, Visual & Stability Enhancements
+[33m172ce34[m Version 0.7.1:
+[33m29eabf3[m Version 0.7.0: - Package version changed to 0.7.0.
+[33m4fd93b7[m[33m ([m[1;31morigin/assignment7[m[33m)[m FIXED: Services info + Images & sizing.
+[33m91387fd[m ADDED: Error messages; MODIFIED: Form & List components to show errors.
+[33m0cb4e27[m ADDED: Defined data for APIl; UPDATE: game-list.ts and game-list-item.ts to display the data by fetching them from the service.
+[33m717e445[m ADDED: New game in mock-content.ts; CHANGED: Some images.
+[33m73fd1d8[m ADDED: Service called in-memory-data-service && Data defined by API.
+[33mc6d5767[m V0.6.0
+[33mb16f1c0[m[33m ([m[1;31morigin/assignment6[m[33m)[m - FIXED: Adding & deleting new game && Code readability (comments, spacing, styling); - IMPROVED: All styling; - MOVED: Modify buttons to main page (except add game, which is in both areas). - REMOVED: Unnecessary styling.
+[33m4adbdfc[m MODIFIED: Add, delete, and edit game details are now in the main area (game-list/game-list-item) rather than being in modify-list-item.
+[33m38c07fc[m REMOVED: Most verification due to failure in allowing the user to submit the form for adding a new game.
+[33mf7bac0e[m FIXED & IMPROVED: Styling in modify-list-item.scss (such as buttons), game-details.scss (headings, game details), AND modify-list.
+[33m19efafd[m ADDED: Validation (as best as I could)
+[33m6e059be[m FIXED: Error shown due to css files changed to scss, specifically app.scss (component-level styling) and styles.scss (global styling); REMOVED: unnecessary styling. FIXED: comment errors in tasks.json found by project error analyzation by removing the comments.
+[33ma3ca661[m IMPROVED: Form attributes/limits to avoid problems and crashes such as infinite text in notes + CHANGED: CSS files to SCSS. Navigation bar styling. CLEANED: CSS code (Now called SCSS).
+[33m2b39505[m IMPROVED: Form attributes/limits + CHANGED: Navigation bar styling. CLEANED: CSS code.
+[33m5f6642a[m FIXED: Checkbox in game-form.
+[33m69147d1[m ADDED & FIXED: Form.
+[33ma5ee0c3[m Updated: Modify-list-item component directory and its files.
+[33m73793f0[m Fixed comments readability (i.e. Capitalization and punctuation).
+[33mfec3748[m ADDED: Reactive Form & Edit/Delete Functionality in ModifyListItem
+[33m745838e[m FIXED: Notes <span> spacing
+[33me676921[m Change the package.json version to 0.5.0 (from 0.4.0).
+[33mbd675cb[m[33m ([m[1;31morigin/assignment5[m[33m)[m Assignment 5 finish CHECKPOINT; Nothing new, just a note to self AND to the professor.
+[33mc3ffc0e[m ADDED: Alt + Title, Even/Odd hover effect, Styling modification; REMOVED: Unused, unecessary OnClick() function.
+[33m86c4d69[m - ADDED: Navigation bar - CREATED: New components (game-details, modify-list-item, page-not-found) - MOVED: Game details view into game-details.html - REFACTORED: SCSS based on components. - REMOVED: onToggle() function from game-list-item - UPDATED:      • Routes to use new components      • SCSS styling across components
+[33m22bda76[m ADDED: Routing setup; DEFINED: Routes.
+[33ma191bd8[m CHANGED: Package version to 0.4.0 (from 0.3.0).
+[33m36c7109[m Initial commit
+[33mffd32cb[m[33m ([m[1;31morigin/assignment4[m[33m)[m ADDED: CRUD Tests (See Dev Tools - Ctrl + Shift + I / Cmd + Option + I).
+[33m37bad77[m ADDED: Clickable content. FIXED: Even/Odd content boxes.
+[33mb9b67d4[m ADDED: single top ContentListItem with service injection in app.component.ts (app.ts); A little bit of CSS for the single top component.
+[33m90de341[m ADDED: CRUD (Create, Retrieve, Update, Delete) methods using the observable pattern.
+[33m6d68221[m ADDED: GameService with observable from mock data & injected into ContentList.
+[33m790decd[m CREATED: mock-content.ts & moved the IContent array there; GameDataService for CRUD operations.
+[33me3d922b[m CHANGED: Version to 0.4.0 (from 0.3.0).
+[33m77a0520[m[33m ([m[1;31morigin/assignment3[m[33m)[m FIXED: @for loop in game-list.html.
+[33mc99a5d9[m UDPATE: Fixed files - removed let $index...; FIXED: Long duration of IDE analyzing code + unexpected errors.
+[33m858820f[m USED: The modern @for loop with an index ($index); APPLIED: Classes using native [class.className] bindings.
+[33me86d790[m Changed CSS styles to SCSS (SASS) where applicable.
+[33mdd1d9b7[m Made Status readable.
+[33mad7d61b[m Added more Info. Code Format Fixed.
+[33m8d0d90b[m ADDED: Images, More Info.
+[33m116a566[m ADDED: New input, different bg-colours (item-lists boxes), font-sizes; CHANGED: bg-colour (html/root) for readability.
+[33m0a6684e[m UPDATED: Content of game-list-item.html & ADDED/CHANGED: CSS files.
+[33m99925d6[m ADDED: One-way binding.
+[33mc1af919[m ADDED: ContentList & ContentListItem components with data setup.
+[33m69f4a62[m Added 2 new components: game-list & game-list-card
+[33mdb63a0a[m package.json version set to 0.2.0
+[33m1aeb64e[m[33m ([m[1;31morigin/assignment2[m[33m)[m CHOSE: Topic; ADDED: CSS & SASS/SCSS, Structural Directives; CHANGED: Property Names & Types; IMPROVED: Formatting.
+[33m2a8bbd1[m Added 5 Properties + Exported Interface
+[33m72ff898[m Set version to 0.1.0 for Assignment 2.
+[33m9c58315[m Changed 0.1.0 back to 0.0.0
+[33m5f431c5[m Set version to 0.1.0 for Assignment 2.
+[33mf9aeb68[m Set version to 0.1.0 for Assignment 2.
+[33m435122e[m Set version to 0.1.0 for Assignment 2.
+[33m04ef74f[m Set version to 0.1.0 for Assignment 2.
+[33m43b89d0[m[33m ([m[1;31morigin/week1[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mweek1[m[33m)[m Fixes & Modifications (Add/Remove).
+[33mcbcce77[m Some CSS added.
+[33mfcd476f[m HELLO
+[33ma0e7edc[m initial commit

@@ -1,16 +1,16 @@
-import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import { CustomTitlecasePipe } from '../pipes/custom-titlecase.pipe';
 import { GameDataService } from '../services/game-data-service';
+import { GameStatusColorPipe } from '../pipes/custom-game-status-colour.pipe';
 import { MyData } from '../models/my-data';
 import { NormalizeSpacesPipe } from '../pipes/custom-normalize-spaces.pipe';
-import { CustomTitlecasePipe } from '../pipes/custom-titlecase.pipe';
-import { GameStatusColorPipe } from '../pipes/custom-game-status-colour.pipe';
 
 @Component({
   selector: 'app-game-details',
   standalone: true,
-  imports: [CommonModule, RouterLink, NormalizeSpacesPipe, CustomTitlecasePipe, GameStatusColorPipe],
+  imports: [CommonModule, CustomTitlecasePipe, GameStatusColorPipe, NormalizeSpacesPipe, RouterLink],
   templateUrl: './game-details.html',
   styleUrls: ['./game-details.scss']
 })

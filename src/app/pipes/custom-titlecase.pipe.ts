@@ -35,16 +35,25 @@ export class CustomTitlecasePipe implements PipeTransform {
 
       /* Genres: */
       .replace(/\bFps\b/g, 'FPS')
-      .replace(/\bdb\b/g, 'DB')
 
       /* Platforms: */
       .replace(/\bIos\b/g, 'iOS')
       .replace(/\bPc\b/g, 'PC')
-      .replace(/\broblox\b/g, 'Roblox')
 
       /* Non-title-cased words and New sentences */
       .replace(/\b And \b/g, ' and ')
       .replace(/\b In \b/g, ' in ')
       .replace(/\b The \b/g, ' the ')
+
+      /**
+       * May only work for existing cards, sadly
+      */
+
+      /* Developers */
+      .replace(/\bIk3as\b/g, 'IK3As')
+      .replace(/\bInnersloth\b/g, 'InnerSloth')
+      .replace(/\bMinitoon\b/g, 'MiniToon')
+      .replace(/\bSupercell\b/g, 'SuperCell')
+      .replace(/\bTeamterrible\b/g, 'TeamTerrible')
   }
 }

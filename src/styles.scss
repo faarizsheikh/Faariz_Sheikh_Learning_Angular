@@ -1,151 +1,258 @@
 /* -- GLOBAL-LEVEL STYLING -- */
-:root {
-  background-color: #222;
-  color-scheme: light;
+
+// Include theming for Angular Material with `mat.theme()`.
+// This Sass mixin will define CSS variables that are used for styling Angular Material
+// components according to the Material 3 design spec.
+// Learn more about theming and how to use it for your application's
+// custom components at https://material.angular.dev/guide/theming
+@use '@angular/material' as mat;
+
+html,
+body {
+  height: 100%;
+}
+
+html {
   font: normal 62.5% 'Segoe UI', sans-serif;
-}
 
-/* COMMON HEADINGS */
-h1,
-h2,
-h3 {
-  color: white;
-  font-weight: bold;
-  text-align: center;
-  margin: 10px 0;
-}
+  @include mat.theme((color: (primary: mat.$cyan-palette,
+        tertiary: mat.$orange-palette,
+      ),
+      typography: Roboto,
+      density: 0,
+    ));
 
-h1 {
-  font-size: 3.2em;
-}
-
-h2 {
-  font-size: 2.8em;
-}
-
-p {
-  font-size: 1.6em;
-}
-
-/* STATUS COLOURS */
-.status-completed,
-.status-incomplete {
-  font-size: 24px;
-  font-weight: bold;
-  text-align: center;
-}
-
-.status-completed {
-  color: #00e676;
-}
-
-.status-incomplete {
-  color: #ff5252;
-}
-
-/* IMAGES */
-.game-image,
-img {
-  margin-bottom: 10px;
-  max-height: 500px;
-  width: 100%;
-  border-radius: 10px;
-  object-fit: cover;
-}
-
-/* BUTTONS */
-button {
-  background: linear-gradient(90deg, #141e30, #243b55);
-  color: #fff;
-  font: bold 1.4em sans-serif;
-  height: 40px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: 0.2s ease;
-}
-
-button:hover {
-  background: linear-gradient(90deg, #243b55, #141e30);
-}
-
-button:not(.add-btn, .return-home) {
-  width: 100px;
-}
-
-/* CONTAINER */
-.container {
-  background-color: #f0f0f0;
-  margin: 20px auto;
-  padding: 20px;
-  max-width: 600px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* NAVBAR */
-.navbar {
-  background: linear-gradient(90deg, #141e30, #243b55);
-  text-align: center;
-
-  li {
-    list-style: none;
+  .footer-nav1 .mdc-tooltip__surface,
+  .footer-nav2 .mdc-tooltip__surface,
+  .footer-nav3 .mdc-tooltip__surface {
+    position: absolute;
+    bottom: 3px;
+    width: 115px;
   }
 
-  a {
-    color: #f5f5f5;
+  .footer-nav1 .mdc-tooltip__surface {
+    right: 95px;
+  }
+
+  .footer-nav2 .mdc-tooltip__surface {
+    left: 95px;
+  }
+
+  .footer-nav3 .mdc-tooltip__surface {
+    position: initial;
+  }
+
+  .custom-tooltip .mdc-tooltip__surface {
     font-size: 1.8em;
-    text-decoration: none;
-    margin-right: 15px;
-    cursor: pointer;
+    line-height: 1;
   }
 
-  a:hover {
-    text-decoration: underline;
+  .mdc-checkbox {
+    --mat-checkbox-selected-focus-icon-color: white;
+    --mat-checkbox-selected-icon-color: white;
+    --mat-checkbox-unselected-focus-icon-color: white;
+    --mat-checkbox-selected-hover-icon-color: white;
+    --mat-checkbox-unselected-hover-icon-color: white;
+    --mat-checkbox-unselected-icon-color: white;
+    --mat-checkbox-selected-checkmark-color: black;
+    margin-bottom: 3px;
   }
-}
 
-.navbar:last-of-type {
-  ul {
-    padding-block: 15px;
+  body {
+    // Default the application to a light color theme. This can be changed to
+    // `dark` to enable the dark color theme, or to `light dark` to defer to the
+    // user's system settings.
+    color-scheme: dark;
+
+    // Set a default background, font and text colors for the application using
+    // Angular Material's system-level CSS variables. Learn more about these
+    // variables at https://material.angular.dev/guide/system-variables
+    background-color: var(--mat-sys-surface);
+    color: var(--mat-sys-on-surface);
+    font: var(--mat-sys-body-medium);
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+
+    // Reset the user agent margin.
+    margin: 0;
   }
 
-  li {
+  /* COMMON HEADINGS */
+  h1,
+  h2,
+  h3 {
+    color: white;
+    font-weight: bold;
     text-align: center;
-    width: 100%;
-    float: left;
-    overflow: hidden;
   }
 
-  a {
-    display: block;
+  h1 {
+    font-size: 3.2em;
+  }
+
+  h2 {
+    font-size: 2.8em;
+  }
+
+  h3 {
+    font-size: 2.4em;
   }
 
   p {
-    color: white;
-    display: inline-block;
+    font-size: 1.8em;
   }
-}
 
-.loading-screen {
-  color: #888;
-  font-style: italic;
-  text-align: center;
-  margin-top: 50px;
-}
+  /* STATUS COLOURS */
+  .status-completed,
+  .status-incomplete {
+    font-size: 2.4em;
+    font-weight: bold;
+    text-align: center;
+  }
 
-.spinner {
-  margin: 1rem auto;
-  height: 30px;
-  width: 30px;
-  border: 3px solid #ccc;
-  border-radius: 50%;
-  border-top-color: #00bcd4;
-  animation: spin 1s linear infinite;
-}
+  .status-completed {
+    color: #00e676;
+  }
 
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
+  .status-incomplete {
+    color: #ff5252;
+  }
+
+  /* IMAGES */
+  .game-image,
+  img {
+    margin-bottom: 10px;
+    max-height: 500px;
+    width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+
+  /* BUTTONS */
+  button {
+    background: linear-gradient(90deg, #141e30, #243b55);
+    color: #fff;
+    font: bold 1.4em sans-serif;
+    height: 40px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.2s ease;
+
+    &:hover {
+      background: linear-gradient(90deg, #243b55, #141e30);
+    }
+
+    &:not(.add-btn, .return-home) {
+      width: 100px;
+    }
+  }
+
+  /* CONTAINER */
+  .container {
+    background-color: #f0f0f0;
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 600px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+    /* LOADING PROCESS */
+    .loading-screen {
+      color: #888;
+      font-style: italic;
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    .spinner {
+      margin: 1rem auto;
+      height: 30px;
+      width: 30px;
+      border: 3px solid #ccc;
+      border-radius: 50%;
+      border-top-color: #00bcd4;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* NAVIGATION */
+    .navbar {
+      background: linear-gradient(90deg, #141e30, #243b55);
+      margin-bottom: 30px;
+      padding: 12px 0;
+      border-radius: 6px;
+
+      mat-icon {
+        color: white;
+        height: auto;
+        text-decoration: none;
+      }
+
+      p {
+        color: #ddd;
+        font-size: 1.8em;
+        margin: 0;
+      }
+
+      nav {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        gap: 8px;
+
+        ul {
+          list-style: none;
+          margin: 0;
+          padding: 0;
+
+          li {
+            display: flex;
+            gap: 15px;
+
+            a {
+              font-size: 1.8em;
+              text-decoration: none;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+
+      &:last-of-type {
+        margin-top: 40px;
+        padding: 20px 0;
+        border-radius: 6px;
+
+        li {
+          display: flex;
+          margin-block: 15px;
+          margin-left: 25px;
+          flex-direction: column;
+          gap: 25px;
+
+          a {
+            color: #f5f5f5;
+          }
+        }
+
+        p {
+          font-size: 1.6em;
+          margin: 25px 0 0 15px;
+          align-self: flex-start;
+          justify-self: flex-start;
+          transition: color 750ms ease-in-out;
+
+          &:hover {
+            color: gold;
+            font-weight: bold;
+          }
+        }
+      }
+    }
   }
 }
