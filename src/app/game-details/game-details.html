@@ -7,7 +7,13 @@
 @if (game) {
 <div class="game-details">
   <!-- Title -->
-  <h2>{{ game.title.trim() | Normalizespaces | Titlecase }}</h2>
+  <div class="title">
+    <h2>{{ game.title.trim() | Normalizespaces | Titlecase }}</h2>
+    <div matTooltip="Edit Info." matTooltipClass="custom-tooltip" matTooltipPosition="below" (click)="editGame(game)"
+      [appHoverHighlight]="'#06e676'">
+      <mat-icon>edit</mat-icon>
+    </div>
+  </div>
 
   <!-- Image -->
   <img [src]="game.imageUrl" [alt]="

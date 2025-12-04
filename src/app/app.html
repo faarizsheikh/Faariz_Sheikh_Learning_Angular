@@ -27,13 +27,13 @@
     <nav>
       <ul>
         <li>
-          <a matTooltipClass="custom-tooltip footer-nav1" matTooltip="Go to home page." matTooltipPosition="right"
+          <a matTooltipClass="custom-tooltip footer-nav1" matTooltip="Go to home page." matTooltipPosition="left"
             routerLink="/" routerLinkActive="active" [appHoverHighlight]="'#00e676'">Home</a>
           <a matTooltipClass="custom-tooltip footer-nav2" matTooltip="Visit the modification page."
-            matTooltipPosition="left" routerLink="/modify" routerLinkActive="active"
+            matTooltipPosition="below" routerLink="/modify" routerLinkActive="active"
             [appHoverHighlight]="'#00e676'">Modify List</a>
-          <a matTooltipClass="custom-tooltip footer-nav3" matTooltip="Add a new game." matTooltipPosition="below"
-            (click)="addNewGame()" [appHoverHighlight]="'#00e676'">New game</a>
+          <a matTooltipClass="custom-tooltip footer-nav3" matTooltip="Add a new game." matTooltipPosition="right"
+            (click)="addNewGame()" [appHoverHighlight]="'#00e676'">New Game</a>
         </li>
       </ul>
       <p>&#64;2025 Faariz Haider Sheikh</p>

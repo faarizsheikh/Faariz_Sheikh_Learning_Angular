@@ -55,10 +55,27 @@ img {
   border-radius: 25%;
 }
 
-h2 {
+.title {
   background-color: #330;
-  color: #ffcc00;
-  text-align: center;
   line-height: 2.5;
+  display: flex;
+  height: 75px;
+  align-items: center;
+  gap: 15px;
+  justify-content: center;
   border-radius: 35%;
+
+  h2,
+  span {
+    color: #ffcc00;
+  }
+
+  mat-icon {
+    //background: linear-gradient(90deg, #141e30, #243b55);
+    margin-top: 7px;
+    padding: 3px;
+    height: auto;
+    width: 35px;
+    font-size: 3.5em;
+  }
 }
