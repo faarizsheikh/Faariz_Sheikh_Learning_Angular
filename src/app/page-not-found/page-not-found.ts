@@ -16,7 +16,8 @@ import { MatTooltip } from '@angular/material/tooltip';
     RouterLinkActive
   ],
   templateUrl: './page-not-found.html',
-  styleUrl: './page-not-found.scss'
+  styleUrl: './page-not-found.scss',
+  host: { class: 'page-not-found' }
 })
 
 export class PageNotFound {

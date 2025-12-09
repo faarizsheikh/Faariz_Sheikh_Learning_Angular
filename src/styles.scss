@@ -102,6 +102,21 @@ html {
     font-size: 1.8em;
   }
 
+  .container:has(.page-game-list) .page-title::after,
+  .container:has(.page-game-list-item) .page-title::after,
+  .container:has(.page-modify-list-item) .page-title::after,
+  .container:has(.page-game-form) .page-title::after {
+    content: "S:";
+  }
+
+  .container:has(.page-game-details) .page-title::after {
+    content: ":";
+  }
+
+  .container:has(.page-not-found) .page-title {
+    display: none;
+  }
+
   /* STATUS COLOURS */
   .status-completed,
   .status-incomplete {
@@ -184,7 +199,7 @@ html {
     /* NAVIGATION */
     .navbar {
       background: linear-gradient(90deg, #141e30, #243b55);
-      margin-bottom: 30px;
+      margin-bottom: 70px;
       padding: 12px 0;
       border-radius: 6px;
 

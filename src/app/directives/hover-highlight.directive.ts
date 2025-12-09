@@ -11,6 +11,7 @@ import { Directive, ElementRef, HostListener, Input } from '@angular/core';
 })
 
 export class HoverHighlightDirective {
+
   @Input() appHoverHighlight: string = '';
 
   constructor(private el: ElementRef) { }

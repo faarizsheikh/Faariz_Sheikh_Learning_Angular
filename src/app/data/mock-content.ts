@@ -5,7 +5,7 @@ export const MOCK_CONTENT: MyData[] = [
     id: 1,
     title: "Among Us", developer: "InnerSloth",
     genre: "Action, Multiplayer, Party, Social-deduction, Survival", yearReleased: 2018,
-    platform: "Android, iOS, PC", price: 0.00, isCompleted: false,
+    platform: "Android, iOS, PC", age: 10, price: 0.00, experience: 3, rating: 4, isCompleted: false,
     notes: "A fun and tense multiplayer social deduction game" +
       " where crewmates complete tasks while impostors try to eliminate them." +
       " Great for Strategy, deception, and group play with friends or online players.",
@@ -15,7 +15,7 @@ export const MOCK_CONTENT: MyData[] = [
     id: 2,
     title: "Assassin\'s Creed", sequentialNumbering: 1, developer: "Ubisoft, Ubisoft Montréal",
     genre: "Action-Adventure, Non-Linear, Open World, Stealth", yearReleased: 2007,
-    platform: "PlayStation 5, XBox", price: 19.99, isCompleted: false,
+    platform: "PlayStation 5, XBox", age: 13, price: 19.99, experience: 0, rating: 4, isCompleted: false,
     notes: "Immersive historical settings with stealth mechanics and parkour-based exploration.",
     imageUrl: "assets/assassins-creed.jpeg"
   },
@@ -23,16 +23,17 @@ export const MOCK_CONTENT: MyData[] = [
     id: 3,
     title: "Baby in Yellow", developer: "TeamTerrible",
     genre: "Adventure, Indie, Puzzle/Strategy Simulation", yearReleased: 2020,
-    platform: "Android, iOS", price: 0.00, isCompleted: false,
+    platform: "Android, iOS", age: 10, price: 0.00, experience: 3, rating: 4, isCompleted: false,
     notes: "Freaked me out. At first it was funny babysitting," +
       " but the supernatural stuff made it scary and gave me chills.",
     imageUrl: "assets/baby-yellow.jpeg"
   },
   {
     id: 4,
-    title: "Baldi\'s Basics in Education & Learning", sequentialNumbering: 1, developer: "Mystman12 (Micah McGonigal), Basically Games",
+    title: "Baldi\'s Basics in Education & Learning", sequentialNumbering: 1,
+    developer: "Mystman12 (Micah McGonigal), Basically Games",
     genre: "Action-Adventure, Educational, Indie, Puzzle/Strategy, Survival Horror", yearReleased: 2018,
-    platform: "PC", price: 0.00, isCompleted: false,
+    platform: "PC", age: 13, price: 0.00, experience: 7, rating: 4, isCompleted: false,
     notes: "Fun and quirky educational horror experience.",
     imageUrl: "assets/baldi-basics.jpeg"
   },
@@ -40,8 +41,7 @@ export const MOCK_CONTENT: MyData[] = [
     id: 5,
     title: "Boom Beach", developer: "SuperCell, Space Ace Games",
     genre: "Real-Time Strategy, Shooter", yearReleased: 2014,
-    platform: "Android, iOS", isCompleted: false,
-    price: 0.00,
+    platform: "Android, iOS", age: 10, price: 0.00, experience: 1, rating: 3, isCompleted: false,
     notes: "One of the most balanced mobile Strategy games I’ve played.",
     imageUrl: "assets/boom-beach.jpeg"
   },
@@ -49,8 +49,7 @@ export const MOCK_CONTENT: MyData[] = [
     id: 6,
     title: "Five Nights At Freddy\'s", sequentialNumbering: 1, developer: "Scott Cawthon, Scottgames",
     genre: "Action-Adventure, Graphic Adventure, Indie, Simulation, Survival Horror", yearReleased: 2014,
-    platform: "Android, iOS, PC", isCompleted: true,
-    price: 4.99,
+    platform: "Android, iOS, PC", age: 13, price: 4.99, experience: 9, rating: 4, isCompleted: true,
     notes: "Tense jump-scare experience where players monitor cameras to survive animatronic attacks.",
     imageUrl: "assets/fnaf.jpeg"
   },
@@ -58,8 +57,7 @@ export const MOCK_CONTENT: MyData[] = [
     id: 7,
     title: "Granny", sequentialNumbering: 1, developer: "DVloper (Dennis Vukanovic), DVapps AB",
     genre: "Action-Adventure, Indie, Puzzle/Strategy, Survival Horror", yearReleased: 2017,
-    platform: "Android, iOS, PC", isCompleted: false,
-    price: 5.69,
+    platform: "Android, iOS, PC", age: 13, price: 5.69, experience: 8, rating: 5, isCompleted: false,
     notes: "Spooky, suspenseful gameplay with multiple endings.",
     imageUrl: "assets/granny.jpeg"
   },
@@ -67,7 +65,8 @@ export const MOCK_CONTENT: MyData[] = [
     id: 8,
     title: "Roblox Murder Mystery 2", developer: "Nikilis",
     genre: "Social Deduction, Survival Horror", yearReleased: 2014,
-    platform: "Android, iOS, PC, Playstation, Roblox, XBox", price: 0.00, isCompleted: false,
+    platform: "Android, iOS, PC, Playstation, Roblox, XBox", age: 10, price: 0.00, experience: 5, rating: 4,
+    isCompleted: false,
     notes: "Fast-paced and unpredictable gameplay that" +
       "mixes Strategy, deception, and survival." +
       " The tension of not knowing who the murderer is makes every round thrilling.",
@@ -77,7 +76,8 @@ export const MOCK_CONTENT: MyData[] = [
     id: 9,
     title: "Roblox Piggy: Book 1", sequentialNumbering: 1, developer: "MiniToon (Kohl Couture), IK3As",
     genre: "Action-Adventure, Episodic, Multiplayer, Puzzle/Strategy, Survival Horror", yearReleased: 2020,
-    platform: "Android, iOS, PC, Playstation, Roblox, XBox", price: 0.00, isCompleted: false,
+    platform: "Android, iOS, PC, Playstation, Roblox, XBox", age: 5, price: 0.00, experience: 4, rating: 5,
+    isCompleted: false,
     notes: "Creative horror challenges with a memorable storyline.",
     imageUrl: "assets/blox-piggy.jpeg"
   },
@@ -85,7 +85,8 @@ export const MOCK_CONTENT: MyData[] = [
     id: 10,
     title: "Roblox Survive and Kill the Killers in Area 51", developer: "Homermafia1",
     genre: "FPS, Adventure, Survival Horror", yearReleased: 2014,
-    platform: "Android, iOS, PC, Playstation, Roblox, XBox", price: 0.00, isCompleted: false,
+    platform: "Android, iOS, PC, Playstation, Roblox, XBox", age: 10, price: 0.00, experience: 3, rating: 5,
+    isCompleted: false,
     notes: "Amazing! You can have so much fun with this game." +
       "It has so many modes and missions. A game like this," +
       "where you go down to Area 51, find weapons, survive," +
@@ -96,7 +97,8 @@ export const MOCK_CONTENT: MyData[] = [
     id: 11,
     title: "Schoolboy Runaway", developer: "Linked Squad",
     genre: "Action-Adventure, Indie, Puzzle/Strategy, Stealth", yearReleased: 2024,
-    platform: "Android, iOS, PC", price: 7.79, isCompleted: true,
+    platform: "Android, iOS, PC", age: 16, price: 7.79, experience: 1, rating: 3,
+    isCompleted: true,
     notes: "Stealth mechanics are unique and engaging.",
     imageUrl: "assets/schoolboy-runaway.jpeg"
   },
@@ -104,7 +106,8 @@ export const MOCK_CONTENT: MyData[] = [
     id: 12,
     title: "Subway Surfers", sequentialNumbering: 1, developer: "SYBO Games",
     genre: "Endless Runner", yearReleased: 2012,
-    platform: "Android, iOS", price: 0.00, isCompleted: false,
+    platform: "Android, iOS", age: 7, price: 0.00, experience: 10, rating: 4,
+    isCompleted: false,
     notes: "I play this all the time. It felt fast, colorful, and fun," +
       " especially with the hoverboards and characters. Addictive for killing time.",
     imageUrl: "assets/subway-surfers.jpeg"
@@ -113,7 +116,8 @@ export const MOCK_CONTENT: MyData[] = [
     id: 13,
     title: "The Rainman", developer: "CopperBolt (Daniel Weldink)",
     genre: "Action-Adventure, Indie, Survival Horror", yearReleased: 2023,
-    platform: "PC", price: 0.99, isCompleted: true,
+    platform: "PC", age: 16, price: 0.99, experience: 1, rating: 5,
+    isCompleted: true,
     notes: "Intense atmosphere with a gripping narrative.",
     imageUrl: "assets/rainman.jpeg"
   },

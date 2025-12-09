@@ -9,13 +9,18 @@ import { MyData } from '../models/my-data';
 import { MatIcon } from '@angular/material/icon';
 import { MatTooltip } from '@angular/material/tooltip';
 import { NormalizeSpacesPipe } from '../pipes/custom-normalize-spaces.pipe';
+import { ExperiencePipe } from '../pipes/custom-experience-years.pipe';
+import { RatingPipe } from '../pipes/custom-game-rating-star.pipe';
+import { AgePipe } from '../pipes/custom-age.pipe';
+import { FallbackImageDirective } from '../directives/fallback-image.directive';
 
 @Component({
   selector: 'app-game-details',
   standalone: true,
-  imports: [CommonModule, CustomTitlecasePipe, GameStatusColorPipe, MatIcon, MatTooltip, NormalizeSpacesPipe, RouterLink, HoverHighlightDirective],
+  imports: [CommonModule, CustomTitlecasePipe, GameStatusColorPipe, MatIcon, MatTooltip, NormalizeSpacesPipe, RouterLink, HoverHighlightDirective, ExperiencePipe, RatingPipe, AgePipe, FallbackImageDirective],
   templateUrl: './game-details.html',
-  styleUrls: ['./game-details.scss']
+  styleUrls: ['./game-details.scss'],
+  host: { class: 'page-game-details' }
 })
 
 export class GameDetails implements OnInit {

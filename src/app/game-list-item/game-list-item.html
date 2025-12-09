@@ -2,7 +2,7 @@
 
 <mat-card class="game-list-item" [appEvenOddHighlight]="isEven">
 
-  <img mat-card-image [src]="game.imageUrl" [alt]="
+  <img mat-card-image [src]="game.imageUrl" [appFallbackImage]="'assets/no-img.jpeg'" [alt]="
         (game.title.trim() | Normalizespaces | Titlecase) +
         ' by ' +
         (game.developer.trim().split(',')[0] | Normalizespaces | titlecase)

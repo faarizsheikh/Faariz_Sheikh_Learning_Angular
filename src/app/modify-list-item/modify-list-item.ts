@@ -11,7 +11,8 @@ import { Router, RouterLink, RouterLinkActive } from '@angular/router';
   standalone: true,
   imports: [CommonModule, HoverHighlightDirective, MatIconModule, MatMiniFabButton, MatTooltip, RouterLink, RouterLinkActive],
   templateUrl: './modify-list-item.html',
-  styleUrls: ['./modify-list-item.scss']
+  styleUrls: ['./modify-list-item.scss'],
+  host: { class: 'page-modify-list-item' },
 })
 
 export class ModifyListItem {

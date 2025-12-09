@@ -1,10 +1,41 @@
 <div class="game-list">
-  <h2>All Games</h2>
 
   <button mat-mini-fab aria-label="Add a new game" matTooltip="Add a new game." matTooltipClass="custom-tooltip"
     matTooltipPosition="above" (click)="addNewGame()" class="add-btn">
     <mat-icon>add</mat-icon>
   </button>
+
+  <div class="filters">
+    <!-- Sort Field -->
+    <mat-form-field appearance="fill">
+      <mat-label>Sort by</mat-label>
+      <mat-select [(value)]="sortField" (selectionChange)="applySorting()">
+        <mat-option value="none">None (Default)</mat-option>
+        <mat-option value="developer">Developer</mat-option>
+        <mat-option value="title">Title</mat-option>
+        <mat-option value="yearReleased">Year</mat-option>
+
+      </mat-select>
+    </mat-form-field>
+
+    <!-- Sort Order Dropdown -->
+    <mat-form-field appearance="fill">
+      <mat-label>Order</mat-label>
+      <mat-select [(value)]="sortOrder" (selectionChange)="applySorting()" [disabled]="sortField === 'none'">
+        <mat-option value="asc">Ascending</mat-option>
+        <mat-option value="desc">Descending</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <!-- Arrow Icon -->
+    <button mat-icon-button (click)="toggleSortOrder()" [disabled]="sortField === 'none'"
+      [matTooltip]="sortField === 'none' ? '' : (sortOrder === 'asc' ? 'Ascending' : 'Descending')"
+      matTooltipClass="custom-tooltip" matTooltipPosition="right">
+      <mat-icon>
+        {{ sortOrder === 'asc' ? 'arrow_upward' : 'arrow_downward' }}
+      </mat-icon>
+    </button>
+  </div>
 
   <!-- Show loading animation -->
   @if (loading) {
@@ -20,10 +51,10 @@
 
   <!-- Show games list -->
   @if (games.length > 0) {
-  @for (game of games; track game.id; let i = $index) {
+  @for (game of filteredGames; track game.id; let i = $index) {
   <div class="game-entry">
     <app-game-list-item [game]="game" [isEven]="i % 2 === 0">
-    </app-game-list-item>
+    </app-game-list-item> <!-- Gets the list of games from the game-list-item component-->
 
     <div class="game-actions">
       <button mat-mini-fab aria-label="Edit game" matTooltip="Edit the game {{game.title}}."

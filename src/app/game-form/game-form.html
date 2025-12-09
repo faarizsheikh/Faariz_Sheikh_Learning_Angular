@@ -10,132 +10,177 @@
 
   <!-- Title -->
   <div>
-    <mat-form-field appearance="fill">
+    <mat-form-field [ngClass]="{'submitted': submitted}" appearance="fill">
       <mat-label>Title</mat-label>
       <input matInput formControlName="title" placeholder="e.g. Call of Duty">
-    </mat-form-field>
 
-    @if (submitted) {
-    @if (gameForm.controls['title'].hasError('whitespace')) {
-    <mat-error>Title is required.</mat-error>
-    }
-    }
+      @if (gameForm.controls['title'].hasError('whitespace')) {
+      <mat-error>Title is required.</mat-error>
+      }
+    </mat-form-field>
   </div>
 
   <!-- Sequential Order -->
   <div>
-    <mat-form-field appearance="fill">
+    <mat-form-field [ngClass]="{'submitted': submitted}" appearance="fill">
       <mat-label>Sequential Order (optional)</mat-label>
       <input matInput type="number" formControlName="sequentialNumbering" placeholder="e.g. Write 1 if first game."
         [max]="1000" [min]="1" (keydown)="blockInvalidKeys($event)" [step]="1">
-    </mat-form-field>
 
-    @if (submitted) {
-    @if (gameForm.controls['sequentialNumbering'].hasError('min') ||
-    gameForm.controls['sequentialNumbering'].hasError('max')) {
-    <mat-error>Sequential Order must be between 0 and 1000.</mat-error>
-    }
-    }
+      @if (submitted && gameForm.controls['sequentialNumbering'].hasError('min') ||
+      gameForm.controls['sequentialNumbering'].hasError('max')) {
+      <mat-error>Sequential Order must be between 0 and 1000.</mat-error>
+      }
+    </mat-form-field>
   </div>
 
   <!-- Developer -->
   <div>
-    <mat-form-field appearance="fill">
+    <mat-form-field [ngClass]="{'submitted': submitted}" appearance="fill">
       <mat-label>Developer</mat-label>
       <input matInput formControlName="developer" placeholder="e.g. Activision">
+
+      @if (submitted && gameForm.controls['developer'].hasError('whitespace')) {
+      <mat-error>At least one developer or organization name is required.</mat-error>
+      }
     </mat-form-field>
-    @if (submitted) {
-    @if (gameForm.controls['developer'].hasError('whitespace')) {
-    <mat-error>At least one developer or organization name is required.</mat-error>
-    }
-    }
   </div>
 
   <!-- Genre -->
   <div>
-    <mat-form-field appearance="fill">
+    <mat-form-field [ngClass]="{'submitted': submitted}" appearance="fill">
       <mat-label>Genre</mat-label>
       <input matInput formControlName="genre" placeholder="e.g. Action">
-    </mat-form-field>
 
-    @if (submitted) {
-    @if (gameForm.controls['genre'].hasError('whitespace')) {
-    <mat-error>At least one genre is required.</mat-error>
-    }
-    }
+      @if (submitted && gameForm.controls['genre'].hasError('whitespace')) {
+      <mat-error>At least one genre is required.</mat-error>
+      }
+    </mat-form-field>
   </div>
 
   <!-- Year Released -->
   <div>
-    <mat-form-field appearance="fill">
+    <mat-form-field [ngClass]="{'submitted': submitted}" appearance="fill">
       <mat-label>Year Released</mat-label>
       <input matInput type="number" formControlName="yearReleased" placeholder="e.g. 2010" [max]="Date" [min]="1950"
         (keydown)="blockInvalidKeys($event)" [step]="1" />
-    </mat-form-field>
 
-    @if (submitted) {
-    @if (gameForm.controls['yearReleased'].hasError('required')) {
-    <mat-error>Year Released is required.</mat-error>
-    }
-    @else if (gameForm.controls['yearReleased'].hasError('min') ||
-    gameForm.controls['yearReleased'].hasError('max')) {
-    <mat-error>Year Released must be between 1950 and {{Date}}.</mat-error>
-    }
-    }
+      @if (submitted && gameForm.controls['yearReleased'].hasError('required')) {
+      <mat-error>Year Released is required.</mat-error>
+      }
+      @else if (submitted && gameForm.controls['yearReleased'].hasError('min') ||
+      gameForm.controls['yearReleased'].hasError('max')) {
+      <mat-error>Year Released must be between 1950 and {{Date}}.</mat-error>
+      }
+    </mat-form-field>
   </div>
 
   <!-- Platform -->
   <div>
-    <mat-form-field appearance="fill">
+    <mat-form-field [ngClass]="{'submitted': submitted}" appearance="fill">
       <mat-label>Platform</mat-label>
       <input matInput formControlName="platform" placeholder="e.g. PC">
-    </mat-form-field>
 
-    @if (submitted) {
-    @if (gameForm.controls['platform'].hasError('whitespace')) {
-    <mat-error>At least one platform name is required.</mat-error>
-    }
-    }
+      @if (submitted && gameForm.controls['platform'].hasError('whitespace')) {
+      <mat-error>At least one platform name is required.</mat-error>
+      }
+    </mat-form-field>
   </div>
 
-  <!-- Image URL -->
+  <!-- Age -->
   <div>
-    <mat-form-field appearance="fill">
-      <mat-label>Image URL</mat-label>
-      <input matInput formControlName="imageUrl" placeholder="https://example.com/image.jpg"
-        pattern="https:\/{1,2}(www\.)?[a-zA-Z0-9-]+\.[a-zA-Z]{2,}(\/)?$">
-    </mat-form-field>
+    <mat-form-field [ngClass]="{'submitted': submitted}" appearance="fill">
+      <mat-label>Age Rating:</mat-label>
+      <input matInput type="number" formControlName="age" placeholder="e.g. 18" [max]="18" [min]="3"
+        (keydown)="blockInvalidKeys($event)" [step]="1">
 
-    @if (submitted) {
-    @if (gameForm.controls['imageUrl'].hasError('whitespace')) {
-    <mat-error>Image URL is required.</mat-error>
-    } @else if (gameForm.controls['imageUrl'].hasError('pattern')) {
-    <mat-error>The Image URL requires:<br />- https<br />- domain name<br />- domain extension.</mat-error>
-    }
-    }
+      @if (submitted && gameForm.controls['age'].hasError('required')) {
+      <mat-error>Age rating is required.</mat-error>
+      }
+      @else if (submitted && gameForm.controls['age'].hasError('min') ||
+      gameForm.controls['age'].hasError('max')) {
+      <mat-error>Age Rating must be between 3 and 18.</mat-error>
+      }
+    </mat-form-field>
   </div>
 
   <!-- Price -->
   <div>
-    <mat-form-field appearance="fill">
+    <mat-form-field [ngClass]="{'submitted': submitted}" appearance="fill">
       <mat-label>Price</mat-label>
       <input matInput type="number" formControlName="price" placeholder="e.g. 39.99" [max]="99999" [min]="0"
         (blur)="formatPrice()" (keydown)="blockInvalidPrice($event)" [step]="'0.50'">
+
+      @if (submitted && gameForm.controls['price'].hasError('required')) {
+      <mat-error>Price of the game is required;<br>If free, then write 0.</mat-error>
+      } @else if (submitted && gameForm.controls['price'].hasError('min') ||
+      gameForm.controls['price'].hasError('max')) {
+      <mat-error>Price must be between 0 (free) and 99999 (or 99999.00).</mat-error>
+      }
+    </mat-form-field>
+  </div>
+
+  <!-- Experience -->
+  <div>
+    <mat-form-field [ngClass]="{'submitted': submitted}" appearance="fill">
+      <mat-label>Experience (Optional):</mat-label>
+      <input matInput type="number" formControlName="experience" placeholder="e.g. # of years you played" [max]="99"
+        [min]="0" (keydown)="blockInvalidKeys($event)" [step]="1">
+
+      @if (submitted && gameForm.controls['experience'].hasError('required')) {
+      <mat-error>Experience is required.</mat-error>
+      } @else if (submitted && gameForm.controls['experience'].hasError('min') ||
+      gameForm.controls['experience'].hasError('max')) {
+      <mat-error>Experience must be between 0 and 99.</mat-error>
+      }
+    </mat-form-field>
+  </div>
+
+  <!-- Rating -->
+  <div>
+    <mat-form-field [ngClass]="{'submitted': submitted}" appearance="fill">
+      <mat-label>Game Rating (Optional): </mat-label>
+      <input matInput type="number" formControlName="rating" placeholder='e.g. If 5-star, type "5"' [max]="5" [min]="0"
+        (keydown)="blockInvalidPrice($event)" [step]="0.5">
+
+      @if (submitted && gameForm.controls['rating'].hasError('required')) {
+      <mat-error>Game Rating is required.</mat-error>
+      }
+      @else if (submitted && gameForm.controls['rating'].hasError('min') ||
+      gameForm.controls['rating'].hasError('max')) {
+      <mat-error>Game Rating must be between 0 and 5.</mat-error>
+      }
+    </mat-form-field>
+  </div>
+
+  <!-- Image URL -->
+  <div>
+    <mat-form-field [ngClass]="{
+    'submitted': submitted,
+    'has-valid-image': submitted && gameForm.controls['imageUrl'].hasError('pattern')
+  }" appearance="fill">
+
+      <mat-label>Image URL</mat-label>
+      <input matInput formControlName="imageUrl" placeholder="https://example.com/image.jpg"
+        pattern="https:\/\/(www\.)?[a-zA-Z0-9-]+\.[a-zA-Z]{2,}\/?.*\.(jpg|jpeg|png|gif|webp|bmp)$">
+
+      @if (submitted && gameForm.controls['imageUrl'].hasError('whitespace')) {
+      <mat-error>Image URL is required.</mat-error>
+      }
+      @else if (submitted && gameForm.controls['imageUrl'].hasError('pattern')) {
+      <mat-error class="valid-image">Found an image online? Use "Copy Link Address" or "Copy Image Link."<br />
+        Do NOT use "Copy Image" or "Copy Link."
+        <br /><br />
+        Note: The images we provide aren’t direct links, so feel free to choose a different image.
+      </mat-error>
+      }
     </mat-form-field>
 
-    @if (submitted) {
-    @if (gameForm.controls['price'].hasError('required')) {
-    <mat-error>Price of the game is required;<br>If free, then write 0.</mat-error>
-    } @else if (gameForm.controls['price'].hasError('min') ||
-    gameForm.controls['price'].hasError('max')) {
-    <mat-error>Price must be between 0 (free) and 99999 (or 99999.00).</mat-error>
-    }
-    }
   </div>
 
   <!-- Notes -->
   <div>
-    <mat-form-field appearance="fill" class="notes">
+    <mat-form-field [ngClass]="{'submitted': submitted}" appearance="fill" class="notes">
       <mat-label>Notes (optional)</mat-label>
       <textarea matInput formControlName="notes" maxlength="300"
         placeholder="Write comment-like notes to describe your experience playing the game."></textarea>
@@ -144,8 +189,9 @@
 
   <!-- COMPLETED (checkbox) -->
   <mat-checkbox formControlName="isCompleted" class="completed">
-    <mat-label>Completed</mat-label>
+    <mat-label>Game completed</mat-label>
   </mat-checkbox>
+  <div>(Note: If endless game, don't select.)</div>
 
   <!-- Submit -->
   <button mat-raised-button type="submit" matTooltip="Submit the form." matTooltipClass="custom-tooltip"

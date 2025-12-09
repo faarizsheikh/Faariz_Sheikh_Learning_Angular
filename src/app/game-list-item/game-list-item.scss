@@ -22,19 +22,33 @@
     }
   }
 
-  mat-card-header {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-  }
-
   /* OTHER */
   h2,
   h3 {
     line-height: 1;
   }
 
+  mat-card-header {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  h2 {
+    transform: translateY(-25px);
+  }
+
   img {
     border-radius: 25px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  h2 {
+    font-size: 1.8rem;
+  }
+
+  h3 {
+    font-size: 1.6rem;
   }
 }

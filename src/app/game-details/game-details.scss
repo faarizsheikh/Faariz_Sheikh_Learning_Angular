@@ -1,51 +1,9 @@
+// ***FIX LATER: Duplicate code BS problem here. 😬
+
 /* -- GAME-DETAILS STYLING -- */
 .info-p,
 h2 {
   margin: 0;
-}
-
-/* PARAGRAPHS */
-.info-p {
-  background-color: #222;
-  padding: 15px 75px 35px 75px;
-  border-radius: 75px;
-
-  p {
-    color: #fff;
-    font-size: 1.8em;
-    margin: 0;
-
-    span:not(.notes-txt) {
-      line-height: 2;
-    }
-
-    &:first-child {
-      margin-top: 10px;
-    }
-
-    .label-name {
-      font-weight: bold;
-    }
-
-    &.notes-p {
-      text-align: center;
-
-      .label-name {
-        text-align: center;
-        display: block;
-        margin-top: 35px;
-      }
-
-      span:last-of-type {
-        line-height: 1.5;
-      }
-    }
-
-    &.status {
-      margin-bottom: 25px;
-      margin-top: initial;
-    }
-  }
 }
 
 /* OTHER */
@@ -77,5 +35,76 @@ img {
     height: auto;
     width: 35px;
     font-size: 3.5em;
+  }
+}
+
+/* PARAGRAPHS */
+.info-p {
+  /* -- GAME-DETAILS STYLING -- */
+  background-color: #222;
+  padding: 15px 75px 35px 75px;
+  border-radius: 75px;
+
+  p {
+    color: #fff;
+    font-size: 1.8em;
+    margin: 0;
+
+    span:not(.notes-txt) {
+      line-height: 2;
+    }
+
+    &:first-child {
+      margin-top: 10px;
+    }
+
+    .label-name {
+      font-weight: bold;
+    }
+
+    &.status {
+      margin-bottom: 25px;
+      margin-top: initial;
+    }
+
+    &.notes-p {
+      text-align: center;
+
+      .label-name {
+        text-align: center;
+        display: block;
+        margin-top: 35px;
+      }
+
+      span:last-of-type {
+        line-height: 1.5;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .info-p {
+    padding-inline: 20px;
+
+    p {
+      margin-bottom: 25px;
+
+      .label-name.developer,
+      .label-name.genre,
+      .label-name.platform {
+        display: block;
+        width: 100%;
+      }
+
+      .developer-value,
+      .genre-value,
+      platform-value {
+        display: block;
+        width: 100%;
+        margin-top: 5px;
+        /* optional spacing */
+      }
+    }
   }
 }

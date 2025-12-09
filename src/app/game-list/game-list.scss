@@ -16,12 +16,24 @@
   border-radius: 6px;
 }
 
+.filters {
+  margin-top: 45px;
+  display: flex;
+  justify-content: space-between;
+
+  button {
+    transform: translateY(5px);
+  }
+}
+
 /* BUTTONS */
 .add-btn {
   color: lightcyan;
   margin-bottom: 25px;
   height: 60px;
   width: 60px;
+  display: flex;
+  justify-self: center;
 
   mat-icon {
     font-size: 2.2em;
@@ -58,5 +70,36 @@
 
   .view-btn:hover {
     color: green;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .filters {
+    display: flex;
+    gap: 25px;
+
+    mat-form-field {
+      text-align: center;
+      margin-left: 10px;
+
+      &:last-of-type {
+        display: none;
+      }
+    }
+
+    button {
+      margin-block: 0 25px;
+      display: block;
+      text-align: center;
+      width: 25%;
+      height: 100%;
+    }
+  }
+
+  .game-actions {
+    button {
+      width: 25%;
+      margin-bottom: 25px;
+    }
   }
 }

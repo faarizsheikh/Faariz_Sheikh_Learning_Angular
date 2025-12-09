@@ -21,7 +21,8 @@ import { MyData } from '../models/my-data';
   standalone: true,
   imports: [CommonModule, MatButton, MatCheckbox, MatFormFieldModule, MatInput, MatTooltip, ReactiveFormsModule],
   templateUrl: './game-form.html',
-  styleUrls: ['./game-form.scss']
+  styleUrls: ['./game-form.scss'],
+  host: { class: 'page-game-form' }
 })
 
 export class GameForm implements OnInit {
@@ -31,7 +32,7 @@ export class GameForm implements OnInit {
    * Added trim
    * In case if I ever add extra space(s) accidentally and enable the error message box
    **/
-  submitted = false; // 🔹 add this
+  submitted = false;
   errorMessage: string = ''.trim();
   Date = new Date().getFullYear();
   currentId?: number;
@@ -53,11 +54,13 @@ export class GameForm implements OnInit {
         [Validators.required, Validators.max(this.Date), Validators.min(1950)]
       ],
       platform: ['', [Validators.required, this.noWhitespaceValidator]],
+      age: ['', [Validators.required, Validators.max(18), Validators.min(3)]],
       price: ['', [Validators.required, Validators.max(99999), Validators.min(0)]],
+      experience: ['', [Validators.max(99), Validators.min(0)]],
+      rating: ['', [Validators.max(5), Validators.min(0)]],
       isCompleted: [false],
       notes: [''],
       imageUrl: ['', [Validators.required, this.noWhitespaceValidator]],
-      description: ''
     });
   }
 
@@ -104,7 +107,7 @@ export class GameForm implements OnInit {
   // }
 
   submitForm(): void {
-    this.submitted = true; // 🔹 mark form as submitted
+    this.submitted = true;
     if (this.gameForm.valid) {
       this.errorMessage = '';
       const game: MyData = this.gameForm.value;
@@ -152,7 +155,7 @@ export class GameForm implements OnInit {
 
   /* PREVENTING: Certain input characters for number inputs, depending on form field */
   blockInvalidKeys(event: KeyboardEvent) {
-    const invalidKeys = ['e', 'E', '+', '-', '.'];
+    const invalidKeys = ['e', 'E', '+', '-', '_', '.'];
     if (invalidKeys.includes(event.key)) {
       event.preventDefault();
     }

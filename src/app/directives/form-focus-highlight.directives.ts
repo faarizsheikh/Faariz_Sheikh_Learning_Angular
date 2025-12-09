@@ -5,9 +5,11 @@ import { NgControl } from '@angular/forms';
   selector: '[appOnFocusHighlight]',
   standalone: true,
 })
+
 export class HighlightOnFocusDirective {
-  @Input() appOnFocusHighlight?: string;        // normal focus color
-  @Input() appOnFocusHighlightInvalid?: string; // invalid color
+
+  @Input() appOnFocusHighlight?: string;
+  @Input() appOnFocusHighlightInvalid?: string;
 
   constructor(private el: ElementRef, private control: NgControl) { }
 

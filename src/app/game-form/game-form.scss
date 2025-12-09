@@ -29,9 +29,12 @@ form {
     "title sequentialOrder"
     "dev genre"
     "year platform"
-    "img price"
+    "ageRating price"
+    "experience gameRating"
+    "images images"
     "notes notes"
     "completed completed"
+    "completedHelp completedHelp"
     "submit submit";
   grid-template-columns: 1fr 1fr;
   gap: 15px 5px;
@@ -92,7 +95,7 @@ form {
     }
 
     &:nth-of-type(7) {
-      grid-area: img;
+      grid-area: ageRating;
     }
 
     &:nth-of-type(8) {
@@ -100,13 +103,36 @@ form {
     }
 
     &:nth-of-type(9) {
+      grid-area: experience;
+    }
+
+    &:nth-of-type(10) {
+      grid-area: gameRating;
+    }
+
+    &:nth-of-type(11) {
+      grid-area: images;
+
+      mat-form-field {
+        &.submitted.mat-form-field-invalid {
+          &.has-valid-image {
+            margin-bottom: 115px;
+          }
+        }
+      }
+    }
+
+    &:nth-of-type(12) {
       grid-area: notes;
     }
-  }
 
-  mat-error {
-    font-size: 2em;
-    line-height: 1.5;
+    &:nth-of-type(13) {
+      font-size: 15px;
+      text-align: center;
+      grid-area: completedHelp;
+      margin-top: 10px;
+      transform: translateY(-50px);
+    }
   }
 
   mat-form-field {
@@ -143,5 +169,45 @@ form {
       height: 100px;
       resize: none;
     }
+
+    mat-error {
+      font-size: 2em;
+      line-height: 1.5;
+      margin-top: 25px;
+    }
+
+    &.mat-form-field-invalid.submitted {
+      margin-bottom: 45px;
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  form {
+    background-color: green;
+    color: #fff;
+    display: grid;
+    grid-template-areas:
+      "h2 h2"
+      "title title"
+      "sequentialOrder sequentialOrder"
+      "dev dev"
+      "genre genre"
+      "year year"
+      "platform platform"
+      "ageRating ageRating"
+      "price price"
+      "experience experience"
+      "gameRating gameRating"
+      "images images"
+      "notes notes"
+      "completed completed"
+      "completedHelp completedHelp"
+      "submit submit";
+    grid-template-columns: 1fr 1fr;
+    gap: 15px 5px;
+    justify-items: center;
+    padding: 15px;
+    border-top-width: 0;
   }
 }

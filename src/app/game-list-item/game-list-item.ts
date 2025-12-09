@@ -7,6 +7,7 @@ import { MatCard, MatCardHeader, MatCardImage, MatCardSubtitle, MatCardTitle } f
 import { MyData } from '../models/my-data';
 import { NormalizeSpacesPipe } from '../pipes/custom-normalize-spaces.pipe';
 import { TitleCasePipe } from '@angular/common';
+import { FallbackImageDirective } from '../directives/fallback-image.directive';
 
 @Component({
   selector: 'app-game-list-item',
@@ -22,10 +23,12 @@ import { TitleCasePipe } from '@angular/common';
     MatCardSubtitle,
     MatCardTitle,
     NormalizeSpacesPipe,
-    TitleCasePipe
+    TitleCasePipe,
+    FallbackImageDirective
   ],
   templateUrl: './game-list-item.html',
-  styleUrls: ['./game-list-item.scss']
+  styleUrls: ['./game-list-item.scss'],
+  host: { class: 'page-game-list-item' }
 })
 
 export class GameListItem {

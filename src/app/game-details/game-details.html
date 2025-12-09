@@ -1,7 +1,8 @@
 @if (loading) {
 <div class="loading-screen">
   <p>🧐 Loading game details...</p>
-  <div class="spinner"></div>
+  <div class="spinner">
+  </div>
 </div>
 } @else {
 @if (game) {
@@ -16,7 +17,7 @@
   </div>
 
   <!-- Image -->
-  <img [src]="game.imageUrl" [alt]="
+  <img [src]="game.imageUrl" [appFallbackImage]="'assets/no-img.jpeg'" [alt]="
           (game.title.trim() | Normalizespaces | Titlecase) +
           ' by ' +
           (game.developer.trim().split(',')[0] | Normalizespaces | titlecase)
@@ -38,13 +39,15 @@
 
     <!-- Developer -->
     <p>
-      <span class="label-name">
+      <span class="label-name developer">
         {{
         (game.developer.trim().split(',').length || 0)
         | i18nPlural: { '=1': 'Developer:', other: 'Developers:' }
         }}
       </span>
-      {{ game.developer.trim().replaceAll(',', ' |') | Titlecase }}
+      <span class="developer-value">
+        {{ game.developer.trim().replaceAll(',', ' |') | Titlecase }}
+      </span>
     </p>
 
     <!-- Sequential Numbering -->
@@ -53,13 +56,12 @@
 
     <!-- Genre -->
     <p>
-      <span class="label-name">
-        {{
-        (game.genre.trim().split(',').length || 0)
-        | i18nPlural: { '=1': 'Genre:', other: 'Genres:' }
-        }}
+      <span class="label-name genre">
+        {{ (game.genre.trim().split(',').length || 0) | i18nPlural: { '=1': 'Genre:', other: 'Genres:' } }}
       </span>
-      {{ game.genre.trim().replaceAll(',', ' |') | Titlecase }}
+      <span class="genre-value">
+        {{ game.genre.trim().replaceAll(',', ' |') | Titlecase }}
+      </span>
     </p>
 
     <!-- Year Released -->
@@ -70,14 +72,20 @@
 
     <!-- Platform -->
     <p>
-      <span class="label-name">
+      <span class="label-name platform">
         {{
         (game.platform.trim().split(',').length || 0)
         | i18nPlural: { '=1': 'Platform:', other: 'Platforms:' }
         }}
       </span>
-      {{ game.platform.trim().replaceAll(',', ' |') | Titlecase }}
+      <span class="platform-value">
+        {{ game.platform.trim().replaceAll(',', ' |') | Titlecase }}
+      </span>
     </p>
+
+    <!-- Age -->
+    <p><span class="label-name">
+        Age Rating:</span> {{ game.age | AgeyearPipe }}</p>
 
     <!-- Price -->
     <p>
@@ -92,6 +100,18 @@
         : 'N/A'
         }}
       </span>
+    </p>
+
+    <!-- Experience -->
+    <p><span class="label-name">Experience:</span>
+      {{ game.experience | ExperienceyearPipe }}
+    </p>
+
+    <!-- Game Rating -->
+    <p>
+      <span class="label-name">
+        Game Rating: </span>
+      <span class="star-rating">{{ game.rating | GameratingStar }}</span>
     </p>
 
     <!-- Notes -->
