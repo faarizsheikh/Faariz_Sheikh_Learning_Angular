@@ -28,7 +28,7 @@
             "styles": [
               "src/styles.scss"
             ],
-            "outputPath": "dist/FaarizSheikhLearnAngular"
+            "outputPath": "dist/Faariz_Sheikh_Learning_Angular_2025"
           },
           "configurations": {
             "production": {
