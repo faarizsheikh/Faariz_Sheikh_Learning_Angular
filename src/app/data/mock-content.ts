@@ -2,16 +2,6 @@ import { MyData } from '../models/my-data';
 
 export const MOCK_CONTENT: MyData[] = [
   {
-    id: 1,
-    title: "Among Us", developer: "InnerSloth",
-    genre: "Action, Multiplayer, Party, Social-deduction, Survival", yearReleased: 2018,
-    platform: "Android, iOS, PC", age: 10, price: 0.00, experience: 3, rating: 4, isCompleted: false,
-    notes: "A fun and tense multiplayer social deduction game" +
-      " where crewmates complete tasks while impostors try to eliminate them." +
-      " Great for Strategy, deception, and group play with friends or online players.",
-    imageUrl: "assets/among-us.jpeg"
-  },
-  {
     id: 2,
     title: "Assassin\'s Creed", sequentialNumbering: 1, developer: "Ubisoft, Ubisoft Montréal",
     genre: "Action-Adventure, Non-Linear, Open World, Stealth", yearReleased: 2007,
@@ -20,22 +10,22 @@ export const MOCK_CONTENT: MyData[] = [
     imageUrl: "assets/assassins-creed.jpeg"
   },
   {
-    id: 3,
-    title: "Baby in Yellow", developer: "TeamTerrible",
-    genre: "Adventure, Indie, Puzzle/Strategy Simulation", yearReleased: 2020,
-    platform: "Android, iOS", age: 10, price: 0.00, experience: 3, rating: 4, isCompleted: false,
-    notes: "Freaked me out. At first it was funny babysitting," +
-      " but the supernatural stuff made it scary and gave me chills.",
-    imageUrl: "assets/baby-yellow.jpeg"
+    id: 12,
+    title: "Subway Surfers", sequentialNumbering: 1, developer: "SYBO Games",
+    genre: "Endless Runner", yearReleased: 2012,
+    platform: "Android, iOS", age: 7, price: 0.00, experience: 10, rating: 4,
+    isCompleted: false,
+    notes: "I play this all the time. It felt fast, colorful, and fun," +
+      " especially with the hoverboards and characters. Addictive for killing time.",
+    imageUrl: "assets/subway-surfers.jpeg"
   },
   {
-    id: 4,
-    title: "Baldi\'s Basics in Education & Learning", sequentialNumbering: 1,
-    developer: "Mystman12 (Micah McGonigal), Basically Games",
-    genre: "Action-Adventure, Educational, Indie, Puzzle/Strategy, Survival Horror", yearReleased: 2018,
-    platform: "PC", age: 13, price: 0.00, experience: 7, rating: 4, isCompleted: false,
-    notes: "Fun and quirky educational horror experience.",
-    imageUrl: "assets/baldi-basics.jpeg"
+    id: 7,
+    title: "Granny", sequentialNumbering: 1, developer: "DVloper (Dennis Vukanovic), DVapps AB",
+    genre: "Action-Adventure, Indie, Puzzle/Strategy, Survival Horror", yearReleased: 2017,
+    platform: "Android, iOS, PC", age: 13, price: 5.69, experience: 8, rating: 5, isCompleted: false,
+    notes: "Spooky, suspenseful gameplay with multiple endings.",
+    imageUrl: "assets/granny.jpeg"
   },
   {
     id: 5,
@@ -46,20 +36,32 @@ export const MOCK_CONTENT: MyData[] = [
     imageUrl: "assets/boom-beach.jpeg"
   },
   {
-    id: 6,
-    title: "Five Nights At Freddy\'s", sequentialNumbering: 1, developer: "Scott Cawthon, Scottgames",
-    genre: "Action-Adventure, Graphic Adventure, Indie, Simulation, Survival Horror", yearReleased: 2014,
-    platform: "Android, iOS, PC", age: 13, price: 4.99, experience: 9, rating: 4, isCompleted: true,
-    notes: "Tense jump-scare experience where players monitor cameras to survive animatronic attacks.",
-    imageUrl: "assets/fnaf.jpeg"
+    id: 13,
+    title: "The Rainman", developer: "CopperBolt (Daniel Weldink)",
+    genre: "Action-Adventure, Indie, Survival Horror", yearReleased: 2023,
+    platform: "PC", age: 16, price: 0.99, experience: 1, rating: 5,
+    isCompleted: true,
+    notes: "Intense atmosphere with a gripping narrative.",
+    imageUrl: "assets/rainman.jpeg"
   },
   {
-    id: 7,
-    title: "Granny", sequentialNumbering: 1, developer: "DVloper (Dennis Vukanovic), DVapps AB",
-    genre: "Action-Adventure, Indie, Puzzle/Strategy, Survival Horror", yearReleased: 2017,
-    platform: "Android, iOS, PC", age: 13, price: 5.69, experience: 8, rating: 5, isCompleted: false,
-    notes: "Spooky, suspenseful gameplay with multiple endings.",
-    imageUrl: "assets/granny.jpeg"
+    id: 1,
+    title: "Among Us", developer: "InnerSloth",
+    genre: "Action, Multiplayer, Party, Social-deduction, Survival", yearReleased: 2018,
+    platform: "Android, iOS, PC", age: 10, price: 0.00, experience: 3, rating: 4, isCompleted: false,
+    notes: "A fun and tense multiplayer social deduction game" +
+      " where crewmates complete tasks while impostors try to eliminate them." +
+      " Great for Strategy, deception, and group play with friends or online players.",
+    imageUrl: "assets/among-us.jpeg"
+  },
+  {
+    id: 11,
+    title: "Schoolboy Runaway", developer: "Linked Squad",
+    genre: "Action-Adventure, Indie, Puzzle/Strategy, Stealth", yearReleased: 2024,
+    platform: "Android, iOS, PC", age: 16, price: 7.79, experience: 1, rating: 3,
+    isCompleted: true,
+    notes: "Stealth mechanics are unique and engaging.",
+    imageUrl: "assets/schoolboy-runaway.jpeg"
   },
   {
     id: 8,
@@ -73,6 +75,23 @@ export const MOCK_CONTENT: MyData[] = [
     imageUrl: "assets/mm2.jpeg"
   },
   {
+    id: 6,
+    title: "Five Nights At Freddy\'s", sequentialNumbering: 1, developer: "Scott Cawthon, Scottgames",
+    genre: "Action-Adventure, Graphic Adventure, Indie, Simulation, Survival Horror", yearReleased: 2014,
+    platform: "Android, iOS, PC", age: 13, price: 4.99, experience: 9, rating: 4, isCompleted: true,
+    notes: "Tense jump-scare experience where players monitor cameras to survive animatronic attacks.",
+    imageUrl: "assets/fnaf.jpeg"
+  },
+  {
+    id: 3,
+    title: "Baby in Yellow", developer: "TeamTerrible",
+    genre: "Adventure, Indie, Puzzle/Strategy Simulation", yearReleased: 2020,
+    platform: "Android, iOS", age: 10, price: 0.00, experience: 3, rating: 4, isCompleted: false,
+    notes: "Freaked me out. At first it was funny babysitting," +
+      " but the supernatural stuff made it scary and gave me chills.",
+    imageUrl: "assets/baby-yellow.jpeg"
+  },
+  {
     id: 9,
     title: "Roblox Piggy: Book 1", sequentialNumbering: 1, developer: "MiniToon (Kohl Couture), IK3As",
     genre: "Action-Adventure, Episodic, Multiplayer, Puzzle/Strategy, Survival Horror", yearReleased: 2020,
@@ -80,6 +99,15 @@ export const MOCK_CONTENT: MyData[] = [
     isCompleted: false,
     notes: "Creative horror challenges with a memorable storyline.",
     imageUrl: "assets/blox-piggy.jpeg"
+  },
+  {
+    id: 4,
+    title: "Baldi\'s Basics in Education & Learning", sequentialNumbering: 1,
+    developer: "Mystman12 (Micah McGonigal), Basically Games",
+    genre: "Action-Adventure, Educational, Indie, Puzzle/Strategy, Survival Horror", yearReleased: 2018,
+    platform: "PC", age: 13, price: 0.00, experience: 7, rating: 4, isCompleted: false,
+    notes: "Fun and quirky educational horror experience.",
+    imageUrl: "assets/baldi-basics.jpeg"
   },
   {
     id: 10,
@@ -92,33 +120,5 @@ export const MOCK_CONTENT: MyData[] = [
       "where you go down to Area 51, find weapons, survive," +
       " and kill the killers. This game NEVER—and I mean NEVER—bores you.",
     imageUrl: "assets/blox-saktkia51.jpeg"
-  },
-  {
-    id: 11,
-    title: "Schoolboy Runaway", developer: "Linked Squad",
-    genre: "Action-Adventure, Indie, Puzzle/Strategy, Stealth", yearReleased: 2024,
-    platform: "Android, iOS, PC", age: 16, price: 7.79, experience: 1, rating: 3,
-    isCompleted: true,
-    notes: "Stealth mechanics are unique and engaging.",
-    imageUrl: "assets/schoolboy-runaway.jpeg"
-  },
-  {
-    id: 12,
-    title: "Subway Surfers", sequentialNumbering: 1, developer: "SYBO Games",
-    genre: "Endless Runner", yearReleased: 2012,
-    platform: "Android, iOS", age: 7, price: 0.00, experience: 10, rating: 4,
-    isCompleted: false,
-    notes: "I play this all the time. It felt fast, colorful, and fun," +
-      " especially with the hoverboards and characters. Addictive for killing time.",
-    imageUrl: "assets/subway-surfers.jpeg"
-  },
-  {
-    id: 13,
-    title: "The Rainman", developer: "CopperBolt (Daniel Weldink)",
-    genre: "Action-Adventure, Indie, Survival Horror", yearReleased: 2023,
-    platform: "PC", age: 16, price: 0.99, experience: 1, rating: 5,
-    isCompleted: true,
-    notes: "Intense atmosphere with a gripping narrative.",
-    imageUrl: "assets/rainman.jpeg"
   },
 ];
